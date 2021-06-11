@@ -9,6 +9,12 @@ background-color: #FFF8F5;
 .home-layout-1{
   background-color:  #FFF8F5;
 }
+.home-layout-2{
+  background-color:  #FFF8F5;
+}
+.posts-layout-1{
+  background-color:#fff
+}
 .container {
   width: 100%;
   display: flex;
@@ -74,6 +80,7 @@ justify-content: space-between;
 .homeHeader{
   display: flex;
   justify-content: space-between;
+  align-items: center;
   /* background-color: #fff; */
   height: 70px;
 }
@@ -86,25 +93,123 @@ justify-content: space-between;
   background-color: rgb(128, 128, 128);
   height: 70px;
   width: 70px;
+  cursor: pointer;
 }
 .login{
-  background-color: rgb(236, 199, 118);
+
   height: 70px;
   width: 70px;
   margin-right: 22px;
 }
 .home-posts{
 min-height: 100vh;
+display: flex;
+justify-content: center;
+margin-top: 5rem;
 }
-.Home-nav{
+.home-nav{
+  margin-top: 80px;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
 }
 .nav-item{
   color:#3D0C08;
-  font-size: 1.4rem;
-  margin-top: 2rem;
+  font-size: 22px;
+  margin-top: 24px;
   cursor: pointer;
-  
+ 
   opacity: 0.6;
   transition: opacity .25s linear;
+}
+.home-post-demo{
+  width: 300px;
+}
+.hover-img{
+  width: 140px;
+  /* 140px/4.8=29px */
+  height: 29px; 
+  position: absolute;
+  left: 50%;
+  transform:translateX(-50%) ;
+   transition: all 0.2s linear; 
+}
+.hover-img-no{
+  width: 140px;
+ 
+  
+  top:-29px;
+  
+  /* transition: all 0.25s linear; */
+}
+.hover-img-posts{
+  width: 140px;
+  
+  top:2px;
+
+ /* transform: translate(50%,50%); */
+  /* transition: all 0.25s linear; */
+}
+.hover-img-posts{
+  width: 140px;
+  
+  top:4px;
+}
+.hover-img-map{
+  width: 140px;
+  
+  top:60px;
+}
+.hover-img-know{
+  width: 140px;
+  
+  top:116px;
+}
+
+.nav-top{
+  margin-top: 0;
+}
+/* .nav-item-post:hover {
+  background-color: #fff;
+  opacity: 1;
+} */
+/* .nav-item-post:hover .hover-img{
+  background-color: #fff;
+  
+} */
+.search-btn{
+  background-color: aqua;
+  width: 10px;
+height: 10px;
+}
+.inputCont{
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+.postsinput{
+  border: none;
+  border-radius: 30px;
+  height: 40px;
+  background-color: rgb(250, 232, 242);
+  box-shadow: 0 0 0 0px rgba(82, 10, 5, 0.103);
+}
+.postsinput:focus{
+ 
+  background-color: rgb(228, 168, 201);
+  /* box-shadow: 0 0 0 2px rgb(255, 144, 136); */
+}
+.ant-input{
+background-color: rgb(250, 232, 242); ;
+}
+.search-btn{
+  width: 30px;
+  height: 30px;
+  background-color: rgb(48, 75, 230);
+  transform: translateX(-100%);
+  z-index: 2;
 }
