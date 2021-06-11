@@ -8,37 +8,37 @@ export default function HomeHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()
 
-//   const onClickHeader = () => {
-//     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
-//     router.push("/");
-//   };
-const onChange = e => {
-  console.log(e);
-};
-const postSearch=()=>{
-  console.log("Sss");
-}
+  //   const onClickHeader = () => {
+  //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
+  //     router.push("/");
+  //   };
+  const onChange = e => {
+    console.log(e);
+  };
+  const postSearch = () => {
+    console.log("Sss");
+  }
   return (
     <header className="homeHeader">
-       <Link href="/" >
-      <div className="logo">
-        
-      </div>
+      <Link href="/" >
+        <div className="logo">
+
+        </div>
       </Link>
       <div className="inputCont">
-      <Input className="postsinput" placeholder="" allowClear onChange={onChange} />
-      <div className="search-btn" onClick={postSearch}></div>
+        <Input className="postsinput" placeholder="" allowClear onChange={onChange} />
+        <div className="search-btn" onClick={postSearch}></div>
       </div>
-<div className="login">
+      <div className="login">
 
-<Image
-                    style={{ width: '50px' }}
-                    src= "/images/user-btn.png"
-                    width={'60px'}
-                    height={'60px'}
-                    alt="post" />
-</div>
- 
+        <Image
+          style={{ width: '50px' }}
+          src="/images/user-btn.png"
+          width={'60px'}
+          height={'60px'}
+          alt="post" />
+      </div>
+
     </header>
   );
 }

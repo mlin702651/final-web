@@ -8,27 +8,27 @@ export default function PostsHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()
 
-//   const onClickHeader = () => {
-//     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
-//     router.push("/");
-//   };
+  //   const onClickHeader = () => {
+  //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
+  //     router.push("/");
+  //   };
 
   return (
     <header className="homeHeader">
-       <Link href="/" >
-      <div className="logo">
-        
-      </div>
+      <Link href="/" >
+        <div className="logo">
+
+        </div>
       </Link>
-<div className="login">
-<Image
-                    style={{ width: '50px' }}
-                    src= "/images/user-btn.png"
-                    width={'60px'}
-                    height={'60px'}
-                    alt="post" />
-</div>
- 
+      <div className="login">
+        <Image
+          style={{ width: '50px' }}
+          src="/images/user-btn.png"
+          width={'60px'}
+          height={'60px'}
+          alt="post" />
+      </div>
+
     </header>
   );
 }

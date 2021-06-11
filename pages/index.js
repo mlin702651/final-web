@@ -14,21 +14,21 @@ import { StoreContext } from "../store"
 export default function Home() {
   return (
     <Layout>
-    <Head>
+      <Head>
         <title>Home Page</title>
       </Head>
-    <Layout className="home-layout-1">
-    <Header className="sethomeHeader">
-    <HomeHeader/>
-    </Header>
-    <Layout className="container home-layout-2">
-    <Content style={{ padding: '0 50px' }} >
-    <HomeContent/>
-   
-    </Content>
+      <Layout className="home-layout-1">
+        <Header className="sethomeHeader">
+          <HomeHeader />
+        </Header>
+        <Layout className="container home-layout-2">
+          <Content style={{ padding: '0 50px' }} >
+            <HomeContent />
+
+          </Content>
+        </Layout>
+        <Footer style={{ textAlign: 'center', background: '#3D0C08' }}></Footer>
+      </Layout>
     </Layout>
-    <Footer style={{ textAlign: 'center' ,background: '#3D0C08'}}></Footer>
-  </Layout>
-  </Layout>
   )
 }

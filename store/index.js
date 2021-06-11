@@ -38,31 +38,31 @@ import {
 
 export const StoreContext = createContext();
 let cartItems;
-try{
+try {
   cartItems = JSON.parse(localStorage.getItem("cartItems"));
   if (!cartItems) cartItems = [];
-} catch(e) {
+} catch (e) {
   cartItems = [];
 }
 
 let shippingAddress;
 try {
   shippingAddress = JSON.parse(localStorage.getItem('shippingAddress'));
-} catch(e) {
+} catch (e) {
   shippingAddress = {};
 }
 
 let userInfo;
 try {
-  userInfo =  JSON.parse(localStorage.getItem("userInfo"));
-} catch(e) {
+  userInfo = JSON.parse(localStorage.getItem("userInfo"));
+} catch (e) {
   userInfo = null;
 }
 
 let orderInfo_order;
 try {
   orderInfo_order = JSON.parse(localStorage.getItem('orderInfo'));
-} catch(e) {
+} catch (e) {
   orderInfo_order = { id: "" };
 }
 
@@ -92,7 +92,7 @@ const initialState = {
   },
   orderDetail: {
     loading: true,
-    order: { cartItems: []},
+    order: { cartItems: [] },
     error: null,
   },
   feedProducts: {
