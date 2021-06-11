@@ -13,7 +13,7 @@ import { StoreContext } from "../store"
 
 export default function Home() {
   return (
-    <Layout className="home_layout_1">
+    <Layout className="home-layout-1">
     <Header className="sethomeHeader">
     <HomeHeader/>
     </Header>
@@ -23,7 +23,7 @@ export default function Home() {
    
     </Content>
     </Layout>
-    <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+    <Footer style={{ textAlign: 'center' ,background: '#3D0C08'}}></Footer>
   </Layout>
   )
 }

@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { useRouter } from 'next/router'
 import { Row, Col, Spin } from "antd";
 import { StoreContext } from "../store";
-
-
+import HomePosts from "/components/HomePosts"
+import HomeNav from "/components/HomeNav"
 export default function HomeContent({ title }) {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()
@@ -19,19 +19,19 @@ export default function HomeContent({ title }) {
            
  <Col
                 sm={{ span: 12 }}
-                xl={{ span: 8 }}
-                xxl={{ span: 6 }}
+                xl={{ span: 12 }}
+                xxl={{ span: 12 }}
               >
-               <div className="A">aaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+              <HomePosts></HomePosts>
 
 
               </Col>
               <Col
                 sm={{ span: 12 }}
-                xl={{ span: 8 }}
-                xxl={{ span: 6 }}
+                xl={{ span: 12 }}
+                xxl={{ span: 12 }}
               >
-  <div className="B">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+  <HomeNav></HomeNav>
               </Col>
           
           </Row>
