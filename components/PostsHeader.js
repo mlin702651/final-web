@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { StoreContext } from "../store";
 import Image from 'next/image'
-import { Input } from 'antd';
+import { Input, Drawer } from 'antd';
+import HamMenu from '../components/HamMenu';
 
 export default function HomeHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
@@ -19,27 +20,48 @@ export default function HomeHeader({ title }) {
   const postSearch = () => {
     console.log("Sss");
   }
+
+  const [isOnTouch, setIsOnTouch] = useState(false);
+  const handleCloseDrawer = () => setIsOnTouch(false);
+
   return (
-    <header className="homeHeader">
-      <Link href="/" >
-        <div className="logo">
+    <>
+      <header className="homeHeader">
+        <Link href="/" >
+          <div className="logo">
 
+          </div>
+        </Link>
+        <div className="inputCont">
+          <Input className="postsinput" placeholder="" allowClear onChange={onChange} />
+          <div className="search-btn" onClick={postSearch}></div>
         </div>
-      </Link>
-      <div className="inputCont">
-        <Input className="postsinput" placeholder="" allowClear onChange={onChange} />
-        <div className="search-btn" onClick={postSearch}></div>
-      </div>
-      <div className="login">
+        <div className="login-and-ham">
+          <div className="login">      
+            <Image
+              style={{ width: '50px' }}
+              src="/images/user-btn.png"
+              width={'60px'}
+              height={'60px'}
+              alt="post" />
+          </div>
+          <HamMenu onClick={() => setIsOnTouch(!isOnTouch)} isOnTouch={isOnTouch}/>
+        </div>
+      </header>
+      <Drawer 
+        title=" "
+        placement={"right"}
+        closable={false}
+        onClose={handleCloseDrawer}
+        visible={isOnTouch}
+        key={"right"}
+        width={"100%"}
+        zIndex={99}
+        bodyStyle={{backgroundColor: "#3D0C08"}}
+        headerStyle={{backgroundColor: "#3D0C08", color: "#fff", border: "none"}}
+      >
 
-        <Image
-          style={{ width: '50px' }}
-          src="/images/user-btn.png"
-          width={'60px'}
-          height={'60px'}
-          alt="post" />
-      </div>
-
-    </header>
+      </Drawer>
+    </>
   );
 }

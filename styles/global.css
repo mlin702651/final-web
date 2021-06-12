@@ -97,7 +97,7 @@ justify-content: space-between;
 .login {
 	height: 70px;
 	width: 70px;
-	margin-right: 22px;
+	margin-right: 29px;
 }
 .home-posts {
 	min-height: 82vh;
@@ -209,3 +209,101 @@ justify-content: space-between;
 	transform: translateX(-100%);
 	z-index: 2;
 }
+.login-and-ham {
+	min-width: 10rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+/* Hamburger Menu */
+.ham-menu {
+	display: inline-block;
+	position: relative;
+	align-items: center;
+	z-index: 999;
+	width: 4rem;
+	height: 4rem;
+	opacity: 1;
+	transition: all .25s linear;
+  }
+  
+  .ham-menu:hover {
+	opacity: 1;
+	cursor: pointer;
+  }
+  
+  span.ham-menu-bar1 {
+	display: inline-block;
+	position: absolute;
+	background-color: #3D0C08;
+	width: 40px;
+	height: 4px;
+	top: 12px;
+	left: 12px;
+	border-radius: 2rem;
+	transition: all .05s linear;
+  }
+  
+  span.ham-menu-bar2 {
+	display: inline-block;
+	background-color: #3D0C08;
+	position: absolute;
+	width: 40px;
+	height: 4px;
+	bottom: 27px;
+	left: 12px;
+	border-radius: 2rem;
+	transition: all .25s linear;
+  }
+  
+  span.ham-menu-bar3 {
+	display: inline-block;
+	background-color: #3D0C08;
+	position: absolute;
+	width: 40px;
+	height: 4px;
+	bottom: 16px;
+	left: 12px;
+	border-radius: 2rem;
+	transition: all .25s linear;
+  }
+  
+  span.ham-menu-bar1--touch {
+	display: inline-block;
+	position: absolute;
+	background-color: #D8C6BA;
+	width: 40px;
+	height: 4px;
+	top: 12px;
+	left: 12px;
+	opacity: 0;
+	transition: all .05s linear;
+  }
+  
+  span.ham-menu-bar2--touch {
+	display: inline-block;
+	background-color: #D8C6BA;
+	position: absolute;
+	width: 40px;
+	height: 4px;
+	opacity: 1;
+	bottom: 30px;
+	left: 12px;
+	border-radius: 2rem;
+	transition: all .25s linear;
+	transform: rotate(45deg);
+  }
+  
+  span.ham-menu-bar3--touch {
+	display: inline-block;
+	background-color: #D8C6BA;
+	position: absolute;
+	width: 40px;
+	height: 4px;
+	bottom: 30px;
+	left: 12px;
+	opacity: 1;
+	border-radius: 2rem;
+	transition: all .25s linear;
+	transform: rotate(-45deg);
+  }
