@@ -5,8 +5,8 @@ import { StoreContext } from "../store";
 import Image from 'next/image'
 import { Input, Drawer } from 'antd';
 import HamMenu from '../components/HamMenu';
-
-export default function HomeHeader({ title }) {
+import PostNavBtnWhite from './PostNavBtnWhite';
+export default function PostsHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()
 
@@ -51,16 +51,21 @@ export default function HomeHeader({ title }) {
       <Drawer 
         title=" "
         placement={"right"}
+      
         closable={false}
         onClose={handleCloseDrawer}
         visible={isOnTouch}
-        key={"right"}
+       
         width={"100%"}
         zIndex={99}
         bodyStyle={{backgroundColor: "#3D0C08"}}
         headerStyle={{backgroundColor: "#3D0C08", color: "#fff", border: "none"}}
       >
-
+        <div className="post-nav-cont">
+<PostNavBtnWhite to="/posts">論壇</PostNavBtnWhite>
+<PostNavBtnWhite to="/map">地圖</PostNavBtnWhite>
+<PostNavBtnWhite to="/knowledge">科普</PostNavBtnWhite>
+</div>
       </Drawer>
     </>
   );

@@ -34,6 +34,7 @@ import {
   BEGIN_ORDER_DETAIL,
   SUCCESS_ORDER_DETAIL,
   FAIL_ORDER_DETAIL,
+  AREACLICKED,
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -114,6 +115,12 @@ const initialState = {
     userInfo: null,
     error: "",
   },
+  area:{
+    northClick:false,
+    westClick:false,
+    eastClick:false,
+    southClick:false
+  }
 };
 
 function reducer(state, action) {
@@ -363,6 +370,52 @@ function reducer(state, action) {
           error: action.payload,
         },
       };
+      case AREACLICKED:
+        let eacharea=action.payload
+        if(eacharea.area=="北部"){
+        // console.log(212121)
+        return{
+          ...state,
+          area:{
+            ...state.area,
+            northClick:!state.area.northClick
+          }
+        }
+   //  state.area.northClick=!state.area.northClick
+    // console.log( state.area.northClick)
+    }
+      else if(eacharea.area=="中部"){
+        return{
+          ...state,
+          area:{
+            ...state.area,
+            westClick:!state.area.westClick
+          }
+        // state.area.westClick=!state.area.westClick
+        // console.log(303030)
+      }
+    }
+      else if(eacharea.area=="南部"){
+        return{
+          ...state,
+          area:{
+            ...state.area,
+            southClick:!state.area.southClick
+          }
+        // state.area.southClick=!state.arㄍa.southClick
+      }
+      }
+      else if(eacharea.area=="東部"){
+        return{
+          ...state,
+          area:{
+            ...state.area,
+            eastClick:!state.area.eastClick
+          }
+          }
+      //  state.area.eastClick=!state.area.eastClick
+        console.log( state.area.eastClick)
+      }
     default:
       return state;
   }

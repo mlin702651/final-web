@@ -16,7 +16,7 @@ export default function map() {
   return (
     <Layout>
       <Head>
-        <title>Home Page</title>
+        <title>map</title>
       </Head>
       <Layout className="home-layout-1">
         <Header className="sethomeHeader">

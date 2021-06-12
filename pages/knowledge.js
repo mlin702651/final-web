@@ -15,7 +15,7 @@ export default function knowledge() {
   return (
     <Layout>
       <Head>
-        <title>Home Page</title>
+        <title>knowledge</title>
       </Head>
       <Layout className="home-layout-1">
         <Header className="sethomeHeader">

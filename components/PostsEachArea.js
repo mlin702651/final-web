@@ -4,8 +4,9 @@ import { Row, Col, Spin } from "antd";
 import { StoreContext } from "../store";
 import PostAreaList from "/components/PostAreaList"
 import HomeNav from "/components/HomeNav"
+import PostsEachCity from "./PostsEachCity"
 import {areaClicked} from "../actions"
-export default function PostsEachCity(props) {
+export default function PostsEachArea(props) {
   const { state:{area:{
     northClick,
     westClick,
@@ -13,7 +14,7 @@ export default function PostsEachCity(props) {
     southClick
   }},dispatch } = useContext(StoreContext);
   const router = useRouter()
-const {city,area}=props
+const {eachArea}=props
   //   const onClickHeader = () => {
   //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
   //     router.push("/");
@@ -21,45 +22,24 @@ const {city,area}=props
   const areaOnClick = () => {
     console.log(eachArea)
     areaClicked(dispatch,eachArea)
+console.log(eastClick)
   };
-
-
-
-
-
-
-
-  console.log(city+"在"+area)
-
   const cityOnClick =()=>{
 
 
   }
-  console.log(northClick)
-  if(area=="北部"){
   return (
-    northClick?(<div className="post-each-city"  >{city}
-    </div>):(<div className=""></div>)
+    <div className="post-each-area" onClick={areaOnClick}>
+      <div className="area">{ eachArea.area}
+      
+      </div>
+     {
+       eachArea.citys.map( eachCity=>(
+         <PostsEachCity key={eachCity.city} city={eachCity.city} area={eachArea.area}></PostsEachCity>
+           
+         )
+       )
+     }
+    </div>
   );
-}else if(area=="中部"){
-  return (
-    westClick?(<div className="post-each-city"  >{city}
-    </div>):(<div className=""></div>)
-  );
-}else if(area=="南部"){
-  return (
-    southClick?(<div className="post-each-city"  >{city}
-    </div>):(<div className=""></div>)
-  );
-}else if(area=="東部"){
-  return (
-    eastClick?(<div className="post-each-city"  >{city}
-    </div>):(<div className=""></div>)
-  );
-}else{
-  return(<div className="post-each-city">a</div>)
-}
-
-
-
 }
