@@ -4,7 +4,9 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import HomeHeader from "../components/HomeHeader.js"
 import HomeContent from "../components/HomeConent.js"
-import Map from "../components/Map.js"
+// import RamenMap from "../components/RamenMap.js"
+import dynamic from "next/dynamic";
+
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -13,6 +15,11 @@ import { StoreContext } from "../store"
 
 
 export default function map() {
+   
+  const MapWithNoSSR = dynamic(() => import("../components/Map"), {
+    ssr: false
+  });
+
   return (
     <Layout>
       <Head>
@@ -24,7 +31,7 @@ export default function map() {
         </Header>
         <Layout className="container ">
           <Content style={{position: 'relative', height: '100vh' ,padding: '0 50px' }} >
-            <Map />
+            <MapWithNoSSR />
 
           </Content>
         </Layout>
