@@ -23,7 +23,7 @@ export default function map() {
           <HomeHeader />
         </Header>
         <Layout className="container ">
-          <Content style={{ padding: '0 50px' }} >
+          <Content style={{position: 'relative', height: '100vh' ,padding: '0 50px' }} >
             <Map />
 
           </Content>

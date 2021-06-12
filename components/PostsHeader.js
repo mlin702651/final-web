@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { StoreContext } from "../store";
 import Image from 'next/image'
 import { Input } from 'antd';
+
 export default function HomeHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()

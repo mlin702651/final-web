@@ -100,15 +100,28 @@ justify-content: space-between;
 	margin-right: 22px;
 }
 .home-posts {
-	min-height: 100vh;
+	min-height: 82vh;
 	display: flex;
 	justify-content: center;
 	margin-top: 5rem;
 }
 .home-nav {
-	margin-top: 80px;
-	min-height: 100vh;
+	min-height: 82vh;
+	width: 100%;
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+}
+.home-nav::before
+{
+	content: '';
+	height: 82vh;
+}
+.home-nav-arrange {
+	display: flex;
+	width: 100%;
 	flex-direction: column;
 	align-items: center;
 	position: relative;
@@ -117,9 +130,8 @@ justify-content: space-between;
 .nav-item {
 	color: #3d0c08;
 	font-size: 22px;
-	margin-top: 24px;
+	margin: 40px;
 	cursor: pointer;
-
 	opacity: 0.6;
 	transition: opacity 0.25s linear;
 }
@@ -137,33 +149,22 @@ justify-content: space-between;
 }
 .hover-img-no {
 	width: 140px;
-
 	top: -29px;
 
 	/* transition: all 0.25s linear; */
 }
+
 .hover-img-posts {
 	width: 140px;
-
-	top: 2px;
-
-	/* transform: translate(50%,50%); */
-	/* transition: all 0.25s linear; */
-}
-.hover-img-posts {
-	width: 140px;
-
 	top: 4px;
 }
 .hover-img-map {
 	width: 140px;
-
-	top: 60px;
+	top: 116px;
 }
 .hover-img-know {
 	width: 140px;
-
-	top: 116px;
+	top: 228px;
 }
 
 .nav-top {
