@@ -19,20 +19,23 @@ export default function HomeContent({ title }) {
       <Row >
 
         <Col
-          sm={{ span: 12 }}
-          xl={{ span: 12 }}
-          xxl={{ span: 12 }}
+          xs={{ span: 24 }}
+          sm={{ span: 24 }}          
+          md={{ span: 24 }}
+          lg={{ span: 12 }}
         >
-          <HomePosts></HomePosts>
+          <HomePosts />
 
 
         </Col>
         <Col
-          sm={{ span: 12 }}
-          xl={{ span: 12 }}
-          xxl={{ span: 12 }}
+          className="home-nav-col"
+          xs={{ span: 24 }}
+          sm={{ span: 24 }}
+          md={{ span: 24 }}
+          lg={{ span: 12 }}
         >
-          <HomeNav></HomeNav>
+          <HomeNav />
         </Col>
 
       </Row>

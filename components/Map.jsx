@@ -26,7 +26,7 @@ const Map = () => {
             <Row className="map-content">
                 <Col
                     className="map-div"
-                    sm={{ span: 12 }}
+                    sm={{ span: 24 }}
                     xl={{ span: 12 }}
                     xxl={{ span: 12 }}
                 >
@@ -50,7 +50,7 @@ const Map = () => {
                     </MapContainer>
                 </Col>
                 <Col
-                    sm={{ span: 12 }}
+                    sm={{ span: 24 }}
                     xl={{ span: 12 }}
                     xxl={{ span: 12 }}
                 >
