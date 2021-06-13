@@ -39,22 +39,22 @@ const {city,area}=props
   if(area=="北部"){
   return (
     northClick?(<div className="post-each-city"  >{city}
-    </div>):(<div className=""></div>)
+    </div>):(<div className="dsp-n"></div>)
   );
 }else if(area=="中部"){
   return (
     westClick?(<div className="post-each-city"  >{city}
-    </div>):(<div className=""></div>)
+    </div>):(<div className="dsp-n"></div>)
   );
 }else if(area=="南部"){
   return (
     southClick?(<div className="post-each-city"  >{city}
-    </div>):(<div className=""></div>)
+    </div>):(<div className="dsp-n"></div>)
   );
 }else if(area=="東部"){
   return (
     eastClick?(<div className="post-each-city"  >{city}
-    </div>):(<div className=""></div>)
+    </div>):(<div className="dsp-n"></div>)
   );
 }else{
   return(<div className="post-each-city">a</div>)

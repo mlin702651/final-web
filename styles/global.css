@@ -339,8 +339,8 @@ text-align: center;
 .PostAreaList{
 	width: 100%;
 	height: 100%;
-	background-color: red;
-}
+	/* background-color: red;*/
+} 
 .post-each-area{
 	
 }
@@ -355,6 +355,9 @@ text-align: center;
 	width: 80%;
 	height: 30px;
 	background-color: rgb(174, 214, 252);
+}
+.dsp-n{
+	display: none;
 }
 .map-content {
 	display: flex;
