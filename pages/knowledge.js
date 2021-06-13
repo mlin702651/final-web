@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useContext, useEffect } from "react";
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-import HomeHeader from "../components/HomeHeader.js"
+import PostHeader from "../components/PostsHeader"
 import HomeContent from "../components/HomeConent.js"
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
@@ -19,7 +19,7 @@ export default function knowledge() {
       </Head>
       <Layout className="home-layout-1">
         <Header className="sethomeHeader">
-          <HomeHeader />
+          <PostHeader />
         </Header>
         <Layout className="container ">
           <Content style={{ padding: '0 50px' }} >

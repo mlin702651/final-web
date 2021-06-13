@@ -62,10 +62,10 @@ export default function PostsHeader({ title }) {
         headerStyle={{backgroundColor: "#3D0C08", color: "#fff", border: "none"}}
       >
         <div className="post-nav-cont">
-<PostNavBtnWhite to="/posts">論壇</PostNavBtnWhite>
-<PostNavBtnWhite to="/map">地圖</PostNavBtnWhite>
-<PostNavBtnWhite to="/knowledge">科普</PostNavBtnWhite>
-</div>
+          <PostNavBtnWhite to="/posts">論壇</PostNavBtnWhite>
+          <PostNavBtnWhite to="/map">地圖</PostNavBtnWhite>
+          <PostNavBtnWhite to="/knowledge">科普</PostNavBtnWhite>
+        </div>
       </Drawer>
     </>
   );

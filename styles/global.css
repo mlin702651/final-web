@@ -356,3 +356,18 @@ text-align: center;
 	height: 30px;
 	background-color: rgb(174, 214, 252);
 }
+.map-content {
+	display: flex;
+}
+.map-div {
+	width: 500px;
+	height: 500px;
+	margin: auto;
+}
+.map-canvas {
+	position: fixed;
+	height: 30vw;
+	width: 30vw;
+	top: 8rem;
+	border-radius: 2rem;
+}
