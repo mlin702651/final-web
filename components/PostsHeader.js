@@ -4,8 +4,9 @@ import Link from 'next/link'
 import { StoreContext } from "../store";
 import Image from 'next/image'
 import { Input, Drawer } from 'antd';
-import HamMenu from '../components/HamMenu';
+import HamMenu from './HamMenu';
 import PostNavBtnWhite from './PostNavBtnWhite';
+import UserInfo from './UserInfo'
 export default function PostsHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()
@@ -38,12 +39,7 @@ export default function PostsHeader({ title }) {
         </div>
         <div className="login-and-ham">
           <div className="login">      
-            <Image
-              style={{ width: '50px' }}
-              src="/images/user-btn.png"
-              width={'60px'}
-              height={'60px'}
-              alt="post" />
+            <UserInfo />
           </div>
           <HamMenu onClick={() => setIsOnTouch(!isOnTouch)} isOnTouch={isOnTouch}/>
         </div>

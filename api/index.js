@@ -13,7 +13,7 @@ const firebaseConfig = {
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APPID,
-  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENTID
+  // measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENTID
 };
 
 if (!firebase.apps.length) {
@@ -67,7 +67,7 @@ export const feedProducts = () => {
     });
   })
 }
-
+//use
 export const signInWithEmailPassword = async (email, password) => {
   return await auth.signInWithEmailAndPassword(email, password);
 }
@@ -123,7 +123,7 @@ export const getOrderByUser = async () => {
 export const signOut = () => {
   auth.signOut();
 }
-
+//use
 export const checkLoginApi = () => {
   const user = auth.currentUser;
   if(!user) return false;

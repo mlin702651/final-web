@@ -22,6 +22,9 @@ background-color: #FFF8F5;
 	align-self: center;
 	margin: auto;
 }
+.bg-dark-gray {
+	background-color: #3d0c08;
+}
 /* sm */
 @media (min-width: 576px) {
 	.container {
@@ -96,9 +99,23 @@ justify-content: space-between;
 	cursor: pointer;
 }
 .login {
+	position: relative;
 	height: 70px;
 	width: 70px;
 	margin-right: 29px;
+}
+.login-btn {
+	cursor: pointer;
+	height: 100%;
+}
+.login-btn-img {
+	height: 90%;
+}
+.user-btn-text {
+	line-height: 1rem;
+	text-align: center;
+	font-size: .8rem;
+	width: 90%;
 }
 .home-posts {
 	min-height: 82vh;
@@ -410,4 +427,84 @@ justify-content: space-between;
 	width: 30vw;
 	top: 8rem;
 	border-radius: 2rem;
+}
+/* login card */
+.login-card-alignment {
+	display: flex;
+	align-items: center;
+}
+.login-card-alignment::before {
+	content: '';
+	height: 100vh;
+}
+.login-title {
+	width: 100%;
+	display: flex;
+	align-items: center;	
+}
+.login-title-img {
+	width: 55%;
+	margin: 3.5rem auto 2.5rem;
+}
+.login-form {
+	background-color: #fff;
+	padding: 1rem;
+	margin: auto;
+	max-width: 30vw;
+	border-radius: 10px;
+}
+.login-form a,
+.login-form span {
+	color: #3d0c08;
+}
+.login-email,
+.login-password,
+.login-remember-forget,
+.login-register,
+.login-login {
+	width: 73%;
+	margin: 1.25rem auto;
+	border-radius: 10px;	
+}
+.login-email input,
+.login-password span,
+.login-password input {
+	background-color: #FCF4F4;
+	line-height: 2;
+}
+.ant-checkbox-checked .ant-checkbox-inner {
+	background-color: #3d0c08;
+	border-color: #3d0c08;
+}
+.login-remember-forget a{
+	float: right;
+}
+.login-remember-forget a:hover,
+.login-register a:hover {
+	text-decoration: underline #3d0c08;
+}
+.login-remember-forget {
+	margin-bottom: 0;
+}
+.login-register {
+	margin-top: 0;
+}
+.login-form__button {
+	width: 100%;
+	height: fit-content;
+	background-color: #ffffff;
+	border: solid 3px #871F1F;
+	border-radius: 6px;
+}
+.login-form__button-span {
+	font-size: 1.25rem;
+	color: #871F1F;
+}
+.login-form__button:hover, .login-form__button:focus {
+	background-color: #871F1F;
+	border: solid 3px #871F1F;
+}
+.login-form__button:hover .login-form__button-span, 
+.login-form__button:focus .login-form__button-span {
+	color: #ffffff;
 }

@@ -104,6 +104,7 @@ const initialState = {
     loading: false,
     error: null,
   },
+  // use
   userSignin: {
     loading: false,
     userInfo,
@@ -214,8 +215,10 @@ function reducer(state, action) {
           error: action.payload,
         },
       };
+    //use
     case BEGIN_LOGIN_REQUEST:
       return { ...state, userSignin: { ...state.userSignin, loading: true } };
+    //use
     case SUCCESS_LOGIN_REQUEST:
       return {
         ...state,
@@ -226,6 +229,7 @@ function reducer(state, action) {
           error: "",
         },
       };
+    //use
     case FAIL_LOGIN_REQUEST:
       return {
         ...state,
@@ -257,6 +261,7 @@ function reducer(state, action) {
           error: action.payload,
         },
       };
+    //use
     case LOGOUT_REQUEST:
       cartItems = [];
       return {
@@ -266,6 +271,7 @@ function reducer(state, action) {
           userInfo: null,
         },
       };
+    // use
     case REMEMBER_LOGIN:
       return {
         ...state,

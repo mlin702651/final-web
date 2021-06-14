@@ -153,7 +153,7 @@ import {
       dispatch({ type: FAIL_PRODUCTS_REQUEST, payload: error });
     }
   }
-  
+  //use
   export const loginToFirebase = async (dispatch, userInfo) => {
     dispatch({ type: BEGIN_LOGIN_REQUEST });
     try {
@@ -172,7 +172,7 @@ import {
       return null;
     }
   }
-  
+  //use
   export const rememberLoginUser = (dispatch, remember) => {
     dispatch({
       type: REMEMBER_LOGIN,
@@ -276,7 +276,7 @@ import {
   export const resetOrder = (dispatch) => {
     dispatch({ type: RESET_ORDER });
   }
-  
+  //use
   export const checkLogin = (dispatch) => {
     const isLogin = checkLoginApi();
     if(!isLogin) {

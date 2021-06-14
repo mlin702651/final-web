@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { StoreContext } from "../store";
 import Image from 'next/image'
+import UserInfo from './UserInfo'
 
 export default function HomeHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
@@ -21,12 +22,7 @@ export default function HomeHeader({ title }) {
         </div>
       </Link>
       <div className="login">
-        <Image
-          style={{ width: '50px' }}
-          src="/images/user-btn.png"
-          width={'60px'}
-          height={'60px'}
-          alt="post" />
+        <UserInfo />
       </div>
 
     </header>
