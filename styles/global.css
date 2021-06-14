@@ -515,10 +515,6 @@ color: #871F1F;
 	border-radius: 2rem;
 }
 /* login card */
-.login-card-alignment {
-	display: flex;
-	align-items: center;
-}
 .login-card-alignment::before {
 	content: '';
 	height: 100vh;

@@ -3,13 +3,8 @@ import { useRouter } from 'next/router'
 
 import { StoreContext } from "../store"
 
-export default function UserInfo(){
+export default function UserInfo({onClick, isOnTouch}){
     const { state: { userSignin : { userInfo, remember } } } = useContext(StoreContext);
-    const router = useRouter()
-
-    const goToProfile = () => {
-        router.push("/login?redirect=profile");
-    };
 
     useEffect(() => {
         if(remember)
@@ -19,13 +14,24 @@ export default function UserInfo(){
     }, [userInfo, remember]);
 
     return (
-        <div className="login-btn" onClick={goToProfile}>
-            <img
-                src="/images/user-btn.png"
-                className="login-btn-img"
-                alt="post" 
-            />
-            <p className="user-btn-text">請登入</p>
-        </div>
+        <>
+            {isOnTouch?(
+                <span onClick={onClick} className="ham-menu show-mobile">
+                    <span className="ham-menu-bar1 ham-menu-bar1--touch"></span>
+                    <span className="ham-menu-bar2 ham-menu-bar2--touch"></span>
+                    <span className="ham-menu-bar3 ham-menu-bar3--touch"></span>
+                </span>
+            ):(
+                <div onClick={onClick} className="login-btn">
+                    <img
+                        src="/images/user-btn.png"
+                        className="login-btn-img"
+                        alt="post" 
+                    />
+                    <p className="user-btn-text">請登入</p>
+                </div>
+            )}
+            
+        </>
     );
 }

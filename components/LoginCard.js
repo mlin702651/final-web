@@ -80,14 +80,14 @@ const LoginCard = ({ redirect }) => {
                         name="remember"
                         noStyle
                     >
-                        <Checkbox onChange={onChange} checked={remember} className="remember-color">Remember me</Checkbox>
+                        <Checkbox onChange={onChange} checked={remember}>Remember me</Checkbox>
                     </Form.Item>
     
-                    <Link href={"/"} className="login-form__forgot login-change-color" >
+                    <Link href={"/"} className="login-form__forgot" >
                         忘記密碼
                     </Link>
                 </Form.Item>
-                <Form.Item className="login-register login-change-color">
+                <Form.Item className="login-register">
                     <Link href={"/register?redirect=index"}>建立帳戶</Link>
                 </Form.Item>
                 <Form.Item className="login-login">
