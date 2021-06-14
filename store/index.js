@@ -35,6 +35,7 @@ import {
   SUCCESS_ORDER_DETAIL,
   FAIL_ORDER_DETAIL,
   AREACLICKED,
+  CITYCLICKED
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -120,7 +121,8 @@ const initialState = {
     northClick:false,
     westClick:false,
     eastClick:false,
-    southClick:false
+    southClick:false,
+    cityClick:null
   }
 };
 
@@ -384,7 +386,11 @@ function reducer(state, action) {
           ...state,
           area:{
             ...state.area,
-            northClick:!state.area.northClick
+            northClick:!state.area.northClick,
+            westClick:false,
+            southClick:false,
+            eastClick:false,
+            cityClick:"null"
           }
         }
    //  state.area.northClick=!state.area.northClick
@@ -395,7 +401,11 @@ function reducer(state, action) {
           ...state,
           area:{
             ...state.area,
-            westClick:!state.area.westClick
+            northClick:false,
+            westClick:!state.area.westClick,
+            southClick:false,
+            eastClick:false,
+            cityClick:"null"
           }
         // state.area.westClick=!state.area.westClick
         // console.log(303030)
@@ -406,7 +416,11 @@ function reducer(state, action) {
           ...state,
           area:{
             ...state.area,
-            southClick:!state.area.southClick
+            northClick:false,
+            westClick:false,
+            southClick:!state.area.southClick,
+            eastClick:false,
+            cityClick:"null"
           }
         // state.area.southClick=!state.arㄍa.southClick
       }
@@ -416,12 +430,27 @@ function reducer(state, action) {
           ...state,
           area:{
             ...state.area,
-            eastClick:!state.area.eastClick
+            northClick:false,
+            westClick:false,
+            southClick:false,
+            eastClick:!state.area.eastClick,
+            cityClick:"null"
           }
           }
       //  state.area.eastClick=!state.area.eastClick
         console.log( state.area.eastClick)
       }
+      case CITYCLICKED:
+        let cityInfo=action.payload
+        console.log(cityInfo)
+        return{
+          ...state,
+          area:{
+            ...state.area,
+           
+            cityClick:cityInfo.city
+          }
+        }
     default:
       return state;
   }

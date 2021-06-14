@@ -4,13 +4,14 @@ import { Row, Col, Spin } from "antd";
 import { StoreContext } from "../store";
 import PostAreaList from "/components/PostAreaList"
 import HomeNav from "/components/HomeNav"
-import {areaClicked} from "../actions"
+import {cityClicked} from "../actions"
 export default function PostsEachCity(props) {
   const { state:{area:{
     northClick,
     westClick,
     eastClick,
-    southClick
+    southClick,
+    cityClick
   }},dispatch } = useContext(StoreContext);
   const router = useRouter()
 const {city,area}=props
@@ -18,9 +19,9 @@ const {city,area}=props
   //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
   //     router.push("/");
   //   };
-  const areaOnClick = () => {
-    console.log(eachArea)
-    areaClicked(dispatch,eachArea)
+  const cityOnClick = () => {
+ 
+    cityClicked(dispatch,city,area)
   };
 
 
@@ -29,31 +30,28 @@ const {city,area}=props
 
 
 
-  console.log(city+"在"+area)
+  // console.log(city+"在"+area)
 
-  const cityOnClick =()=>{
-
-
-  }
-  console.log(northClick)
+ 
+   console.log(cityClick)
   if(area=="北部"){
   return (
-    northClick?(<div className="post-each-city"  >{city}
+    northClick?(<div className={cityClick===city?"post-each-city-active post-each-city":"post-each-city"} onClick={cityOnClick} >{city}
     </div>):(<div className="dsp-n"></div>)
   );
 }else if(area=="中部"){
   return (
-    westClick?(<div className="post-each-city"  >{city}
+    westClick?(<div className={cityClick===city?"post-each-city-active post-each-city":"post-each-city"} onClick={cityOnClick} >{city}
     </div>):(<div className="dsp-n"></div>)
   );
 }else if(area=="南部"){
   return (
-    southClick?(<div className="post-each-city"  >{city}
+    southClick?(<div className={cityClick===city?"post-each-city-active post-each-city":"post-each-city"} onClick={cityOnClick}  >{city}
     </div>):(<div className="dsp-n"></div>)
   );
 }else if(area=="東部"){
   return (
-    eastClick?(<div className="post-each-city"  >{city}
+    eastClick?(<div className={cityClick===city?"post-each-city-active post-each-city":"post-each-city"} onClick={cityOnClick}  >{city}
     </div>):(<div className="dsp-n"></div>)
   );
 }else{

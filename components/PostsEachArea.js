@@ -22,16 +22,27 @@ export default function PostsEachArea(props) {
   const areaOnClick = () => {
     console.log(eachArea)
     areaClicked(dispatch, eachArea)
-    console.log(eastClick)
+    
   };
   const cityOnClick = () => {
 
 
   }
   return (
-    <div className="post-each-area" onClick={areaOnClick}>
-      <div className="area">{eachArea.area}
-
+    <div className="post-each-area">
+        
+    
+      <img
+          // style={{ width: '100%' }}
+          src="/images/hover-img.png"
+          className={northClick&&eachArea.area=="北部"||westClick&&eachArea.area=="中部"||southClick&&eachArea.area=="南部"||eastClick&&eachArea.area=="東部"? "area-slected-img area-slected-img-off" :"area-slected-img area-slected-img-on" 
+           
+          }
+          alt="post" 
+        />
+          <div className="area" onClick={areaOnClick}>
+        {eachArea.area}
+        <div className="tri"></div>
       </div>
       {
         eachArea.citys.map(eachCity => (
