@@ -243,7 +243,7 @@ justify-content: space-between;
 }
 .area-slected-img-off {
 	width: 140px;
-	top: 4px;
+	top: 10px;
 }
 .hover-img-no {
 	width: 140px;
@@ -267,6 +267,12 @@ justify-content: space-between;
 
 .nav-top {
 	margin-top: 0;
+}
+.citys-cont{
+	margin-top: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 /* .nav-item-post:hover {
   background-color: #fff;
@@ -410,48 +416,88 @@ justify-content: space-between;
 	flex-direction: column;
 	justify-content: space-around;
 }
+.ant-layout-content{
+	/* background-color: #fff; */
+}
 .PostAreaList{
+	margin-top: 30px;
 	width: 100%;
-	height: 100%;
+	height: 70vh;
+	display: flex;
+	position: relative;
+	left: -30px;
 	/* background-color: red;*/
+	flex-direction: column;
+	justify-content: space-around;
 } 
 .post-each-area{
 	position: relative;
 	overflow: hidden;
-	background-color: #D8C6BA;
-	margin-top: 5px;
+	/* background-color: #D8C6BA; */
+
 } 
 .area{
 	z-index: 2;
 	width: 100%;
-	height: 30px;
-	font-size: 2rem;
+	height: 40px;
+	font-size: 1.7rem;
 	text-align: center;
-
+font-weight: bold;
+color: #871F1F;
 }
 .tri{
 	width: 100%;
-	height: 30px;
+	height: 40px;
 	position: absolute;
 	left: 0;
 	top: 0;
-	
+	/* background-color: rgb(226, 93, 93); */
+	opacity: 0.5;
 }
 .area-active{
 	background-color: rgb(167, 87, 87);
 }
+.each-city-cont{
+	position: relative;
+	display: flex;
+
+}
 .post-each-city{
 	margin-top:10px;
-	width: 80%;
-	height: 30px;
-	background-color: rgb(174, 214, 252);
+	width: 130%;
+	height: 38px;
+
+	text-align: center;
+	font-size: 1.5rem;
+	color: #867272;
 }
 .post-each-city-active{
-	
-	background-color: rgb(42, 168, 42);
+	color:#871F1F;
+
 }
 .dsp-n{
 	display: none;
+}
+.city-line-cont{
+	height: 6px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	
+}
+.city-line{
+	height: 2px;
+	width: 110%;
+	background-color:#871F1F;
+	transform: translateX(-50%);
+	transition: all 0.1s linear;
+}
+.city-line-off{
+	width: 0;
 }
 .map-content {
 	display: flex;

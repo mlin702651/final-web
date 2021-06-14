@@ -36,23 +36,23 @@ const {city,area}=props
    console.log(cityClick)
   if(area=="北部"){
   return (
-    northClick?(<div className={cityClick===city?"post-each-city-active post-each-city":"post-each-city"} onClick={cityOnClick} >{city}
-    </div>):(<div className="dsp-n"></div>)
+    northClick?(<div className="each-city-cont"><div className={cityClick===city?"post-each-city-active post-each-city":"post-each-city"} onClick={cityOnClick} >{city}
+    </div>{cityClick===city?(<div className="city-line-cont"><div className="city-line"></div><div className="city-line"></div></div>):(<div className="city-line-cont"><div className="city-line city-line-off"></div><div className="city-line city-line-off"></div></div>)}</div> ):(<div className="dsp-n"></div>)
   );
 }else if(area=="中部"){
   return (
-    westClick?(<div className={cityClick===city?"post-each-city-active post-each-city":"post-each-city"} onClick={cityOnClick} >{city}
-    </div>):(<div className="dsp-n"></div>)
+    westClick?(<div className="each-city-cont"><div className={cityClick===city?"post-each-city-active post-each-city":"post-each-city"} onClick={cityOnClick} >{city}
+    </div>{cityClick===city?(<div className="city-line-cont"><div className="city-line"></div><div className="city-line"></div></div>):(<div className="city-line-cont"><div className="city-line city-line-off"></div><div className="city-line city-line-off"></div></div>)}</div> ):(<div className="dsp-n"></div>)
   );
 }else if(area=="南部"){
   return (
-    southClick?(<div className={cityClick===city?"post-each-city-active post-each-city":"post-each-city"} onClick={cityOnClick}  >{city}
-    </div>):(<div className="dsp-n"></div>)
+    southClick?(<div className="each-city-cont"><div className={cityClick===city?"post-each-city-active post-each-city":"post-each-city"} onClick={cityOnClick} >{city}
+    </div>{cityClick===city?(<div className="city-line-cont"><div className="city-line"></div><div className="city-line"></div></div>):(<div className="city-line-cont"><div className="city-line city-line-off"></div><div className="city-line city-line-off"></div></div>)}</div> ):(<div className="dsp-n"></div>)
   );
 }else if(area=="東部"){
   return (
-    eastClick?(<div className={cityClick===city?"post-each-city-active post-each-city":"post-each-city"} onClick={cityOnClick}  >{city}
-    </div>):(<div className="dsp-n"></div>)
+    eastClick?(<div className="each-city-cont"><div className={cityClick===city?"post-each-city-active post-each-city":"post-each-city"} onClick={cityOnClick} >{city}
+    </div>{cityClick===city?(<div className="city-line-cont"><div className="city-line"></div><div className="city-line"></div></div>):(<div className="city-line-cont"><div className="city-line city-line-off"></div><div className="city-line city-line-off"></div></div>)}</div> ):(<div className="dsp-n"></div>)
   );
 }else{
   return(<div className="post-each-city">a</div>)

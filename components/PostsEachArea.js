@@ -44,6 +44,7 @@ export default function PostsEachArea(props) {
         {eachArea.area}
         <div className="tri"></div>
       </div>
+      <div className="citys-cont">
       {
         eachArea.citys.map(eachCity => (
           <PostsEachCity key={eachCity.city} city={eachCity.city} area={eachArea.area}></PostsEachCity>
@@ -51,6 +52,7 @@ export default function PostsEachArea(props) {
         )
         )
       }
+      </div>
     </div>
   );
 }
