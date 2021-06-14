@@ -12,7 +12,7 @@ import LoginCard from './LoginCard';
 export default function PostsHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()
-
+  const { redirect } = router.query;
   
   const onChange = e => {
     console.log(e);
@@ -77,7 +77,7 @@ export default function PostsHeader({ title }) {
         bodyStyle={{backgroundColor: "#3D0C08"}}
         headerStyle={{backgroundColor: "#3D0C08", color: "#fff", border: "none"}}
       >
-        <LoginCard />
+        <LoginCard redirect={redirect} />
       </Drawer>
     </>
   );

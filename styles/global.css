@@ -547,15 +547,20 @@ color: #871F1F;
 .login-email,
 .login-password,
 .login-remember-forget,
-.login-register,
-.login-login {
+.login-login,
+.register-username {
 	width: 73%;
 	margin: 1.25rem auto;
 	border-radius: 10px;	
 }
+.login-register {
+	width: fit-content;
+	margin-left: 13.5%;
+}
 .login-email input,
 .login-password span,
-.login-password input {
+.login-password input,
+.register-username input {
 	background-color: #FCF4F4;
 	line-height: 2;
 }
@@ -567,11 +572,15 @@ color: #871F1F;
 	float: right;
 }
 .login-remember-forget a:hover,
-.login-register a:hover {
+.login-register:hover {
 	text-decoration: underline #3d0c08;
 }
 .login-remember-forget {
 	margin-bottom: 0;
+}
+.login-create-account, 
+.register-has-account {
+	cursor: pointer;
 }
 .login-register {
 	margin-top: 0;
