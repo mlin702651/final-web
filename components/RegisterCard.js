@@ -5,7 +5,7 @@ import { Form, Input, Button } from 'antd';
 import { registerToFirebase } from '../actions'
 import { StoreContext } from "../store"
 
-const RegisterCard = ({ onReturnLogin ,redirect }) => {
+const RegisterCard = ({ onReturnLogin }) => {
     const { state: { userRegister: { userInfo, loading, error } }, dispatch } = useContext(StoreContext);
     const [form] = Form.useForm();
     const router = useRouter()
