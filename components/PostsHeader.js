@@ -8,6 +8,7 @@ import HamMenu from './HamMenu';
 import PostNavBtnWhite from './PostNavBtnWhite';
 import UserInfo from './UserInfo'
 import LoginCard from './LoginCard';
+import RegisterCard from "./RegisterCard";
 
 export default function PostsHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
@@ -25,6 +26,8 @@ export default function PostsHeader({ title }) {
   const handleCloseHamDrawer = () => setIsHamTouch(false);
   const [isLoginTouch, setIsLoginTouch] = useState(false);
   const handleCloseLoginDrawer = () => setIsLoginTouch(false);
+  const [isRegisterTouch, setIsRegisterTouch] = useState(false);
+  const handleCloseRegisterDrawer = () => setIsRegisterTouch(false);
 
   return (
     <>
@@ -40,7 +43,10 @@ export default function PostsHeader({ title }) {
         </div>
         <div className="login-and-ham">
           <div className="login">      
-            <UserInfo onClick={() => setIsLoginTouch(!isLoginTouch)} isOnTouch={isLoginTouch}/>
+            <UserInfo 
+              onClick={isRegisterTouch ? ()=>setIsRegisterTouch(!isRegisterTouch) : () => setIsLoginTouch(!isLoginTouch)} 
+              isOnTouch={isLoginTouch||isRegisterTouch}
+            />
           </div>
           <HamMenu onClick={() => setIsHamTouch(!isHamTouch)} isOnTouch={isHamTouch}/>
         </div>
@@ -68,7 +74,7 @@ export default function PostsHeader({ title }) {
         title=" "
         placement={"right"}
       
-        closable={false}
+        closable={true}
         onClose={handleCloseLoginDrawer}
         visible={isLoginTouch}
        
@@ -77,8 +83,23 @@ export default function PostsHeader({ title }) {
         bodyStyle={{backgroundColor: "#3D0C08"}}
         headerStyle={{backgroundColor: "#3D0C08", color: "#fff", border: "none"}}
       >
-        <LoginCard redirect={redirect} />
+        <LoginCard onCreateAccount={()=>{setIsRegisterTouch(!isRegisterTouch) ,setIsLoginTouch(!isLoginTouch)}} redirect={redirect} />
       </Drawer>
+      <Drawer 
+        title=" "
+        placement={"right"}
+    
+        closable={false}
+        onClose={handleCloseRegisterDrawer}
+        visible={isRegisterTouch}
+    
+        width={"100%"}
+        zIndex={99}
+        bodyStyle={{backgroundColor: "#3D0C08"}}
+        headerStyle={{backgroundColor: "#3D0C08", color: "#fff", border: "none"}}
+    >
+        <RegisterCard  onReturnLogin={()=>{setIsLoginTouch(!isLoginTouch) ,setIsRegisterTouch(!isRegisterTouch)}} />
+    </Drawer>
     </>
   );
 }

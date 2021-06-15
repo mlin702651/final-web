@@ -6,7 +6,7 @@ import { checkLogin, loginToFirebase, rememberLoginUser } from '../actions'
 import { StoreContext } from "../store"
 import RegisterCard from "./RegisterCard"
 
-const LoginCard = ({ redirect }) => {
+const LoginCard = ({ onCreateAccount, redirect }) => {
     const { state:{ userSignin: { userInfo, loading, error, remember } }, dispatch } = useContext(StoreContext);
     const [form] = Form.useForm();
     const router = useRouter()
@@ -93,7 +93,7 @@ const LoginCard = ({ redirect }) => {
                         </Link>
                     </Form.Item>
                     <Form.Item className="login-register">
-                        <div className="login-create-account" onClick={()=>setIsRegisterTouch(!isRegisterTouch)}>建立帳戶</div>
+                        <div className="login-create-account" onClick={onCreateAccount}>建立帳戶</div>
                     </Form.Item>
                     <Form.Item className="login-login">
                         {loading ? (
@@ -127,7 +127,7 @@ const LoginCard = ({ redirect }) => {
                     </Form.Item>
                 </Form>
             </div>
-            <Drawer 
+            {/* <Drawer 
                 title=" "
                 placement={"right"}
             
@@ -141,7 +141,7 @@ const LoginCard = ({ redirect }) => {
                 headerStyle={{backgroundColor: "#3D0C08", color: "#fff", border: "none"}}
             >
                 <RegisterCard  onReturnLogin={()=>{setIsRegisterTouch(!isRegisterTouch)}} redirect={redirect} />
-            </Drawer>
+            </Drawer> */}
         </>
     );
 };

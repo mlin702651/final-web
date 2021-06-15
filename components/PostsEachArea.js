@@ -22,7 +22,7 @@ export default function PostsEachArea(props) {
   const areaOnClick = () => {
     console.log(eachArea)
     areaClicked(dispatch, eachArea)
-    
+
   };
   const cityOnClick = () => {
 
@@ -30,28 +30,24 @@ export default function PostsEachArea(props) {
   }
   return (
     <div className="post-each-area">
-        
-    
       <img
-          // style={{ width: '100%' }}
-          src="/images/hover-img.png"
-          className={northClick&&eachArea.area=="北部"||westClick&&eachArea.area=="中部"||southClick&&eachArea.area=="南部"||eastClick&&eachArea.area=="東部"? "area-slected-img area-slected-img-off" :"area-slected-img area-slected-img-on" 
-           
-          }
-          alt="post" 
-        />
-          <div className="area" onClick={areaOnClick}>
+        // style={{ width: '100%' }}
+        src="/images/hover-img.png"
+        className={northClick && eachArea.area == "北部" || westClick && eachArea.area == "中部" || southClick && eachArea.area == "南部" || eastClick && eachArea.area == "東部" ?
+          "area-slected-img area-slected-img-off" : "area-slected-img area-slected-img-on"
+        }
+        alt="post"
+      />
+      <div className="area" onClick={areaOnClick}>
         {eachArea.area}
         <div className="tri"></div>
       </div>
       <div className="citys-cont">
-      {
-        eachArea.citys.map(eachCity => (
-          <PostsEachCity key={eachCity.city} city={eachCity.city} area={eachArea.area}></PostsEachCity>
-
-        )
-        )
-      }
+        {
+          eachArea.citys.map(eachCity => (
+            <PostsEachCity key={eachCity.city} city={eachCity.city} area={eachArea.area}></PostsEachCity>
+          )
+          )}
       </div>
     </div>
   );

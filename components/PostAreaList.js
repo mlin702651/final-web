@@ -7,7 +7,7 @@ import Image from 'next/image'
 import PostEachArea from './PostsEachArea'
 import Areas from '../json/area.json'
 export default function PostAreaList(props) {
-    const { children, to} = props;
+  const { children, to } = props;
   const { dispatch } = useContext(StoreContext);
   const router = useRouter();
   const [navhover, setNavhover] = useState(0);
@@ -20,15 +20,15 @@ export default function PostAreaList(props) {
   };
   return (
     <div className="PostAreaList">
-       {Areas.allAreas.map(a => (
+      {Areas.allAreas.map(a => (
         <PostEachArea key={a.area} eachArea={a} >
 
         </PostEachArea>
       ))}
-       
-      
-       
-  
+
+
+
+
     </div>
   );
 }
