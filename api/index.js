@@ -37,6 +37,7 @@ export const getProductById = async (productId) => {
 }
 
 export const getProducts = async (url) => {
+  console.log(jsonInfo)
   const collection = jsonInfo.find(element => element.url === url);
   const collectionName = collection.name || "allProducts";
   let jsonProducts = [];

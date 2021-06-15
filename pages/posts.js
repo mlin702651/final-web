@@ -6,12 +6,14 @@ import PostsHeader from "../components/PostsHeader.js"
 import PostsContent from "../components/PostsContent.js"
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
+import { getProducts } from "../api";
 
 
 import { StoreContext } from "../store"
 
+const Posts=({jsonProducts})=> {
 
-export default function Posts() {
+  console.log(jsonProducts)
   return (
     <Layout>
       <Head>
@@ -32,3 +34,8 @@ export default function Posts() {
     </Layout>
   )
 }
+
+
+
+
+export default Posts

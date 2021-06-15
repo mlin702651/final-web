@@ -2,6 +2,11 @@
    {
       "title": "NORDIC NEST Shopping Cart",
       "name": "allProducts",
+      "url": "/posts"
+   },
+   {
+      "title": "NORDIC NEST Shopping Cart",
+      "name": "allProducts",
       "url": "/"
    },
    {

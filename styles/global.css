@@ -599,3 +599,8 @@ color: #871F1F;
 .login-form__button:focus .login-form__button-span {
 	color: #ffffff;
 }
+.post-list{
+	background-color:#871F1F ;
+	height: 100px;
+	width: 100px;
+}

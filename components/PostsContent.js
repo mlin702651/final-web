@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Row, Col, Spin } from "antd";
 import { StoreContext } from "../store";
 import PostAreaList from "/components/PostAreaList"
-import HomeNav from "/components/HomeNav"
+import PostsList from "./PostsList"
 
 export default function PostsContent({ title }) {
   const { dispatch } = useContext(StoreContext);
@@ -32,7 +32,7 @@ export default function PostsContent({ title }) {
           xl={{ span: 14 }}
           xxl={{ span: 14 }}
         >
-          <HomeNav></HomeNav>
+         <PostsList></PostsList>
         </Col>
         <Col
           sm={{ span: 5}}
