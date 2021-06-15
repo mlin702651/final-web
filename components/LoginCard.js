@@ -6,7 +6,7 @@ import { checkLogin, loginToFirebase, rememberLoginUser } from '../actions'
 import { StoreContext } from "../store"
 import RegisterCard from "./RegisterCard"
 
-const LoginCard = ({ onCreateAccount, redirect }) => {
+const LoginCard = ({ onCreateAccount }) => {
     const { state:{ userSignin: { userInfo, loading, error, remember } }, dispatch } = useContext(StoreContext);
     const [form] = Form.useForm();
     const router = useRouter()

@@ -6,6 +6,7 @@ import { StoreContext } from "../store";
 import Image from 'next/image'
 import UserInfo from './UserInfo'
 import LoginCard from './LoginCard'
+import RegisterCard from "./RegisterCard";
 
 export default function HomeHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
@@ -13,10 +14,8 @@ export default function HomeHeader({ title }) {
 
   const [isLoginTouch, setIsLoginTouch] = useState(false);
   const handleCloseLoginDrawer = () => setIsLoginTouch(false);
-  //   const onClickHeader = () => {
-  //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
-  //     router.push("/");
-  //   };
+  const [isRegisterTouch, setIsRegisterTouch] = useState(false);
+  const handleCloseRegisterDrawer = () => setIsRegisterTouch(false);
 
   return (
     <>
@@ -27,7 +26,10 @@ export default function HomeHeader({ title }) {
           </div>
         </Link>
         <div className="login">
-          <UserInfo onClick={() => setIsLoginTouch(!isLoginTouch)} isOnTouch={isLoginTouch} />
+          <UserInfo 
+            onClick={isRegisterTouch ? ()=>setIsRegisterTouch(!isRegisterTouch) : () => setIsLoginTouch(!isLoginTouch)} 
+            isOnTouch={isLoginTouch||isRegisterTouch}
+          />
         </div>
       </header>
       <Drawer 
@@ -43,7 +45,22 @@ export default function HomeHeader({ title }) {
         bodyStyle={{backgroundColor: "#3D0C08"}}
         headerStyle={{backgroundColor: "#3D0C08", color: "#fff", border: "none"}}
       >
-        <LoginCard />
+        <LoginCard onCreateAccount={()=>{setIsRegisterTouch(!isRegisterTouch) ,setIsLoginTouch(!isLoginTouch)}} />
+      </Drawer>
+      <Drawer 
+        title=" "
+        placement={"right"}
+    
+        closable={false}
+        onClose={handleCloseRegisterDrawer}
+        visible={isRegisterTouch}
+    
+        width={"100%"}
+        zIndex={99}
+        bodyStyle={{backgroundColor: "#3D0C08"}}
+        headerStyle={{backgroundColor: "#3D0C08", color: "#fff", border: "none"}}
+      >
+        <RegisterCard  onReturnLogin={()=>{setIsLoginTouch(!isLoginTouch) ,setIsRegisterTouch(!isRegisterTouch)}} />
       </Drawer>
     </>
   );
