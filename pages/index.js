@@ -13,15 +13,15 @@ import { StoreContext } from "../store"
 
 
 export default function Home() {
-  useEffect(() => {
+  // useEffect(() => {
 
-    const jsonProducts = getProducts("/posts");
+  //   const jsonProducts = getProducts("/posts");
   
-    if(jsonProducts){
-      console.log('getStaticProps = ')
-      console.log(jsonProducts[0])
-    }
-  }, []);
+  //   if(jsonProducts){
+  //     console.log('getStaticProps = ')
+  //     console.log(jsonProducts[0])
+  //   }
+  // }, []);
   return (
     <Layout>
       <Head>

@@ -5,7 +5,7 @@ import { StoreContext } from "../store";
 import PostAreaList from "/components/PostAreaList"
 import PostsList from "./PostsList"
 
-export default function PostsContent({ title }) {
+export default function PostsContent({postsJson}) {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()
 
@@ -13,7 +13,7 @@ export default function PostsContent({ title }) {
   //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
   //     router.push("/");
   //   };
-
+ 
   return (
     <div className="homeContent">
       <Row >
@@ -32,7 +32,7 @@ export default function PostsContent({ title }) {
           xl={{ span: 14 }}
           xxl={{ span: 14 }}
         >
-         <PostsList></PostsList>
+         <PostsList postsJson={postsJson}></PostsList>
         </Col>
         <Col
           sm={{ span: 5}}

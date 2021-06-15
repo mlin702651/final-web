@@ -6,27 +6,36 @@ import PostAreaList from "/components/PostAreaList"
 import HomeNav from "/components/HomeNav"
 import PostsEachCity from "./PostsEachCity"
 import { areaClicked } from "../actions"
-export default function PostsList(props) {
-  const { state: { area: {
-    northClick,
-    westClick,
-    eastClick,
-    southClick
+import PostCard from "./PostCard"
+import moment from 'moment'
+export default function PostsList({postsJson}) {
+  const { state: { area: {northClick,westClick,eastClick,southClick
   } }, dispatch } = useContext(StoreContext);
   const router = useRouter()
-  const { eachArea } = props
+  console.log("postsJson=")
+  console.log(postsJson.allPosts)
+
   //   const onClickHeader = () => {
   //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
   //     router.push("/");
   //   };
   const areaOnClick = () => {
-    console.log(eachArea)
-    areaClicked(dispatch, eachArea)
+
     
   };
-  
+  var data = [moment(postsJson.allPosts[0].date), moment(postsJson.allPosts[1].date), moment(postsJson.allPosts[2].date)]
+
+const result = postsJson.allPosts.sort((a,b) => moment(a.date).diff(moment(b.date)))  // change to b.diff(a) for desc
+
+console.log(result)
+  console.log(moment().format('YYYY-MM-DD HH:mm:ss'))
   return (
     <div className="post-list">
+      {
+
+
+
+      }
         
 {/*     
       <img

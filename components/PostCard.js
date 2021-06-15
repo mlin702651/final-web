@@ -5,13 +5,9 @@ import { StoreContext } from "../store";
 import PostAreaList from "/components/PostAreaList"
 import HomeNav from "/components/HomeNav"
 import { cityClicked } from "../actions"
-export default function PostsEachCity(props) {
+export default function PostCard(props) {
   const { state: { area: {
-    northClick,
-    westClick,
-    eastClick,
-    southClick,
-    cityClick
+    northClick,westClick,eastClick,southClick,cityClick
   } }, dispatch } = useContext(StoreContext);
   const router = useRouter()
   const { city, area } = props

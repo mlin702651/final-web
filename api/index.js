@@ -3,7 +3,7 @@ import "firebase/firestore";
 import "firebase/auth";
 import jsonInfo from "../json/jsonInfo.json";
 import products from "../json/products.json";
-
+import postsJson from "../json/posts.json"
 // INITIALIZE FIREBASE
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -37,7 +37,6 @@ export const getProductById = async (productId) => {
 }
 
 export const getProducts = async (url) => {
-  console.log(jsonInfo)
   const collection = jsonInfo.find(element => element.url === url);
   const collectionName = collection.name || "allProducts";
   let jsonProducts = [];
@@ -130,4 +129,7 @@ export const checkLoginApi = () => {
   if(!user) return false;
   return user.uid?  true : false;
 }
+
+//ramen
+
 

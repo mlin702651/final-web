@@ -453,6 +453,7 @@ color: #871F1F;
 	top: 0;
 	/* background-color: rgb(226, 93, 93); */
 	opacity: 0.5;
+	cursor: pointer;
 }
 .area-active{
 	background-color: rgb(167, 87, 87);
@@ -460,7 +461,7 @@ color: #871F1F;
 .each-city-cont{
 	position: relative;
 	display: flex;
-
+cursor: pointer;
 }
 .post-each-city{
 	margin-top:10px;
@@ -607,5 +608,5 @@ color: #871F1F;
 .post-list{
 	background-color:#871F1F ;
 	height: 100px;
-	width: 100px;
+	width: 100%;
 }
