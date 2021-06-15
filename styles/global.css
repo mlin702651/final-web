@@ -621,3 +621,13 @@ color: #871F1F;
 	height: 100px;
 	width: 100px;
 }
+
+/* feeder */
+.feed {
+	margin: 0 auto;
+}
+.ant-card-body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}

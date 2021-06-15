@@ -3,6 +3,7 @@ import "firebase/firestore";
 import "firebase/auth";
 import jsonInfo from "../json/jsonInfo.json";
 import products from "../json/products.json";
+import knowledge from "../json/knowledge.json";
 
 // INITIALIZE FIREBASE
 const firebaseConfig = {
@@ -26,6 +27,10 @@ const productsCollectionRef = firebase.firestore().collection("products");
 const productsDocRef = productsCollectionRef.doc("json");
 const allProductsCollectionRef = productsDocRef.collection("allProducts");
 const allOrdersCollectionRef = firebase.firestore().collection("allOrders");
+
+// KNOWLEDGE 
+const allKnowledgeCollectionRef = firebase.firestore().collection("allKnowledge");
+
 
 //REFERENCE AUTH
 const auth = firebase.auth();
@@ -131,3 +136,15 @@ export const checkLoginApi = () => {
   return user.uid?  true : false;
 }
 
+export const feedknowledge = () => {
+  knowledge.forEach((item) => {
+    const docRef = allKnowledgeCollectionRef.doc();
+    const id = docRef.id;
+
+    // Store Data for Aggregation Queries
+    docRef.set({
+      ...item,
+      id,
+    });
+  })
+}
