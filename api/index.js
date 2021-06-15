@@ -31,8 +31,8 @@ const allOrdersCollectionRef = firebase.firestore().collection("allOrders");
 
 // KNOWLEDGE 
 const allKnowledgeCollectionRef = firebase.firestore().collection("allKnowledge");
-
-
+//POSTS
+const allPostsCollectionRef = firebase.firestore().collection("allPosts");
 //REFERENCE AUTH
 const auth = firebase.auth();
 
@@ -150,4 +150,35 @@ export const feedknowledge = () => {
       id,
     });
   })
+}
+
+export const feedPosts = () => {
+  console.log("feeding")
+  postsJson.allPosts.forEach((item) => {
+    const docRef = allPostsCollectionRef.doc();
+    const id = docRef.id;
+
+    // Store Data for Aggregation Queries
+    docRef.set({
+      ...item,
+      id,
+    });
+  })
+}
+
+export const getAllPosts = async () => {
+  // REFERENCE PRODUCTS COLLECTION
+  let aaa=[]
+
+  const doca = await allPostsCollectionRef.get();
+
+
+  
+  doca.forEach((doc) => {
+    console.log(doc.data())
+    aaa.push(doc.data());
+  });
+  console.log(aaa)
+
+  // return doc.data()
 }

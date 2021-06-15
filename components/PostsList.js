@@ -8,6 +8,7 @@ import PostsEachCity from "./PostsEachCity"
 import { areaClicked } from "../actions"
 import PostCard from "./PostCard"
 import moment from 'moment'
+import {feedPosts,getAllPosts } from '../api/index'
 export default function PostsList({postsJson}) {
   const { state: { area: {northClick,westClick,eastClick,southClick
   } }, dispatch } = useContext(StoreContext);
@@ -19,10 +20,14 @@ export default function PostsList({postsJson}) {
   //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
   //     router.push("/");
   //   };
-  const areaOnClick = () => {
-
+  const feedOnClick = () => {
+    feedPosts()
     
   };
+  const clickGetPost= async()=>{
+    let postsdata=await getAllPosts()
+console.log(postsdata)
+  }
   var data = [moment(postsJson.allPosts[0].date), moment(postsJson.allPosts[1].date), moment(postsJson.allPosts[2].date)]
 
 const result = postsJson.allPosts.sort((a,b) => moment(a.date).diff(moment(b.date)))  // change to b.diff(a) for desc
@@ -30,13 +35,18 @@ const result = postsJson.allPosts.sort((a,b) => moment(a.date).diff(moment(b.dat
 console.log(result)
   console.log(moment().format('YYYY-MM-DD HH:mm:ss'))
   return (
-    <div className="post-list">
+    <div className="post-list" >
       {
 
 
 
       }
-        
+        <div className="showPostData" onClick={clickGetPost}>
+GET
+        </div>
+        <div className="feedPostData" onClick={feedOnClick}>
+FEED
+        </div>
 {/*     
       <img
           // style={{ width: '100%' }}
