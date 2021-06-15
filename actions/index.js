@@ -47,6 +47,7 @@ import {
   createOrderApi,
   getOrderById,
   checkLoginApi,
+  feedknowledge,
 } from "../api";
 
 export const addCartItem = (dispatch, product, qty) => {
@@ -304,4 +305,15 @@ export const cityClicked = (dispatch, eachcity, eachArea) => {
     type: CITYCLICKED,
     payload: cityInfo
   });
+}
+
+export const feedKnowledgeJSONToFirebase = async (dispatch) => {
+  dispatch({ type: BEGIN_PRODUCTS_FEED });
+  try {
+    await feedknowledge();
+    dispatch({ type: SUCCESS_PRODUCTS_FEED });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: FAIL_PRODUCTS_FEED, payload: error });
+  }
 }
