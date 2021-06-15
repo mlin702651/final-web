@@ -7,14 +7,13 @@ import { Input, Drawer } from 'antd';
 import HamMenu from './HamMenu';
 import PostNavBtnWhite from './PostNavBtnWhite';
 import UserInfo from './UserInfo'
+import LoginCard from './LoginCard';
+
 export default function PostsHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()
-
-  //   const onClickHeader = () => {
-  //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
-  //     router.push("/");
-  //   };
+  const { redirect } = router.query;
+  
   const onChange = e => {
     console.log(e);
   };
@@ -22,8 +21,10 @@ export default function PostsHeader({ title }) {
     console.log("Sss");
   }
 
-  const [isOnTouch, setIsOnTouch] = useState(false);
-  const handleCloseDrawer = () => setIsOnTouch(false);
+  const [isHamTouch, setIsHamTouch] = useState(false);
+  const handleCloseHamDrawer = () => setIsHamTouch(false);
+  const [isLoginTouch, setIsLoginTouch] = useState(false);
+  const handleCloseLoginDrawer = () => setIsLoginTouch(false);
 
   return (
     <>
@@ -39,9 +40,9 @@ export default function PostsHeader({ title }) {
         </div>
         <div className="login-and-ham">
           <div className="login">      
-            <UserInfo />
+            <UserInfo onClick={() => setIsLoginTouch(!isLoginTouch)} isOnTouch={isLoginTouch}/>
           </div>
-          <HamMenu onClick={() => setIsOnTouch(!isOnTouch)} isOnTouch={isOnTouch}/>
+          <HamMenu onClick={() => setIsHamTouch(!isHamTouch)} isOnTouch={isHamTouch}/>
         </div>
       </header>
       <Drawer 
@@ -49,8 +50,8 @@ export default function PostsHeader({ title }) {
         placement={"right"}
       
         closable={false}
-        onClose={handleCloseDrawer}
-        visible={isOnTouch}
+        onClose={handleCloseHamDrawer}
+        visible={isHamTouch}
        
         width={"100%"}
         zIndex={99}
@@ -62,6 +63,21 @@ export default function PostsHeader({ title }) {
           <PostNavBtnWhite to="/map">地圖</PostNavBtnWhite>
           <PostNavBtnWhite to="/knowledge">科普</PostNavBtnWhite>
         </div>
+      </Drawer>
+      <Drawer 
+        title=" "
+        placement={"right"}
+      
+        closable={false}
+        onClose={handleCloseLoginDrawer}
+        visible={isLoginTouch}
+       
+        width={"100%"}
+        zIndex={99}
+        bodyStyle={{backgroundColor: "#3D0C08"}}
+        headerStyle={{backgroundColor: "#3D0C08", color: "#fff", border: "none"}}
+      >
+        <LoginCard redirect={redirect} />
       </Drawer>
     </>
   );
