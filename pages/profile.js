@@ -1,7 +1,7 @@
 import { Layout } from "antd";
 import Head from 'next/head'
 import NoSearchHeader from "../components/NoSearchHeader";
-// import ProfileCard from "../components/ProfileCard";
+import ProfileContent from "../components/ProfileContent"
 
 const { Header, Content, Footer } = Layout;
 
@@ -16,8 +16,8 @@ function Profile() {
           <NoSearchHeader />
         </Header>
         <Layout className="container ">
-            <Content style={{position: 'relative', height: '100vh' ,padding: '0 50px' }} >
-                {/* <ProfileCard /> */}
+            <Content style={{position: 'relative', height: '100vh' }} >
+                <ProfileContent />
             </Content>
         </Layout>
         <Footer style={{ textAlign: 'center', background: '#3D0C08' }}></Footer>

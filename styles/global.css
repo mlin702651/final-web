@@ -90,6 +90,7 @@ justify-content: space-between;
 .sethomeHeader {
 	background: rgba(255, 255, 255, 0);
 	height: 70px;
+	padding: 0%;
 }
 
 .logo {
@@ -102,7 +103,7 @@ justify-content: space-between;
 	position: relative;
 	height: 70px;
 	width: 70px;
-	margin-right: 29px;
+	margin-right: 1.5rem;
 }
 .login-btn {
 	cursor: pointer;
@@ -327,6 +328,7 @@ justify-content: space-between;
 	z-index: 999;
 	width: 4rem;
 	height: 4rem;
+	margin-right: 2.5rem;
 	opacity: 1;
 	transition: all .25s linear;
   }
@@ -603,6 +605,16 @@ color: #871F1F;
 .login-form__button:hover .login-form__button-span, 
 .login-form__button:focus .login-form__button-span {
 	color: #ffffff;
+}
+@media(max-width: 992px) {
+	.login-form {
+		max-width: 60vw;
+	}
+}
+@media(max-width: 576px) {
+	.login-form {
+		max-width: 90vw;
+	}
 }
 .post-list{
 	background-color:#871F1F ;
