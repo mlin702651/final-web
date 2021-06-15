@@ -33,7 +33,8 @@ import {
   SUCCESS_ORDER_DETAIL,
   FAIL_ORDER_DETAIL,
   AREACLICKED,
-  CITYCLICKED
+  CITYCLICKED,
+  SETPOSTLIST
 } from "../utils/constants";
 
 import {
@@ -48,7 +49,9 @@ import {
   getOrderById,
   checkLoginApi,
   feedknowledge,
+  getAllPosts
 } from "../api";
+import moment from "moment";
 
 export const addCartItem = (dispatch, product, qty) => {
   const item = {
@@ -316,4 +319,20 @@ export const feedKnowledgeJSONToFirebase = async (dispatch) => {
     console.log(error);
     dispatch({ type: FAIL_PRODUCTS_FEED, payload: error });
   }
+}
+
+export const getAllPostAct = async(dispatch)=>{
+try{
+  const posts =await getAllPosts();
+  
+  const sortedPosts = posts.sort((a,b)=>moment(a.date).diff(moment(b.date)))
+// console.log(sortedPosts)
+  dispatch({type: SETPOSTLIST,payload:sortedPosts})
+  // console.log(sortedPosts)
+  // return sortedPosts
+ 
+}catch(error){
+  console.log(error);
+}
+
 }

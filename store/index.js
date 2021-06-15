@@ -35,7 +35,8 @@ import {
   SUCCESS_ORDER_DETAIL,
   FAIL_ORDER_DETAIL,
   AREACLICKED,
-  CITYCLICKED
+  CITYCLICKED,
+  SETPOSTLIST
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -123,7 +124,10 @@ const initialState = {
     eastClick:false,
     southClick:false,
     cityClick:null
-  }
+  },
+  postsListState:[
+
+  ]
 };
 
 function reducer(state, action) {
@@ -449,6 +453,16 @@ function reducer(state, action) {
             ...state.area,
            
             cityClick:cityInfo.city
+          }
+        }
+      case  SETPOSTLIST:
+        let sortedPosts =action.payload
+        //console.log(sortedPosts)
+        return{
+          ...state,
+          postsListState:{
+            ...state.postsListState,
+            ...sortedPosts
           }
         }
     default:

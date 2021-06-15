@@ -43,7 +43,6 @@ export default function Home() {
   )
 }
 export const getStaticProps = async () => {
-  console.log("87")
   const jsonProducts = await getProducts("/posts");
 
   if(jsonProducts){

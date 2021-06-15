@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext,useEffect } from "react";
 import { useRouter } from 'next/router'
 import { Row, Col, Spin } from "antd";
 import { StoreContext } from "../store";
@@ -9,44 +9,55 @@ import { areaClicked } from "../actions"
 import PostCard from "./PostCard"
 import moment from 'moment'
 import {feedPosts,getAllPosts } from '../api/index'
+import {getAllPostAct} from '../actions'
+
+
+
+
 export default function PostsList({postsJson}) {
   const { state: { area: {northClick,westClick,eastClick,southClick
-  } }, dispatch } = useContext(StoreContext);
+  }, postsListState }, dispatch } = useContext(StoreContext);
   const router = useRouter()
-  console.log("postsJson=")
-  console.log(postsJson.allPosts)
+  // console.log("postsJson=")
+  // console.log(postsJson.allPosts)
 
   //   const onClickHeader = () => {
   //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
   //     router.push("/");
   //   };
+  useEffect(() => {
+     EffectGetPost()
+  
+  }, []);
   const feedOnClick = () => {
     feedPosts()
     
   };
+  console.log(postsListState)
   const clickGetPost= async()=>{
-    let postsdata=await getAllPosts()
+    let postsdata=await getAllPostAct()
+console.log(postsdata)
+  }
+  const EffectGetPost= async()=>{
+    let postsdata=await getAllPostAct(dispatch)
 console.log(postsdata)
   }
   var data = [moment(postsJson.allPosts[0].date), moment(postsJson.allPosts[1].date), moment(postsJson.allPosts[2].date)]
 
-const result = postsJson.allPosts.sort((a,b) => moment(a.date).diff(moment(b.date)))  // change to b.diff(a) for desc
+const result = postsJson.allPosts.sort((b,a) => moment(a.date).diff(moment(b.date)))  // change to b.diff(a) for desc
 
-console.log(result)
+// console.log(result)
   console.log(moment().format('YYYY-MM-DD HH:mm:ss'))
   return (
     <div className="post-list" >
-      {
-
-
-
-      }
-        <div className="showPostData" onClick={clickGetPost}>
+      
+      <PostCard postsListState={postsListState}></PostCard>
+        {/* <div className="showPostData" onClick={clickGetPost}>
 GET
         </div>
         <div className="feedPostData" onClick={feedOnClick}>
 FEED
-        </div>
+        </div> */}
 {/*     
       <img
           // style={{ width: '100%' }}

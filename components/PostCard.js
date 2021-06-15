@@ -10,7 +10,7 @@ export default function PostCard(props) {
     northClick,westClick,eastClick,southClick,cityClick
   } }, dispatch } = useContext(StoreContext);
   const router = useRouter()
-  const { city, area } = props
+  const { postsListState } = props
   //   const onClickHeader = () => {
   //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
   //     router.push("/");
@@ -20,32 +20,10 @@ export default function PostCard(props) {
     cityClicked(dispatch, city, area)
   };
   // console.log(city+"在"+area)
+return(
+<div className="postCard">
 
 
-  if (area == "北部") {
-    return (
-      northClick ? (<div className="each-city-cont"><div className={cityClick === city ? "post-each-city-active post-each-city" : "post-each-city"} onClick={cityOnClick} >{city}
-      </div>{cityClick === city ? (<div className="city-line-cont"><div className="city-line"></div></div>) : (<div className="city-line-cont"><div className="city-line city-line-off"></div><div className="city-line city-line-off"></div></div>)}</div>) : (<div className="dsp-n"></div>)
-    );
-  } else if (area == "中部") {
-    return (
-      westClick ? (<div className="each-city-cont"><div className={cityClick === city ? "post-each-city-active post-each-city" : "post-each-city"} onClick={cityOnClick} >{city}
-      </div>{cityClick === city ? (<div className="city-line-cont"><div className="city-line"></div></div>) : (<div className="city-line-cont"><div className="city-line city-line-off"></div><div className="city-line city-line-off"></div></div>)}</div>) : (<div className="dsp-n"></div>)
-    );
-  } else if (area == "南部") {
-    return (
-      southClick ? (<div className="each-city-cont"><div className={cityClick === city ? "post-each-city-active post-each-city" : "post-each-city"} onClick={cityOnClick} >{city}
-      </div>{cityClick === city ? (<div className="city-line-cont"><div className="city-line"></div></div>) : (<div className="city-line-cont"><div className="city-line city-line-off"></div><div className="city-line city-line-off"></div></div>)}</div>) : (<div className="dsp-n"></div>)
-    );
-  } else if (area == "東部") {
-    return (
-      eastClick ? (<div className="each-city-cont"><div className={cityClick === city ? "post-each-city-active post-each-city" : "post-each-city"} onClick={cityOnClick} >{city}
-      </div>{cityClick === city ? (<div className="city-line-cont"><div className="city-line"></div></div>) : (<div className="city-line-cont"><div className="city-line city-line-off"></div><div className="city-line city-line-off"></div></div>)}</div>) : (<div className="dsp-n"></div>)
-    );
-  } else {
-    return (<div className="post-each-city">a</div>)
-  }
-
-
-
+</div>
+);
 }

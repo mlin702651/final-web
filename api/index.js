@@ -154,6 +154,7 @@ export const feedknowledge = () => {
 
 export const feedPosts = () => {
   console.log("feeding")
+  
   postsJson.allPosts.forEach((item) => {
     const docRef = allPostsCollectionRef.doc();
     const id = docRef.id;
@@ -175,10 +176,10 @@ export const getAllPosts = async () => {
 
   
   doca.forEach((doc) => {
-    console.log(doc.data())
+    
     aaa.push(doc.data());
   });
-  console.log(aaa)
 
-  // return doc.data()
+
+   return aaa
 }
