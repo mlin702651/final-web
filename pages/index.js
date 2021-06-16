@@ -13,14 +13,7 @@ import { StoreContext } from "../store"
 
 
 export default function Home() {
-  useEffect(() => {
-    EffectGetPost()
- 
- }, []);
- const EffectGetPost= async()=>{
-  let postsdata=await getAllPostAct(dispatch)
-console.log(postsdata)
-}
+
   // useEffect(() => {
 
   //   const jsonProducts = getProducts("/posts");
