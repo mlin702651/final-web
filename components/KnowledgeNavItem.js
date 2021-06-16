@@ -19,6 +19,7 @@ export default function KnowledgeNavItem(props) {
                 ${className} 
                 ${state.navBar.activeItem === to ? activeClassName : ""}`}
             >
+                {/* <image src="" /> */}
                 {children}
             </div>
         </Link>

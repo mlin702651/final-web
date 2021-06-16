@@ -651,3 +651,33 @@ cursor: pointer;
 	height: 800px;
 	background-color: red;
 }
+
+/* knowledge page */
+.know-nav-bar {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;
+	margin-top: 10vh;
+}
+.know-nav-item {
+	cursor: pointer;
+	margin: .75rem 0;
+	color: #58403E;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.know-nav-item:hover {
+	color: #871F1F;
+}
+.know-nav-item--active {
+	color: #871F1F;
+}
+.know-sect {
+	font-size: 2.75rem;
+	font-weight: bold;
+}
+.know-detail {
+	font-size: 1.15rem;
+	max-width: 30vw;
+}
