@@ -67,7 +67,7 @@ export default function PostsHeader({ title }) {
         <div className="post-nav-cont">
           <PostNavBtnWhite to="/posts">論壇</PostNavBtnWhite>
           <PostNavBtnWhite to="/map">地圖</PostNavBtnWhite>
-          <PostNavBtnWhite to="/knowledge">科普</PostNavBtnWhite>
+          <PostNavBtnWhite to="/knowledge/iekei">科普</PostNavBtnWhite>
         </div>
       </Drawer>
       <Drawer 

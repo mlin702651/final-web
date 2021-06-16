@@ -4,7 +4,7 @@ import "firebase/auth";
 import jsonInfo from "../json/jsonInfo.json";
 import products from "../json/products.json";
 import postsJson from "../json/posts.json"
-import knowledge from "../json/knowledge.json";
+import knowledgeJson from "../json/knowledge.json";
 
 // INITIALIZE FIREBASE
 const firebaseConfig = {
@@ -140,7 +140,7 @@ export const checkLoginApi = () => {
 
 
 export const feedknowledge = () => {
-  knowledge.forEach((item) => {
+  knowledgeJson.forEach((item) => {
     const docRef = allKnowledgeCollectionRef.doc();
     const id = docRef.id;
 
@@ -172,14 +172,25 @@ export const getAllPosts = async () => {
   let aaa=[]
 
   const doca = await allPostsCollectionRef.get();
-
-
   
   doca.forEach((doc) => {
     
     aaa.push(doc.data());
   });
 
-
    return aaa
+}
+
+//knowledge
+export const getKnowledgeContent = async (url) => {
+  const collection = knowledgeJson.find(element => element.url === url);
+  const collectionSect = collection.sect;
+  let jsonProducts=[]
+  // QUERY PRODUCTS
+  let querySnapshot;
+  querySnapshot = await allKnowledgeCollectionRef.where("sect", "==", collectionSect).get();
+  querySnapshot.forEach((doc) => {
+    jsonProducts.push(doc.data());
+  });
+  return jsonProducts[0];
 }

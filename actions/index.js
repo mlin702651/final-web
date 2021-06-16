@@ -34,7 +34,12 @@ import {
   FAIL_ORDER_DETAIL,
   AREACLICKED,
   CITYCLICKED,
-  SETPOSTLIST
+  SETPOSTLIST,
+  SET_KNOWLEDGE_PAGE_CONTENT,
+  SET_KNOWLEDGE_NAVBAR_ACTIVEITEM,
+  BEGIN_KNOWLEDGE_REQUEST,
+  SUCCESS_KNOWLEDGE_REQUEST,
+  FAIL_KNOWLEDGE_REQUEST
 } from "../utils/constants";
 
 import {
@@ -49,7 +54,8 @@ import {
   getOrderById,
   checkLoginApi,
   feedknowledge,
-  getAllPosts
+  getAllPosts,
+  getKnowledgeContent
 } from "../api";
 import moment from "moment";
 
@@ -322,17 +328,37 @@ export const feedKnowledgeJSONToFirebase = async (dispatch) => {
 }
 
 export const getAllPostAct = async(dispatch)=>{
-try{
-  const posts =await getAllPosts();
+  try{
+    const posts =await getAllPosts();
   
-  const sortedPosts = posts.sort((a,b)=>moment(a.date).diff(moment(b.date)))
-// console.log(sortedPosts)
-  dispatch({type: SETPOSTLIST,payload:sortedPosts})
-  // console.log(sortedPosts)
-  // return sortedPosts
+    const sortedPosts = posts.sort((a,b)=>moment(a.date).diff(moment(b.date)))
+    // console.log(sortedPosts)
+    dispatch({type: SETPOSTLIST,payload:sortedPosts})
+    // console.log(sortedPosts)
+    // return sortedPosts
  
-}catch(error){
-  console.log(error);
+  }catch(error){
+    console.log(error);
+  }
 }
 
+export const setKnowledgePage = async (dispatch, url) => {
+  let knowledge;
+  dispatch({ type: BEGIN_KNOWLEDGE_REQUEST });
+
+  try {
+    knowledge = await getKnowledgeContent(url);
+    dispatch({
+      type: SET_KNOWLEDGE_PAGE_CONTENT,
+      payload: knowledge,
+    });
+    dispatch({
+      type: SET_NAVBAR_ACTIVEITEM,
+      payload: url,
+    });
+    dispatch({ type: SUCCESS_KNOWLEDGE_REQUEST });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: FAIL_KNOWLEDGE_REQUEST, payload: error });
+  }
 }

@@ -36,7 +36,12 @@ import {
   FAIL_ORDER_DETAIL,
   AREACLICKED,
   CITYCLICKED,
-  SETPOSTLIST
+  SETPOSTLIST,
+  SET_KNOWLEDGE_PAGE_CONTENT,
+  SET_KNOWLEDGE_NAVBAR_ACTIVEITEM,
+  BEGIN_KNOWLEDGE_REQUEST,
+  SUCCESS_KNOWLEDGE_REQUEST,
+  FAIL_KNOWLEDGE_REQUEST
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -125,9 +130,18 @@ const initialState = {
     southClick:false,
     cityClick:null
   },
-  postsListState:[
-
-  ]
+  postsListState:[],
+  //knowledge page
+  knowledgePage: {
+    article: {},
+  },
+  knowledgeNavBar: {
+    activeItem: "/knowledge/iekei",
+  },
+  requestKnowledge: {
+    loading: false,
+    error: null,
+  }
 };
 
 function reducer(state, action) {
@@ -465,6 +479,40 @@ function reducer(state, action) {
             ...sortedPosts
           }
         }
+      //knowledge page
+      case SET_KNOWLEDGE_PAGE_CONTENT:
+        return {
+          ...state,
+          knowledgePage: {
+            article: action.payload,
+          },
+        };
+      case SET_KNOWLEDGE_NAVBAR_ACTIVEITEM:
+        return {
+          ...state,
+          knowledgeNavBar: {
+            activeItem: action.payload,
+          },
+        };
+      case BEGIN_KNOWLEDGE_REQUEST:
+        return {
+          ...state,
+          requestKnowledge: { ...state.requestKnowledge, loading: true },
+        };
+      case SUCCESS_KNOWLEDGE_REQUEST:
+        return {
+          ...state,
+          requestKnowledge: { ...state.requestKnowledge, loading: false },
+        };
+      case FAIL_KNOWLEDGE_REQUEST:
+        return {
+          ...state,
+          requestKnowledge: {
+            ...state.requestKnowledge,
+            loading: false,
+            error: action.payload,
+          },
+        };
     default:
       return state;
   }
