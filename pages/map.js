@@ -24,6 +24,9 @@ export default function map() {
     <Layout>
       <Head>
         <title>map</title>
+        
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
       </Head>
       <Layout className="home-layout-1">
         <Header className="sethomeHeader">

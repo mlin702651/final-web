@@ -506,16 +506,18 @@ cursor: pointer;
 	display: flex;
 }
 .map-div {
-	width: 500px;
-	height: 500px;
+	width: 50vh;
+	height: 50vh;
 	margin: auto;
+	top: 25vh;
+    border-radius: 2rem;
+    overflow: hidden;
 }
 .map-canvas {
 	position: fixed;
-	height: 30vw;
-	width: 30vw;
-	top: 8rem;
 	border-radius: 2rem;
+	width: 50vh;
+	height: 50vh;
 }
 /* login card */
 .login-card-alignment::before {
