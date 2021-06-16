@@ -649,3 +649,19 @@ cursor: pointer;
 	height: 800px;
 	background-color: red;
 }
+.hidden{
+width: 100%;
+background-color: #fff;
+}
+.inputBG{
+background-color: rgb(159, 224, 37);
+}
+
+.pano {
+	height: 300px;
+	width: 300px;
+	background-color: #fff;
+  }
+  .imgTest{
+	  width: 300px;height: 300px;
+  }

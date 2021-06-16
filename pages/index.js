@@ -7,12 +7,20 @@ import HomeContent from "../components/HomeConent.js"
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 import { getProducts } from "../api";
-
+import {getAllPostAct} from "../actions"
 
 import { StoreContext } from "../store"
 
 
 export default function Home() {
+  useEffect(() => {
+    EffectGetPost()
+ 
+ }, []);
+ const EffectGetPost= async()=>{
+  let postsdata=await getAllPostAct(dispatch)
+console.log(postsdata)
+}
   // useEffect(() => {
 
   //   const jsonProducts = getProducts("/posts");

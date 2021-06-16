@@ -1,14 +1,21 @@
-import { useContext } from "react";
+import { useContext ,  useEffect} from "react";
 import { useRouter } from 'next/router'
 import { Row, Col, Spin } from "antd";
 import { StoreContext } from "../store";
 import PostAreaList from "/components/PostAreaList"
 import PostsList from "./PostsList"
-
+import {getAllPostAct} from '../actions'
 export default function PostsContent({postsJson}) {
-  const { dispatch } = useContext(StoreContext);
+  const { state: {  postsListState }, dispatch } = useContext(StoreContext);
   const router = useRouter()
-
+  useEffect(() => {
+    EffectGetPost()
+ 
+ }, []);
+ const EffectGetPost= async()=>{
+  let postsdata=await getAllPostAct(dispatch)
+console.log(postsdata)
+}
   //   const onClickHeader = () => {
   //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
   //     router.push("/");
@@ -23,7 +30,7 @@ export default function PostsContent({postsJson}) {
           xl={{ span: 5 }}
           xxl={{ span: 5 }}
         >
-          <PostAreaList></PostAreaList>
+          <PostAreaList ></PostAreaList>
 
 
         </Col>
@@ -32,7 +39,7 @@ export default function PostsContent({postsJson}) {
           xl={{ span: 14 }}
           xxl={{ span: 14 }}
         >
-         <PostsList postsJson={postsJson}></PostsList>
+         <PostsList postsJson={postsJson} postsListState={postsListState}></PostsList>
         </Col>
         <Col
           sm={{ span: 5}}

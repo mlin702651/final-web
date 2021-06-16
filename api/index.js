@@ -194,3 +194,4 @@ export const getKnowledgeContent = async (url) => {
   });
   return jsonProducts[0];
 }
+

@@ -130,7 +130,40 @@ const initialState = {
     southClick:false,
     cityClick:null
   },
-  postsListState:[],
+  postsListState:[
+  //   {
+  //   key:"1",
+  //   date:"2020-08-08 17:00:17",
+  //   area:"北部",
+  //   city:"台北",
+  //   id:"1",
+  //   image:"",
+  //   restaurant:"",
+  //   text:"",
+  //   tags:[""],
+  //   comments:[{
+  //     name:"",
+  //     content:""
+  //   },
+  // ]
+  // },
+  // {
+  //   key:"1",
+  //   date:"2020-08-08 17:00:17",
+  //   area:"北部",
+  //   city:"台北",
+  //   id:"2",
+  //   image:"",
+  //   restaurant:"",
+  //   text:"",
+  //   tags:[""],
+  //   comments:[{
+  //     name:"",
+  //     content:""
+  //   },
+  // ]
+  // }
+],
   //knowledge page
   knowledgePage: {
     article: {},
@@ -474,10 +507,9 @@ function reducer(state, action) {
         //console.log(sortedPosts)
         return{
           ...state,
-          postsListState:{
-            ...state.postsListState,
+          postsListState:[
             ...sortedPosts
-          }
+          ]
         }
       //knowledge page
       case SET_KNOWLEDGE_PAGE_CONTENT:

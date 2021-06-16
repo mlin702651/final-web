@@ -10,7 +10,7 @@ export default function PostCard(props) {
     northClick,westClick,eastClick,southClick,cityClick
   } }, dispatch } = useContext(StoreContext);
   const router = useRouter()
-  const { postsListState } = props
+  const { eachPost } = props
   //   const onClickHeader = () => {
   //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
   //     router.push("/");
