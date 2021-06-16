@@ -659,6 +659,7 @@ cursor: pointer;
 	justify-content: space-around;
 	align-items: flex-start;
 	margin-top: 10vh;
+	margin-left: -20px;
 }
 .know-nav-item {
 	cursor: pointer;
@@ -673,11 +674,29 @@ cursor: pointer;
 .know-nav-item--active {
 	color: #871F1F;
 }
+.know-all {
+	position: relative;
+}
+.know-main {
+	position: absolute;
+	top: 35vh;
+	left: 1rem;
+}
 .know-sect {
-	font-size: 2.75rem;
+	font-size: 2.5rem;
 	font-weight: bold;
 }
 .know-detail {
-	font-size: 1.15rem;
+	font-size: 1rem;
 	max-width: 30vw;
+}
+.know-recommend {
+	position: absolute;
+	right: 1rem;
+	top: 2rem;
+}
+.know-tag {
+	font-size: 1rem;
+	margin: 5px auto;
+	color: #3D0C08;
 }

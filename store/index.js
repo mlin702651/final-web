@@ -133,7 +133,7 @@ const initialState = {
   postsListState:[],
   //knowledge page
   knowledgePage: {
-    article: {},
+    article: { recommend: [] },
   },
   knowledgeNavBar: {
     activeItem: "/knowledge/iekei",

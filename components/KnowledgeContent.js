@@ -16,26 +16,27 @@ export default function KnowledgeContent() {
   //   };
 
   return (
-    <div className="knowledge-navbar">
-      <Row >
-        <Col
-          xs={{ span: 24 }}
-          sm={{ span: 24 }}          
-          md={{ span: 24 }}
-          lg={{ span: 4 }}
-        >
-          <KnowledgeNavBar />
-        </Col>
-        <Col
-          className="knowledge-article"
-          xs={{ span: 24 }}
-          sm={{ span: 24 }}
-          md={{ span: 24 }}
-          lg={{ span: 20 }}
-        >
-          <KnowledgeArticle />
-        </Col>
-      </Row>
+    <div>
+        <Row >
+            <Col
+                className="knowledge-navbar"
+                xs={{ span: 24 }}
+                sm={{ span: 24 }}          
+                md={{ span: 24 }}
+                lg={{ span: 4 }}
+            >
+                <KnowledgeNavBar />
+            </Col>
+            <Col
+                className="knowledge-article"
+                xs={{ span: 24 }}
+                sm={{ span: 24 }}
+                md={{ span: 24 }}
+                lg={{ span: 20 }}
+            >
+                <KnowledgeArticle />
+            </Col>
+        </Row>
     </div>
   );
 }
