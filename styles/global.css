@@ -506,16 +506,18 @@ cursor: pointer;
 	display: flex;
 }
 .map-div {
-	width: 500px;
-	height: 500px;
+	width: 50vh;
+	height: 50vh;
 	margin: auto;
+	top: 25vh;
+    border-radius: 2rem;
+    overflow: hidden;
 }
 .map-canvas {
 	position: fixed;
-	height: 30vw;
-	width: 30vw;
-	top: 8rem;
 	border-radius: 2rem;
+	width: 50vh;
+	height: 50vh;
 }
 /* login card */
 .login-card-alignment::before {
@@ -665,3 +667,52 @@ background-color: rgb(159, 224, 37);
   .imgTest{
 	  width: 300px;height: 300px;
   }
+
+/* knowledge page */
+.know-nav-bar {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;
+	margin-top: 10vh;
+	margin-left: -20px;
+}
+.know-nav-item {
+	cursor: pointer;
+	margin: .75rem 0;
+	color: #58403E;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.know-nav-item:hover {
+	color: #871F1F;
+}
+.know-nav-item--active {
+	color: #871F1F;
+}
+.know-all {
+	position: relative;
+}
+.know-main {
+	position: absolute;
+	top: 35vh;
+	left: 1rem;
+}
+.know-sect {
+	font-size: 2.5rem;
+	font-weight: bold;
+}
+.know-detail {
+	font-size: 1rem;
+	max-width: 30vw;
+}
+.know-recommend {
+	position: absolute;
+	right: 1rem;
+	top: 2rem;
+}
+.know-tag {
+	font-size: 1rem;
+	margin: 5px auto;
+	color: #3D0C08;
+}
