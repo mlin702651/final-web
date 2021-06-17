@@ -502,6 +502,10 @@ cursor: pointer;
 .city-line-off{
 	width: 0;
 }
+.map-layout {
+	background: url(../public/images/background-white.png) no-repeat;
+	background-size: cover;
+}
 .map-content {
 	display: flex;
 }
@@ -509,15 +513,15 @@ cursor: pointer;
 	width: 50vh;
 	height: 50vh;
 	margin: auto;
-	top: 25vh;
+	top: 20vh;
     border-radius: 2rem;
     overflow: hidden;
 }
 .map-canvas {
 	position: fixed;
 	border-radius: 2rem;
-	width: 50vh;
-	height: 50vh;
+	width: 25vw;
+	height: 25vw;
 }
 /* login card */
 .login-card-alignment::before {
@@ -723,12 +727,15 @@ background-color: rgb(159, 224, 37);
 .know-nav-item--active {
 	color: #871F1F;
 }
+.knowledge-article {
+	height: calc(100vh - 120px);
+}
 .know-all {
 	position: relative;
+	display: flex;
 }
 .know-main {
-	position: absolute;
-	top: 35vh;
+	margin-top: 35vh;
 	left: 1rem;
 }
 .know-sect {
@@ -748,4 +755,104 @@ background-color: rgb(159, 224, 37);
 	font-size: 1rem;
 	margin: 5px auto;
 	color: #3D0C08;
+}
+/* customize knowledge image */
+.know-anchor {
+	position: relative;
+}
+.know-all-images {
+	position: absolute;
+}
+.know-image-iekei .know-img-item {
+	height: 100%;
+	margin: 0 2rem;
+}
+.know-main-iekei {
+	margin-top: 12vh;
+}
+.know-image-iekei {
+	display: flex;
+	max-width: 45vw;
+	height: 22vh;
+	bottom: -30vh;
+	right: -18rem;
+	float: right;
+}
+
+.know-main-jiro {
+	margin-top: 45vh;
+}
+.know-image-jiro {
+	display: flex;
+	position: absolute;
+	max-width: 45vw;
+	height: 18vh;
+	right: 15vw;
+    top: 25vh;
+}
+.jiro-img-1 {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 3;
+}
+.jiro-img-2 {
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+	top: -4rem;
+    left: 3rem;
+    z-index: 1;
+}
+.jiro-img-3 {
+	position: absolute;
+	height: 60%;
+	top: 0;
+	left: 0;
+	top: -4.4rem;
+    left: 4rem;
+	z-index: 2;
+}
+
+.know-main-musashi {
+	margin-top: 45vh;
+}
+.know-image-musashi {
+	display: flex;
+	max-width: 45vw;
+	height: 18vh;
+	right: -25vw;
+	top: 22vh;
+}
+.musashi-img-1 {
+	height: 100%;
+	margin: 0 1rem;
+}
+.musashi-img-2 {
+	height: 40%;
+	margin: auto 1rem;
+}
+
+.know-main-hakata {
+	margin-top: 12vh;
+}
+.know-image-hakata {
+	display: flex;
+	max-width: 45vw;
+	height: 30vh;
+	right: -35vw;
+	bottom: -34vh;
+}
+
+.know-main-gyokai {
+	margin-top: 45vh;
+}
+.know-image-gyokai {
+	display: flex;
+	max-width: 45vw;
+	height: 16vh;
+	right: -20vw;
+	top: 22vh;
 }

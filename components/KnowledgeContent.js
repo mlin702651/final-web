@@ -9,7 +9,7 @@ import KnowledgeArticle from "./KnowledgeArticle"
 export default function KnowledgeContent() {
   const { dispatch, state } = useContext(StoreContext);
   const router = useRouter()
-
+    const {state: {knowledgePage: { article } } } = useContext(StoreContext)
   //   const onClickHeader = () => {
   //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
   //     router.push("/");

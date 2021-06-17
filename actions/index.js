@@ -352,7 +352,7 @@ export const setKnowledgePage = async (dispatch, url) => {
       type: SET_KNOWLEDGE_PAGE_CONTENT,
       payload: knowledge,
     });
-    console.log(knowledge.recommend)
+    console.log(knowledge)
     dispatch({
       type: SET_NAVBAR_ACTIVEITEM,
       payload: url,

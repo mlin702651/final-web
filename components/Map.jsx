@@ -50,7 +50,7 @@ const Map = () => {
                 <MapContainer center={[39.50, -98.35]} zoom={3} scrollWheelZoom={false} className="map-canvas">
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                        url={`https://api.mapbox.com/styles/v1/sonaru/ckptpq2ku069717p9qwqxqkv6/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic29uYXJ1IiwiYSI6ImNrcHRwbncxMzB1a3cyb21ubWxoN3NqdXkifQ.N-P3NsTouYIFDzY_X8jaRg`}
+                        url={`https://api.mapbox.com/styles/v1/chiaooo/ckq0g0olo09kr18mz66e6sidd/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hpYW9vbyIsImEiOiJja3EwZXQwOWQwNDRtMnZuczN3NjI3em5oIn0.ozwqafOkZU2rGzq7_7k1fg`}
                     />
                     {test.features.map(item =>(
                         <Marker 
