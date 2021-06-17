@@ -620,9 +620,13 @@ cursor: pointer;
 	}
 }
 .post-list{
-	background-color:#871F1F ;
-	height: 100px;
+	background-color:#dabebe ;
+	
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
 }
 
 /* feeder */
@@ -646,10 +650,39 @@ cursor: pointer;
 	color: #FCF4F4;
 	background-color: rgb(100, 90, 161);
 }
-.postCard{
-	width: 80%;
-	height: 800px;
-	background-color: red;
+.post-card{
+	width: 450px;
+	min-height: 800px;
+	background-color: rgb(243, 241, 241);
+	margin-top: 30px;
+}
+.post-image{
+	width: 450px;
+	height: 450px;
+	/* object-fit: contain; */
+	object-fit:cover
+}
+.post-text-cont{
+	
+
+	width: 450px;
+	
+}
+.post-text{
+
+display: inline-block;  
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+width: 280px;
+}
+
+.post-readmore{
+display: inline;
+position: relative;
+top:-6px;
+cursor: pointer;
+
 }
 .hidden{
 width: 100%;
