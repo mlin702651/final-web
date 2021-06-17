@@ -166,7 +166,7 @@ const initialState = {
 ],
   //knowledge page
   knowledgePage: {
-    article: { recommend: [] },
+    article: { recommend: [], image: [] },
   },
   knowledgeNavBar: {
     activeItem: "/knowledge/iekei",
