@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start"
   },
-  "dependencies": { 
+  "dependencies": {
     "antd": "^4.13.1",
     "date-fns": "^2.11.1",
     "firebase": "^8.3.1",
@@ -18,7 +18,7 @@
     "leaflet-defaulticon-compatibility": "^0.1.1",
     "leaflet-geosearch": "^3.3.2",
     "mapbox-gl": "^2.3.0",
-    "next": "^10.0.0",
+    "next": "^10.2.3",
     "query-string": "^7.0.0",
     "react": "^17.0.1",
     "react-dom": "17.0.1",
