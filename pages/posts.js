@@ -6,12 +6,29 @@ import PostsHeader from "../components/PostsHeader.js"
 import PostsContent from "../components/PostsContent.js"
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
-
+import { getProducts } from "../api";
+import postsJson from "../json/posts.json"
 
 import { StoreContext } from "../store"
 
+const Posts=({jsonProducts})=> {
+  useEffect(() => {
 
-export default function Posts() {
+    // const fetchData = async () => {
+    //   console.log(2)
+    //   const jsonProducts = await getProducts("/posts");
+      
+    //   if(jsonProducts){
+    //     console.log('getStaticProps = ')
+    //     console.log(jsonProducts)
+    //   }
+    // }
+    // fetchData()
+
+
+
+  }, []);
+  // console.log(postsJson)
   return (
     <Layout>
       <Head>
@@ -24,7 +41,7 @@ export default function Posts() {
         <Layout className="container ">
           <Content style={{ padding: '0 50px' }} >
 
-<PostsContent></PostsContent>
+<PostsContent postsJson={postsJson}></PostsContent>
           </Content>
         </Layout>
         <Footer style={{ textAlign: 'center', background: '#3D0C08' }}></Footer>
@@ -32,3 +49,8 @@ export default function Posts() {
     </Layout>
   )
 }
+
+
+
+
+export default Posts

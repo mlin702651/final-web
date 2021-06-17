@@ -3,6 +3,8 @@ import "firebase/firestore";
 import "firebase/auth";
 import jsonInfo from "../json/jsonInfo.json";
 import products from "../json/products.json";
+import postsJson from "../json/posts.json"
+import knowledgeJson from "../json/knowledge.json";
 
 // INITIALIZE FIREBASE
 const firebaseConfig = {
@@ -27,6 +29,10 @@ const productsDocRef = productsCollectionRef.doc("json");
 const allProductsCollectionRef = productsDocRef.collection("allProducts");
 const allOrdersCollectionRef = firebase.firestore().collection("allOrders");
 
+// KNOWLEDGE 
+const allKnowledgeCollectionRef = firebase.firestore().collection("allKnowledge");
+//POSTS
+const allPostsCollectionRef = firebase.firestore().collection("allPosts");
 //REFERENCE AUTH
 const auth = firebase.auth();
 
@@ -128,5 +134,64 @@ export const checkLoginApi = () => {
   const user = auth.currentUser;
   if(!user) return false;
   return user.uid?  true : false;
+}
+
+//ramen
+
+
+export const feedknowledge = () => {
+  knowledgeJson.forEach((item) => {
+    const docRef = allKnowledgeCollectionRef.doc();
+    const id = docRef.id;
+
+    // Store Data for Aggregation Queries
+    docRef.set({
+      ...item,
+      id,
+    });
+  })
+}
+
+export const feedPosts = () => {
+  console.log("feeding")
+  
+  postsJson.allPosts.forEach((item) => {
+    const docRef = allPostsCollectionRef.doc();
+    const id = docRef.id;
+
+    // Store Data for Aggregation Queries
+    docRef.set({
+      ...item,
+      id,
+    });
+  })
+}
+
+export const getAllPosts = async () => {
+  // REFERENCE PRODUCTS COLLECTION
+  let aaa=[]
+
+  const doca = await allPostsCollectionRef.get();
+  
+  doca.forEach((doc) => {
+    
+    aaa.push(doc.data());
+  });
+
+   return aaa
+}
+
+//knowledge
+export const getKnowledgeContent = async (url) => {
+  const collection = knowledgeJson.find(element => element.url === url);
+  const collectionSect = collection.sect;
+  let jsonProducts=[]
+  // QUERY PRODUCTS
+  let querySnapshot;
+  querySnapshot = await allKnowledgeCollectionRef.where("sect", "==", collectionSect).get();
+  querySnapshot.forEach((doc) => {
+    jsonProducts.push(doc.data());
+  });
+  return jsonProducts[0];
 }
 

@@ -10,7 +10,7 @@ import UserInfo from './UserInfo'
 import LoginCard from './LoginCard';
 import RegisterCard from "./RegisterCard";
 
-export default function PostsHeader({ title }) {
+export default function NoSearchHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()
   const { redirect } = router.query;
@@ -37,10 +37,7 @@ export default function PostsHeader({ title }) {
 
           </div>
         </Link>
-        <div className="inputCont">
-          <Input className="postsinput" placeholder="" allowClear onChange={onChange} />
-          <div className="search-btn" onClick={postSearch}></div>
-        </div>
+     
         <div className="login-and-ham">
           <div className="login">      
             <UserInfo 

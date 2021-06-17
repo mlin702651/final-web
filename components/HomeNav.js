@@ -21,7 +21,7 @@ export default function HomeNav({ title }) {
       <div className="home-nav-arrange">
         <HomeNavBtn to="/posts">論壇</HomeNavBtn>
         <HomeNavBtn to="/map">地圖</HomeNavBtn>
-        <HomeNavBtn to="/knowledge">科普</HomeNavBtn>
+        <HomeNavBtn to="/knowledge/iekei">科普</HomeNavBtn>
         {/* <img
           // style={{ width: '100%' }}
           src="/images/hover-img.png"

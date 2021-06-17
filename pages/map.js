@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { useContext, useEffect } from "react";
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-import PostHeader from "../components/PostsHeader"
+import NoSearchHeader from "../components/NoSearchHeader";
 import HomeContent from "../components/HomeConent.js"
 // import RamenMap from "../components/RamenMap.js"
 import dynamic from "next/dynamic";
@@ -24,10 +24,13 @@ export default function map() {
     <Layout>
       <Head>
         <title>map</title>
+        
+        <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
       </Head>
       <Layout className="home-layout-1">
         <Header className="sethomeHeader">
-          <PostHeader />
+          <NoSearchHeader />
         </Header>
         <Layout className="container ">
           <Content style={{position: 'relative', height: '100vh' ,padding: '0 50px' }} >

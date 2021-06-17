@@ -6,12 +6,23 @@ import HomeHeader from "../components/HomeHeader.js"
 import HomeContent from "../components/HomeConent.js"
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
-
+import { getProducts } from "../api";
+import {getAllPostAct} from "../actions"
 
 import { StoreContext } from "../store"
 
 
 export default function Home() {
+
+  // useEffect(() => {
+
+  //   const jsonProducts = getProducts("/posts");
+  
+  //   if(jsonProducts){
+  //     console.log('getStaticProps = ')
+  //     console.log(jsonProducts[0])
+  //   }
+  // }, []);
   return (
     <Layout>
       <Head>
@@ -31,4 +42,15 @@ export default function Home() {
       </Layout>
     </Layout>
   )
+}
+export const getStaticProps = async () => {
+  const jsonProducts = await getProducts("/posts");
+
+  if(jsonProducts){
+    console.log('getStaticProps = ')
+    console.log(jsonProducts[0])
+    return {
+      props: {jsonProducts},
+    };
+  }
 }

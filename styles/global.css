@@ -90,6 +90,7 @@ justify-content: space-between;
 .sethomeHeader {
 	background: rgba(255, 255, 255, 0);
 	height: 70px;
+	padding: 0%;
 }
 
 .logo {
@@ -102,7 +103,7 @@ justify-content: space-between;
 	position: relative;
 	height: 70px;
 	width: 70px;
-	margin-right: 29px;
+	margin-right: 1.5rem;
 }
 .login-btn {
 	cursor: pointer;
@@ -327,6 +328,7 @@ justify-content: space-between;
 	z-index: 999;
 	width: 4rem;
 	height: 4rem;
+	margin-right: 2.5rem;
 	opacity: 1;
 	transition: all .25s linear;
   }
@@ -417,7 +419,7 @@ justify-content: space-between;
 	justify-content: space-around;
 }
 .ant-layout-content{
-	/* background-color: #fff; */
+	background-color: #fff;
 }
 .PostAreaList{
 	margin-top: 30px;
@@ -453,6 +455,7 @@ color: #871F1F;
 	top: 0;
 	/* background-color: rgb(226, 93, 93); */
 	opacity: 0.5;
+	cursor: pointer;
 }
 .area-active{
 	background-color: rgb(167, 87, 87);
@@ -460,7 +463,7 @@ color: #871F1F;
 .each-city-cont{
 	position: relative;
 	display: flex;
-
+cursor: pointer;
 }
 .post-each-city{
 	margin-top:10px;
@@ -483,7 +486,7 @@ color: #871F1F;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
 	position: absolute;
 	left: 50%;
 	bottom: 0;
@@ -503,22 +506,20 @@ color: #871F1F;
 	display: flex;
 }
 .map-div {
-	width: 500px;
-	height: 500px;
+	width: 50vh;
+	height: 50vh;
 	margin: auto;
+	top: 25vh;
+    border-radius: 2rem;
+    overflow: hidden;
 }
 .map-canvas {
 	position: fixed;
-	height: 30vw;
-	width: 30vw;
-	top: 8rem;
 	border-radius: 2rem;
+	width: 50vh;
+	height: 50vh;
 }
 /* login card */
-.login-card-alignment {
-	display: flex;
-	align-items: center;
-}
 .login-card-alignment::before {
 	content: '';
 	height: 100vh;
@@ -551,15 +552,20 @@ color: #871F1F;
 .login-email,
 .login-password,
 .login-remember-forget,
-.login-register,
-.login-login {
+.login-login,
+.register-username {
 	width: 73%;
 	margin: 1.25rem auto;
 	border-radius: 10px;	
 }
+.login-register {
+	width: fit-content;
+	margin-left: 13.5%;
+}
 .login-email input,
 .login-password span,
-.login-password input {
+.login-password input,
+.register-username input {
 	background-color: #FCF4F4;
 	line-height: 2;
 }
@@ -571,11 +577,15 @@ color: #871F1F;
 	float: right;
 }
 .login-remember-forget a:hover,
-.login-register a:hover {
+.login-register:hover {
 	text-decoration: underline #3d0c08;
 }
 .login-remember-forget {
 	margin-bottom: 0;
+}
+.login-create-account, 
+.register-has-account {
+	cursor: pointer;
 }
 .login-register {
 	margin-top: 0;
@@ -598,4 +608,111 @@ color: #871F1F;
 .login-form__button:hover .login-form__button-span, 
 .login-form__button:focus .login-form__button-span {
 	color: #ffffff;
+}
+@media(max-width: 992px) {
+	.login-form {
+		max-width: 60vw;
+	}
+}
+@media(max-width: 576px) {
+	.login-form {
+		max-width: 90vw;
+	}
+}
+.post-list{
+	background-color:#871F1F ;
+	height: 100px;
+	width: 100%;
+}
+
+/* feeder */
+.feed {
+	margin: 0 auto;
+}
+.ant-card-body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.showPostData{
+	width: 40px;
+	height: 40px;
+	background-color: rgb(27, 177, 107);
+	color: #FCF4F4;
+}
+.feedPostData{
+	width: 40px;
+	height: 40px;
+	color: #FCF4F4;
+	background-color: rgb(100, 90, 161);
+}
+.postCard{
+	width: 80%;
+	height: 800px;
+	background-color: red;
+}
+.hidden{
+width: 100%;
+background-color: #fff;
+}
+.inputBG{
+background-color: rgb(159, 224, 37);
+}
+
+.pano {
+	height: 300px;
+	width: 300px;
+	background-color: #fff;
+  }
+  .imgTest{
+	  width: 300px;height: 300px;
+  }
+
+/* knowledge page */
+.know-nav-bar {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-start;
+	margin-top: 10vh;
+	margin-left: -20px;
+}
+.know-nav-item {
+	cursor: pointer;
+	margin: .75rem 0;
+	color: #58403E;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+.know-nav-item:hover {
+	color: #871F1F;
+}
+.know-nav-item--active {
+	color: #871F1F;
+}
+.know-all {
+	position: relative;
+}
+.know-main {
+	position: absolute;
+	top: 35vh;
+	left: 1rem;
+}
+.know-sect {
+	font-size: 2.5rem;
+	font-weight: bold;
+}
+.know-detail {
+	font-size: 1rem;
+	max-width: 30vw;
+}
+.know-recommend {
+	position: absolute;
+	right: 1rem;
+	top: 2rem;
+}
+.know-tag {
+	font-size: 1rem;
+	margin: 5px auto;
+	color: #3D0C08;
 }

@@ -33,7 +33,13 @@ import {
   SUCCESS_ORDER_DETAIL,
   FAIL_ORDER_DETAIL,
   AREACLICKED,
-  CITYCLICKED
+  CITYCLICKED,
+  SETPOSTLIST,
+  SET_KNOWLEDGE_PAGE_CONTENT,
+  SET_KNOWLEDGE_NAVBAR_ACTIVEITEM,
+  BEGIN_KNOWLEDGE_REQUEST,
+  SUCCESS_KNOWLEDGE_REQUEST,
+  FAIL_KNOWLEDGE_REQUEST
 } from "../utils/constants";
 
 import {
@@ -47,7 +53,11 @@ import {
   createOrderApi,
   getOrderById,
   checkLoginApi,
+  feedknowledge,
+  getAllPosts,
+  getKnowledgeContent
 } from "../api";
+import moment from "moment";
 
 export const addCartItem = (dispatch, product, qty) => {
   const item = {
@@ -304,4 +314,52 @@ export const cityClicked = (dispatch, eachcity, eachArea) => {
     type: CITYCLICKED,
     payload: cityInfo
   });
+}
+
+export const feedKnowledgeJSONToFirebase = async (dispatch) => {
+  dispatch({ type: BEGIN_PRODUCTS_FEED });
+  try {
+    await feedknowledge();
+    dispatch({ type: SUCCESS_PRODUCTS_FEED });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: FAIL_PRODUCTS_FEED, payload: error });
+  }
+}
+
+export const getAllPostAct = async(dispatch)=>{
+  try{
+    const posts =await getAllPosts();
+  
+    const sortedPosts = posts.sort((a,b)=>moment(a.date).diff(moment(b.date)))
+    // console.log(sortedPosts)
+    dispatch({type: SETPOSTLIST,payload:sortedPosts})
+    // console.log(sortedPosts)
+    // return sortedPosts
+ 
+  }catch(error){
+    console.log(error);
+  }
+}
+
+export const setKnowledgePage = async (dispatch, url) => {
+  let knowledge;
+  dispatch({ type: BEGIN_KNOWLEDGE_REQUEST });
+
+  try {
+    knowledge = await getKnowledgeContent(url);
+    dispatch({
+      type: SET_KNOWLEDGE_PAGE_CONTENT,
+      payload: knowledge,
+    });
+    console.log(knowledge.recommend)
+    dispatch({
+      type: SET_NAVBAR_ACTIVEITEM,
+      payload: url,
+    });
+    dispatch({ type: SUCCESS_KNOWLEDGE_REQUEST });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: FAIL_KNOWLEDGE_REQUEST, payload: error });
+  }
 }

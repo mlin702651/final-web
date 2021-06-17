@@ -35,7 +35,13 @@ import {
   SUCCESS_ORDER_DETAIL,
   FAIL_ORDER_DETAIL,
   AREACLICKED,
-  CITYCLICKED
+  CITYCLICKED,
+  SETPOSTLIST,
+  SET_KNOWLEDGE_PAGE_CONTENT,
+  SET_KNOWLEDGE_NAVBAR_ACTIVEITEM,
+  BEGIN_KNOWLEDGE_REQUEST,
+  SUCCESS_KNOWLEDGE_REQUEST,
+  FAIL_KNOWLEDGE_REQUEST
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -123,6 +129,51 @@ const initialState = {
     eastClick:false,
     southClick:false,
     cityClick:null
+  },
+  postsListState:[
+  //   {
+  //   key:"1",
+  //   date:"2020-08-08 17:00:17",
+  //   area:"北部",
+  //   city:"台北",
+  //   id:"1",
+  //   image:"",
+  //   restaurant:"",
+  //   text:"",
+  //   tags:[""],
+  //   comments:[{
+  //     name:"",
+  //     content:""
+  //   },
+  // ]
+  // },
+  // {
+  //   key:"1",
+  //   date:"2020-08-08 17:00:17",
+  //   area:"北部",
+  //   city:"台北",
+  //   id:"2",
+  //   image:"",
+  //   restaurant:"",
+  //   text:"",
+  //   tags:[""],
+  //   comments:[{
+  //     name:"",
+  //     content:""
+  //   },
+  // ]
+  // }
+],
+  //knowledge page
+  knowledgePage: {
+    article: { recommend: [] },
+  },
+  knowledgeNavBar: {
+    activeItem: "/knowledge/iekei",
+  },
+  requestKnowledge: {
+    loading: false,
+    error: null,
   }
 };
 
@@ -451,6 +502,49 @@ function reducer(state, action) {
             cityClick:cityInfo.city
           }
         }
+      case  SETPOSTLIST:
+        let sortedPosts =action.payload
+        //console.log(sortedPosts)
+        return{
+          ...state,
+          postsListState:[
+            ...sortedPosts
+          ]
+        }
+      //knowledge page
+      case SET_KNOWLEDGE_PAGE_CONTENT:
+        return {
+          ...state,
+          knowledgePage: {
+            article: action.payload,
+          },
+        };
+      case SET_KNOWLEDGE_NAVBAR_ACTIVEITEM:
+        return {
+          ...state,
+          knowledgeNavBar: {
+            activeItem: action.payload,
+          },
+        };
+      case BEGIN_KNOWLEDGE_REQUEST:
+        return {
+          ...state,
+          requestKnowledge: { ...state.requestKnowledge, loading: true },
+        };
+      case SUCCESS_KNOWLEDGE_REQUEST:
+        return {
+          ...state,
+          requestKnowledge: { ...state.requestKnowledge, loading: false },
+        };
+      case FAIL_KNOWLEDGE_REQUEST:
+        return {
+          ...state,
+          requestKnowledge: {
+            ...state.requestKnowledge,
+            loading: false,
+            error: action.payload,
+          },
+        };
     default:
       return state;
   }
