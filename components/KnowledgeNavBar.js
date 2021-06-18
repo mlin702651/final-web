@@ -7,7 +7,7 @@ import KnowledgeNavItem from "./KnowledgeNavItem";
 export default function KnowledgeNavBar() {
   const [isOnTouch, setIsOnTouch] = useState(false);
   const handleCloseDrawer = () => setIsOnTouch(false);
-  const { state: { userSignin: { userInfo } } } = useContext(StoreContext);
+  // const { state: { userSignin: { userInfo } } } = useContext(StoreContext);
 
   return (
     <div>

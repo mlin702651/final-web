@@ -17,9 +17,9 @@ export default function KnowledgeNavItem(props) {
             onClick={onClick}
             className={`
                 ${className} 
-                ${state.navBar.activeItem === to ? activeClassName : ""}`}
+                ${state.knowledgeNavBar.activeItem === to ? activeClassName : ""}`}
             >   
-                <div className={`know-item-div ${state.navBar.activeItem === to ? "know-item-div--active" : ""} `}>
+                <div className={`know-item-div ${state.knowledgeNavBar.activeItem === to ? "know-item-div--active" : ""} `}>
                     <img src="/images/navbar-noodle.png" className="know-item-img" />
                 </div>
                 <p>{children}</p>
