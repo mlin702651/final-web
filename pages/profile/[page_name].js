@@ -1,11 +1,21 @@
+import { useContext, useEffect } from "react";
 import { Layout } from "antd";
 import Head from 'next/head'
-import NoSearchHeader from "../components/NoSearchHeader";
-import ProfileContent from "../components/ProfileContent"
+import NoSearchHeader from "../../components/NoSearchHeader";
+import ProfileContent from "../../components/ProfileContent"
+import { setMyPostsPage } from "../../actions";
+import { StoreContext } from "../../store"
 
 const { Header, Content, Footer } = Layout;
 
 function Profile() {
+
+  const { dispatch } = useContext(StoreContext);
+  
+  useEffect(() => {
+    setMyPostsPage(dispatch)
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <Layout>
       <Head>

@@ -41,7 +41,15 @@ import {
   SET_KNOWLEDGE_NAVBAR_ACTIVEITEM,
   BEGIN_KNOWLEDGE_REQUEST,
   SUCCESS_KNOWLEDGE_REQUEST,
-  FAIL_KNOWLEDGE_REQUEST
+  FAIL_KNOWLEDGE_REQUEST,
+  SET_PROFILE_PAGE_CONTENT,
+  SET_PROFILE_NAVBAR_ACTIVEITEM,
+  BEGIN_MY_POSTS_REQUEST,
+  SUCCESS_MY_POSTS_REQUEST,
+  FAIL_MY_POSTS_REQUEST,
+  BEGIN_COLLECTION_POSTS_REQUEST,
+  SUCCESS_COLLECTION_POSTS_REQUEST,
+  FAIL_COLLECTION_POSTS_REQUEST,
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -163,7 +171,7 @@ const initialState = {
   //   },
   // ]
   // }
-],
+  ],
   //knowledge page
   knowledgePage: {
     article: { recommend: [], image: [] },
@@ -172,6 +180,21 @@ const initialState = {
     activeItem: "/knowledge/iekei",
   },
   requestKnowledge: {
+    loading: false,
+    error: null,
+  },
+  //profile page
+  profilePage: {
+    article: { posts: [] },
+  },
+  profileNavBar: {
+    activeItem: "profile/myPosts",
+  },
+  requestMyPosts: {
+    loading: false,
+    error: null,
+  },
+  requestCollectionPosts: {
     loading: false,
     error: null,
   }
@@ -545,6 +568,59 @@ function reducer(state, action) {
             error: action.payload,
           },
         };
+        // profile page
+        case SET_PROFILE_PAGE_CONTENT:
+          return {
+            ...state,
+            profilePage: {
+              article: action.payload,
+            },
+          };
+        case SET_PROFILE_NAVBAR_ACTIVEITEM:
+          return {
+            ...state,
+            profileNavBar: {
+              activeItem: action.payload,
+            },
+          };
+        case BEGIN_MY_POSTS_REQUEST:
+          return {
+            ...state,
+            requestMyPosts: { ...state.requestMyPosts, loading: true },
+          };
+        case SUCCESS_MY_POSTS_REQUEST:
+          return {
+            ...state,
+            requestMyPosts: { ...state.requestMyPosts, loading: false },
+          };
+        case FAIL_MY_POSTS_REQUEST:
+          return {
+            ...state,
+            requestMyPosts: {
+              ...state.requestMyPosts,
+              loading: false,
+              error: action.payload,
+            },
+          };
+        case BEGIN_COLLECTION_POSTS_REQUEST:
+          return {
+            ...state,
+            requestCollectionPosts: { ...state.requestCollectionPosts, loading: true },
+          };
+        case SUCCESS_COLLECTION_POSTS_REQUEST:
+          return {
+            ...state,
+            requestCollectionPosts: { ...state.requestCollectionPosts, loading: false },
+          };
+        case FAIL_COLLECTION_POSTS_REQUEST:
+          return {
+            ...state,
+            requestCollectionPosts: {
+              ...state.requestCollectionPosts,
+              loading: false,
+              error: action.payload,
+            },
+          };
     default:
       return state;
   }

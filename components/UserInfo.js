@@ -8,7 +8,7 @@ export default function UserInfo({onClick, isOnTouch}){
     const router = useRouter()
 
     const goToProfile = () => {
-       router.push("/profile", undefined, { shallow: true });
+       router.push("/profile/myPosts", undefined, { shallow: true });
     };
     useEffect(() => {
         if(remember)

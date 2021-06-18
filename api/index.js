@@ -77,7 +77,7 @@ export const feedProducts = () => {
 export const signInWithEmailPassword = async (email, password) => {
   return await auth.signInWithEmailAndPassword(email, password);
 }
-
+//use
 export const registerWithEmailPassword = async (email, password, displayName) => {
   await auth.createUserWithEmailAndPassword(email, password);
   const user = auth.currentUser;
@@ -125,7 +125,7 @@ export const getOrderByUser = async () => {
   });
   return jsonOrders;
 }
-
+//use
 export const signOut = () => {
   auth.signOut();
 }

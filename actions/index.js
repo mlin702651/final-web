@@ -39,7 +39,15 @@ import {
   SET_KNOWLEDGE_NAVBAR_ACTIVEITEM,
   BEGIN_KNOWLEDGE_REQUEST,
   SUCCESS_KNOWLEDGE_REQUEST,
-  FAIL_KNOWLEDGE_REQUEST
+  FAIL_KNOWLEDGE_REQUEST,
+  SET_PROFILE_PAGE_CONTENT,
+  SET_PROFILE_NAVBAR_ACTIVEITEM,
+  BEGIN_MY_POSTS_REQUEST,
+  SUCCESS_MY_POSTS_REQUEST,
+  FAIL_MY_POSTS_REQUEST,
+  BEGIN_COLLECTION_POSTS_REQUEST,
+  SUCCESS_COLLECTION_POSTS_REQUEST,
+  FAIL_COLLECTION_POSTS_REQUEST,
 } from "../utils/constants";
 
 import {
@@ -190,7 +198,7 @@ export const rememberLoginUser = (dispatch, remember) => {
     payload: remember,
   })
 }
-
+// use
 export const registerToFirebase = async (dispatch, userInfo) => {
   dispatch({ type: BEGIN_REGISTER_REQUEST });
   try {
@@ -231,7 +239,7 @@ export const updateUserInfo = async (dispatch, userInfo) => {
     console.log(e);
   }
 };
-
+// use
 export const logoutFromFirebase = async (dispatch) => {
   signOut();
   dispatch({ type: LOGOUT_REQUEST });
@@ -354,12 +362,54 @@ export const setKnowledgePage = async (dispatch, url) => {
     });
     console.log(knowledge)
     dispatch({
-      type: SET_NAVBAR_ACTIVEITEM,
+      type: SET_KNOWLEDGE_NAVBAR_ACTIVEITEM,
       payload: url,
     });
     dispatch({ type: SUCCESS_KNOWLEDGE_REQUEST });
   } catch (error) {
     console.log(error);
     dispatch({ type: FAIL_KNOWLEDGE_REQUEST, payload: error });
+  }
+}
+
+export const setMyPostsPage = async (dispatch) => {
+  let knowledge;
+  dispatch({ type: BEGIN_MY_POSTS_REQUEST });
+
+  try {
+    // knowledge = await getKnowledgeContent(url);
+    // dispatch({
+    //   type: SET_PROFILE_PAGE_CONTENT,
+    //   payload: knowledge,
+    // });
+    dispatch({
+      type: SET_PROFILE_NAVBAR_ACTIVEITEM,
+      payload: "/profile/myPosts",
+    });
+    dispatch({ type: SUCCESS_MY_POSTS_REQUEST });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: FAIL_MY_POSTS_REQUEST, payload: error });
+  }
+}
+
+export const setCOllectionPostsPage = async (dispatch, url) => {
+  let knowledge;
+  dispatch({ type: BEGIN_COLLECTION_POSTS_REQUEST });
+
+  try {
+    // knowledge = await getKnowledgeContent(url);
+    // dispatch({
+    //   type: SET_PROFILE_PAGE_CONTENT,
+    //   payload: knowledge,
+    // });
+    dispatch({
+      type: SET_PROFILE_NAVBAR_ACTIVEITEM,
+      payload: "/profile/collectionPosts",
+    });
+    dispatch({ type: SUCCESS_COLLECTION_POSTS_REQUEST });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: FAIL_COLLECTION_POSTS_REQUEST, payload: error });
   }
 }

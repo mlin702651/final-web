@@ -523,6 +523,20 @@ cursor: pointer;
 	width: 25vw;
 	height: 25vw;
 }
+@media(max-width: 992px) {
+	.map-div {
+		width: 60vw;
+		height: 60vw;
+		top: 0;
+		margin: auto;
+	}
+	.map-canvas {
+		position: relative;
+		width: 60vw;
+		height: 60vw;
+		margin: auto;
+	}
+}
 /* login card */
 .login-card-alignment::before {
 	content: '';
