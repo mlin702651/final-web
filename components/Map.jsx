@@ -7,9 +7,10 @@ import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 import "leaflet-defaulticon-compatibility";
 import test from '../json/text.json'
+import ramenPosition from "../json/ramenPosition.json"
 
 const Map = () => {
-    const [chooseName, SetChooseName] = useState("");
+    const [chooseItem, SetChooseItem] = useState();
     const [viewport, setViewport] = useState({
         width: "50vh",
         height: "50vh",
@@ -47,20 +48,20 @@ const Map = () => {
                         </Marker>
                     ))}
                 </ReactMapGL> */}
-                <MapContainer center={[39.50, -98.35]} zoom={3} scrollWheelZoom={false} className="map-canvas">
+                <MapContainer center={[23.973875, 120.982024]} zoom={8} scrollWheelZoom={false} className="map-canvas">
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url={`https://api.mapbox.com/styles/v1/chiaooo/ckq0g0olo09kr18mz66e6sidd/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hpYW9vbyIsImEiOiJja3EwZXQwOWQwNDRtMnZuczN3NjI3em5oIn0.ozwqafOkZU2rGzq7_7k1fg`}
                     />
-                    {test.features.map(item =>(
+                    {ramenPosition.map(item =>(
                         <Marker 
                         key={item.id}
-                        position={[item.geometry.coordinates[1],item.geometry.coordinates[0]]}
+                        position={[item.coordinates[0],item.coordinates[1]]}
                         draggable={false}
-                    animate={true}
+                        animate={true}
                     >
-                        <Popup onOpen={()=>{SetChooseName(item.properties.Name)}}>
-                            {item.properties.Code}
+                        <Popup onOpen={()=>{SetChooseItem(item)}}>
+                            {item.name}
                         </Popup>
                     </Marker>
                     ))}
@@ -71,7 +72,8 @@ const Map = () => {
                 xl={{ span: 12 }}
                 xxl={{ span: 12 }}
             >
-                <p>{chooseName}</p>
+                <p>{ chooseItem? `${chooseItem.name}` : "" }</p>
+                <p>{ chooseItem? `${chooseItem.address}` : "" }</p>
             </Col>
         </Row>
         
