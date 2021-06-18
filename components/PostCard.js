@@ -5,6 +5,7 @@ import { StoreContext } from "../store";
 import Image from 'next/image'
 import PostAreaList from "/components/PostAreaList"
 import HomeNav from "/components/HomeNav"
+import PostCardComment from "./PostCardComment"
 import { cityClicked } from "../actions";
 import DetectableOverflow from 'react-detectable-overflow';
 export default function PostCard(props) {
@@ -16,10 +17,10 @@ export default function PostCard(props) {
   const [readmore, setReadmore] = useState(false)
   const [readtoggle, setReadtoggle] = useState(false)
   const [bookmarkOrNot,setBookmarkOrNot]=useState(false)
+  const [value,setValue]=useState('')
   const domRef = useRef(null)
-  const onChange = e => {
-    console.log(e);
-  };
+ 
+  const { TextArea } = Input;
   const sendComment=()=>{
 
   }
@@ -47,6 +48,10 @@ export default function PostCard(props) {
 
  let dateString=`${date2[0]+'/'+date2[1]+'/'+date2[2]}`
  
+ const onChange = (e) => {
+   const message = e.target.value
+  setValue(message);
+};
   // const [text, setText] = useState('');
   //       const [hasEllipsis, setHasEllipsis] = useState(false);
   //       const [needMore, setNeedMore] = useState(false);
@@ -180,10 +185,26 @@ export default function PostCard(props) {
 </Row>
       </div>
       <div className="comment-input-cont">
-          <Input className="comment-input" placeholder="" allowClear onChange={onChange} />
+      <TextArea
+      className="comment-input"
+          value={value}
+          onChange={onChange}
+          placeholder="留言"
+          autoSize={{ minRows: 1, maxRows: 5 }}
+          
+        />
+          
           <img className="comment-input-btn" onClick={sendComment} src="/images/send_message.png"></img>
         </div>
-
+<div className="comments-cont">
+  {
+// eachPost.comments?
+//     eachPost.comments.map(comment=>(
+//       <PostCardComment comment={comment}></PostCardComment>
+//     )):
+    }
+  
+</div>
 
       </div>
     </div>

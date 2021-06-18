@@ -105,7 +105,7 @@ function handleFileSelect(evt) {
             message.info('上传失败，请上传不大于2M的图片！');
             return;
         } else {
-            // console.log( reader.result)
+             console.log( reader.result)
         }
     }
 }
@@ -147,16 +147,16 @@ function handleFileSelect(evt) {
       </div> */}
 
 
-      {/* <input onChange={inputChange} className="hidden" type="file" accept="image/*" capture="camera" id="64input"></input>
+       <input onChange={inputChange} className="hidden" type="file" accept="image/*" capture="camera" id="64input"></input>
 <div id="value"className=".imgTest"></div>
       <Example data={imagedata} />
-      <PostCard postsListState={postsListState}></PostCard>
+      
         <div className="showPostData" onClick={clickGetPost}>
 GET
         </div>
         <div className="feedPostData" onClick={feedOnClick}>
 FEED
-        </div> */}
+        </div> 
         {
           postsListState.map(eachPost=>(
             <PostCard key={eachPost.id} eachPost={eachPost}></PostCard>
