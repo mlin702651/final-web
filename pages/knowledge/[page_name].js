@@ -13,7 +13,7 @@ import { StoreContext } from "../../store"
 
 export default function Knowledge() {
 
-  const { dispatch } = useContext(StoreContext);
+  const { state: { knowledgePage: { article } }, dispatch } = useContext(StoreContext);
 
   useEffect(() => {
     const url = window.location.pathname;
@@ -30,7 +30,7 @@ export default function Knowledge() {
           <NoSearchHeader />
         </Header>
         <Layout className="container ">
-          <Content style={{ padding: '0 50px' }} >
+          <Content className={`knowledge-layout knowledge-layout-${article.name}`}>
             <KnowledgeContent />
           </Content>
         </Layout>

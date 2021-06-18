@@ -706,30 +706,42 @@ background-color: rgb(159, 224, 37);
   }
 
 /* knowledge page */
+.knowledge-layout {
+	padding: 0 50px;
+}
 .know-nav-bar {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: flex-start;
 	margin-top: 10vh;
-	margin-left: -20px;
+	margin-left: -40px;
 }
 .know-nav-item {
 	cursor: pointer;
+	display: flex;
 	margin: .75rem 0;
 	color: #58403E;
 	font-size: 1.5rem;
 	font-weight: bold;
 }
+.know-item-div {
+	display: none;
+}
+.know-item-div--active {
+	display: block;
+	height: .75rem;
+}
 .know-nav-item:hover {
 	color: #871F1F;
+}
+.know-item-img {
+	height: 100%;
 }
 .know-nav-item--active {
 	color: #871F1F;
 }
-.knowledge-article {
-	height: calc(100vh - 120px);
-}
+
 .know-all {
 	position: relative;
 	display: flex;
@@ -737,6 +749,7 @@ background-color: rgb(159, 224, 37);
 .know-main {
 	margin-top: 35vh;
 	left: 1rem;
+	z-index: 5;
 }
 .know-sect {
 	font-size: 2.5rem;
@@ -750,12 +763,59 @@ background-color: rgb(159, 224, 37);
 	position: absolute;
 	right: 1rem;
 	top: 2rem;
+	z-index: 5;
 }
 .know-tag {
 	font-size: 1rem;
 	margin: 5px auto;
 	color: #3D0C08;
 }
+@media(max-width: 992px){
+	.knowledge-layout {
+		padding: 0;
+	}
+	.knowledge-navbar {
+		overflow: scroll;
+		-ms-overflow-style: none;  /* IE and Edge */
+  		scrollbar-width: none;  /* Firefox */
+	}
+	.knowledge-navbar::-webkit-scrollbar {
+		display: none;
+	}
+	.know-nav-bar {
+		flex-direction: row;
+		width: 500px;
+		margin: 2rem auto;
+	}
+	.know-item-div--active {
+		display: none;
+	}
+	.know-nav-item p{
+		font-size: 1rem;
+		margin: auto 1.25rem;
+	}
+	.know-main {
+		max-width: 65vw;
+		margin: auto;
+		margin-top: 35vh;
+		left: 1rem;
+	}
+	.know-sect {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+	.know-detail {
+		font-size: .75rem;
+		max-width: 80vw;
+	}
+	.know-recommend {
+		top: .5rem;
+	}
+	.know-tag {
+		font-size: .75rem;
+	}
+}
+
 /* customize knowledge image */
 .know-anchor {
 	position: relative;
@@ -855,4 +915,160 @@ background-color: rgb(159, 224, 37);
 	height: 16vh;
 	right: -20vw;
 	top: 22vh;
+}
+@media(max-width: 992px){
+	.know-all-images {
+		display: none;
+	}
+	.know-main-iekei {
+		margin-top: 25vh;
+	}
+	.know-image-iekei {
+		display: flex;
+		max-width: 45vw;
+		height: 24vw;
+		max-height: 7.5rem;
+		top: 0;
+		right: 100vw;
+	}
+	.know-image-iekei .know-img-item {
+		position: absolute;
+		height: 100%;
+	}
+	.iekei-img-1 {
+		left: 20vw;
+	}
+	.iekei-img-2 {
+		left: 50vw;
+		top: 12vh;
+	}
+	.iekei-img-3 {
+		left: 25vw;
+		top: 50vh;
+	}
+
+	.know-main-jiro {
+		margin-top: 35vh;
+	}
+	.know-image-jiro {
+		display: flex;
+		position: absolute;
+		height: 24vw;
+		max-height: 7.5rem;
+		right: 100vw;
+		top: 15%;
+	}
+	.jiro-img-1 {
+		margin-left: 30vw;
+    	top: 90%;
+	}
+	.jiro-img-2 {
+		margin-left: 26vw;
+    	top: 46%;
+	}
+	.jiro-img-3 {
+		margin-left: 28vw;
+    	top: 35%;
+	}
+
+	.know-main-musashi {
+		margin-top: 30vh;
+	}
+	.know-image-musashi {
+		display: flex;
+		height: 14vw;
+		max-height: 6rem;
+		right: 30vw;
+		top: 20%;
+	}
+	
+	.know-main-hakata {
+		margin-top: 20vh;
+	}
+	.know-image-hakata {
+		display: flex;
+		height: 25vw;
+		max-height: 7.5rem;
+		right: 15vw;
+		top: 120%;
+	}
+	
+	.know-main-gyokai {
+		margin-top: 20vh;
+	}
+	.know-image-gyokai {
+		display: flex;
+		position: absolute;
+		height: 20vw;
+		max-height: 6rem;
+		right: 100vw;
+		top: 0%;
+	}
+	.gyokai-img-1 {
+		position: absolute;
+		height: 100%;
+		left: 20vw;
+    	top: 38vh;
+	}
+	.gyokai-img-2 {
+		position: absolute;
+		height: 100%;
+		left: 60vw;
+		top: 45vh;
+	}
+	.gyokai-img-3 {
+		position: absolute;
+		height: 100%;
+		left: 30vw;
+    	top: 60vh;
+	}
+	.gyokai-img-4 {
+		position: absolute;
+		height: 100%;
+		left: 20vw;
+		top: 8vh;
+	}
+}
+
+.knowledge-layout-iekei {
+	background: url(../public/images/bg01.png) no-repeat;
+	background-size: cover;
+}
+.knowledge-layout-jiro {
+	background: url(../public/images/bg02.png) no-repeat;
+	background-size: cover;
+}
+.knowledge-layout-musashi {
+	background: url(../public/images/bg03.png) no-repeat;
+	background-size: cover;
+}
+.knowledge-layout-hakata {
+	background: url(../public/images/bg04.png) no-repeat;
+	background-size: cover;
+}
+.knowledge-layout-gyokai {
+	background: url(../public/images/bg05.png) no-repeat;
+	background-size: cover;
+}
+@media(max-width: 992px){
+	.knowledge-layout-iekei {
+		background: url(../public/images/phone-bg01.png) no-repeat;
+		background-size: cover;
+	}
+	.knowledge-layout-jiro {
+		background: url(../public/images/phone-bg02.png) no-repeat;
+		background-size: cover;
+	}
+	.knowledge-layout-musashi {
+		background: url(../public/images/phone-bg03.png) no-repeat;
+		background-size: cover;
+	}
+	.knowledge-layout-hakata {
+		background: url(../public/images/phone-bg04.png) no-repeat;
+		background-size: cover;
+	}
+	.knowledge-layout-gyokai {
+		background: url(../public/images/phone-bg05.png) no-repeat;
+		background-size: cover;
+	}
 }
