@@ -283,11 +283,11 @@ justify-content: space-between;
   background-color: #fff;
   
 } */
-.search-btn {
+/* .search-btn {
 	background-color: aqua;
 	width: 10px;
 	height: 10px;
-}
+} */
 .inputCont {
 	width: 40%;
 	display: flex;
@@ -624,7 +624,7 @@ cursor: pointer;
 	}
 }
 .post-list{
-	background-color:#dabebe ;
+	/* background-color:#dabebe ; */
 	
 	width: 100%;
 	display: flex;
@@ -657,8 +657,38 @@ cursor: pointer;
 .post-card{
 	width: 450px;
 	min-height: 800px;
-	background-color: rgb(243, 241, 241);
+	/* background-color: rgb(243, 241, 241); */
 	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+}
+.post-restaurant-name{
+	color: #3D0C08;
+	font-size: 26px;
+	font-family: Microsoft JhengHei;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	margin-left: 3px;
+	white-space: nowrap;
+}
+.post-date-cont{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	height: 100%;
+}
+.post-date{
+	width: 100%;
+	margin-bottom: 2px;
+	font-size: 16px;
+	color: #58403E;
+	opacity: 0.5;
+	font-family: sans-serif;
+	/* text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden; */
+	
+	
 }
 .post-image{
 	width: 450px;
@@ -666,28 +696,105 @@ cursor: pointer;
 	/* object-fit: contain; */
 	object-fit:cover
 }
+.post-card-text-tags-comments{
+	display: flex;
+	flex-direction: column;
+	width: 95%;
+	align-self: center;
+}
 .post-text-cont{
 	
 
-	width: 450px;
+	width: 100%;
 	
 }
 .post-text{
+	font-size: 18px;
+	color: #3D0C08;
+	font-family: Microsoft JhengHei;
+	display: inline-block;  
+}
 
-display: inline-block;  
+.post-text-off{
+
 text-overflow: ellipsis;
 white-space: nowrap;
 overflow: hidden;
 width: 280px;
+
 }
 
 .post-readmore{
 display: inline;
 position: relative;
-top:-6px;
+top:-7px;
+
+
 cursor: pointer;
+color: rgb(124, 147, 153);
+}
+.post-tags-and-bookmark-cont{
+	width: 100%;
+	min-height: 40px;
+	margin-top: 5px;
+}
+.postcard-tags-cont{
+/* background-color: khaki; */
+min-height: 14px;
+width: 100%;
+display: flex;
+flex-wrap:wrap
+}
+.tag{
+	margin-top: 3px;
+	height: 100%;
+	border:1px #3D0C08 solid;
+padding: 1px 7px;
+color: #3D0C08 ;
+margin-left: 5px;
+cursor: pointer;
+}
+.postcard-bookmark-cont{
+cursor: pointer;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-end;
+	padding-right: 5px;
+	}
+.bookmark-btn{
+
 
 }
+.bookmark-cont-2{
+	height: 28.4px;
+	width: 24px;
+}
+.comment-input {
+	border: none;
+	
+	height: 40px;
+	background-color: #F6F5F5;
+	box-shadow: 0 0 0 0px rgba(82, 10, 5, 0.103);
+	background-color: #F6F5F5;
+}
+.comment-input-cont {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	align-self: center;
+	background-color: #F6F5F5;
+}
+.comment-input-btn {
+	width: 30px;
+	height: 30px;
+	/* background-color: rgb(48, 75, 230); */
+	transform: translateX(-30%);
+	z-index: 2;
+}
+
+
 .hidden{
 width: 100%;
 background-color: #fff;
