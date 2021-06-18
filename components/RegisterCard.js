@@ -17,7 +17,7 @@ const RegisterCard = ({ onReturnLogin }) => {
     
     useEffect(() => {
         if (userInfo) {
-            router.push("/profile/profile", undefined, { shallow: true });
+            router.push("/profile/myPosts", undefined, { shallow: true });
         }
     }, [userInfo]);// eslint-disable-line react-hooks/exhaustive-deps
   
