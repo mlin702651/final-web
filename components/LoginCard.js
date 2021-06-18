@@ -24,7 +24,7 @@ const LoginCard = ({ onCreateAccount }) => {
     }
   
     useEffect(() => {    
-      if( userInfo && checkLogin(dispatch) ) router.push("/profile/profile", undefined, { shallow: true });
+      if( userInfo && checkLogin(dispatch) ) router.push("/profile/myPosts", undefined, { shallow: true });
     }, [ userInfo ]);// eslint-disable-line react-hooks/exhaustive-deps
   
     return (
