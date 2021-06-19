@@ -508,25 +508,51 @@ cursor: pointer;
 }
 .map-content {
 	display: flex;
+	flex-grow: 1;
+	/* background: url(../public/images/map-left.png) no-repeat;
+	background-size: contain; */
+}
+.map-left-bg {
+	background: url(../public/images/map-left.png) no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+    width: 50%;
+    height: 100%;
 }
 .map-div {
 	width: 50vh;
 	height: 50vh;
 	margin: auto;
-	top: 20vh;
-    border-radius: 2rem;
-    overflow: hidden;
+    /* border-radius: 2rem; */
+    /* overflow: hidden; */
+	display: flex;
+	justify-content: center;
 }
 .map-canvas {
-	position: fixed;
+	/* position: fixed; */
 	border-radius: 2rem;
 	width: 25vw;
 	height: 25vw;
+	margin: auto;
 }
+.map-article {
+	overflow: scroll;
+	max-height: calc(100vh - 120px);
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+}
+.map-article::-webkit-scrollbar {
+	display: none;
+}
+
+/* .map-article */
 @media(max-width: 992px) {
+	.map-left-bg {
+		display: none;
+	}
 	.map-div {
-		width: 60vw;
-		height: 60vw;
+		width: auto;
+		height: auto;
 		top: 0;
 		margin: auto;
 	}
@@ -535,6 +561,11 @@ cursor: pointer;
 		width: 60vw;
 		height: 60vw;
 		margin: auto;
+		margin-top: 3rem;
+	}
+	.map-article {
+		max-height: none;
+		margin-top: 3rem;
 	}
 }
 /* login card */
@@ -1254,4 +1285,28 @@ background-color: rgb(159, 224, 37);
 		background: url(../public/images/phone-bg05.png) no-repeat;
 		background-size: cover;
 	}
+}
+
+/* profile page */
+.profile-nav-bar {
+	display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10vh 2rem;
+    overflow: hidden;
+}
+.profile-nav-item {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	color: #58403E;
+	cursor: pointer;
+	font-size: 1.3rem;
+	text-align: center;
+	font-weight: bold;
+	margin: 2rem 0;
+}
+.profile-nav-item--active {
+	color: #871F1F;
 }

@@ -33,7 +33,7 @@ export default function map() {
           <NoSearchHeader />
         </Header>
         <Layout className="container ">
-          <Content className="map-layout" style={{position: 'relative', padding: '0 50px' }} >
+          <Content className="map-layout" style={{position: 'relative', display: "flex", flexDirection: "column" }} >
             <MapWithNoSSR />
           </Content>
         </Layout>

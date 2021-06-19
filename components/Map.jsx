@@ -1,11 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react'
 import { Row, Col } from "antd";
-// import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import L from 'leaflet'
-import { MapContainer, TileLayer,Marker,Popup } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
-import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
-import "leaflet-defaulticon-compatibility";
+import ReactMapGL, { Marker, Popup } from "react-map-gl";
+// import L from 'leaflet'
+// import { MapContainer, TileLayer,Marker,Popup } from 'react-leaflet'
+// import 'leaflet/dist/leaflet.css'
+// import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
+// import "leaflet-defaulticon-compatibility";
 import test from '../json/text.json'
 import ramenPosition from "../json/ramenPosition.json"
 
@@ -15,40 +15,43 @@ const Map = () => {
         width: "50vh",
         height: "50vh",
         // The latitude and longitude of the center of London
-        latitude: 39.50,
-        longitude: -98.35,
-        zoom:2
+        latitude: 23.973875,
+        longitude: 120.982024,
+        zoom: 6
       });
 
     return (
         
         <Row className="map-content">
+            <div className="map-left-bg"></div>
             <Col
                 className="map-div"
+                xs={{ span: 24 }}
                 sm={{ span: 24 }}
-                xl={{ span: 12 }}
-                xxl={{ span: 12 }}
+                md={{ span: 24 }}
+                lg={{ span: 12 }}
             >
-                {/* <ReactMapGL
+                <ReactMapGL
                     className="map-canvas"
-                    mapStyle="mapbox://styles/sonaru/ckptpq2ku069717p9qwqxqkv6"
-                    mapboxApiAccessToken="pk.eyJ1Ijoic29uYXJ1IiwiYSI6ImNrcHRwbncxMzB1a3cyb21ubWxoN3NqdXkifQ.N-P3NsTouYIFDzY_X8jaRg"
+                    mapStyle="mapbox://styles/chiaooo/ckq0g0olo09kr18mz66e6sidd"
+                    mapboxApiAccessToken="pk.eyJ1IjoiY2hpYW9vbyIsImEiOiJja3EwZXQwOWQwNDRtMnZuczN3NjI3em5oIn0.ozwqafOkZU2rGzq7_7k1fg"
                     {...viewport}
                     onViewportChange={(nextViewport) => setViewport(nextViewport)}
                 >
-                    {test.features.map(item =>(
+                    {ramenPosition.map(item =>(
                         <Marker 
                         key={item.id}
-                        latitude={item.geometry.coordinates[1]}
-                        longitude={item.geometry.coordinates[0]}
+                        latitude={item.coordinates[0]}
+                        longitude={item.coordinates[1]}
                         >
-                            <a onClick={() => { SetChooseName(item.properties.Name); }}>
+                            <a onClick={() => SetChooseItem(item) }>
                                 <span role="img" aria-label="push-pin">◎</span>
                             </a>
                         </Marker>
                     ))}
-                </ReactMapGL> */}
-                <MapContainer center={[23.973875, 120.982024]} zoom={8} scrollWheelZoom={false} className="map-canvas">
+                </ReactMapGL>
+                
+                {/* <MapContainer center={chooseItem ? chooseItem.coordinates : [23.973875, 120.982024]} zoom={8} scrollWheelZoom={false} className="map-canvas">
                     <TileLayer
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url={`https://api.mapbox.com/styles/v1/chiaooo/ckq0g0olo09kr18mz66e6sidd/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiY2hpYW9vbyIsImEiOiJja3EwZXQwOWQwNDRtMnZuczN3NjI3em5oIn0.ozwqafOkZU2rGzq7_7k1fg`}
@@ -65,15 +68,18 @@ const Map = () => {
                         </Popup>
                     </Marker>
                     ))}
-                </MapContainer>
+                </MapContainer> */}
             </Col>
             <Col
+                className="map-article"
+                xs={{ span: 24 }}
                 sm={{ span: 24 }}
-                xl={{ span: 12 }}
-                xxl={{ span: 12 }}
+                md={{ span: 24 }}
+                lg={{ span: 12 }}
             >
                 <p>{ chooseItem? `${chooseItem.name}` : "" }</p>
                 <p>{ chooseItem? `${chooseItem.address}` : "" }</p>
+                <div style={{height: "1000px"}}></div>
             </Col>
         </Row>
         

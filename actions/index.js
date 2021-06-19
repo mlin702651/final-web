@@ -377,7 +377,7 @@ export const setMyPostsPage = async (dispatch) => {
   dispatch({ type: BEGIN_MY_POSTS_REQUEST });
 
   try {
-    // knowledge = await getKnowledgeContent(url);
+    // knowledge = await getMyPostsByUserId();
     // dispatch({
     //   type: SET_PROFILE_PAGE_CONTENT,
     //   payload: knowledge,
@@ -393,12 +393,12 @@ export const setMyPostsPage = async (dispatch) => {
   }
 }
 
-export const setCOllectionPostsPage = async (dispatch, url) => {
+export const setCollectionPostsPage = async (dispatch, url) => {
   let knowledge;
   dispatch({ type: BEGIN_COLLECTION_POSTS_REQUEST });
 
   try {
-    // knowledge = await getKnowledgeContent(url);
+    // knowledge = await getCollectionPostsByUserId();
     // dispatch({
     //   type: SET_PROFILE_PAGE_CONTENT,
     //   payload: knowledge,

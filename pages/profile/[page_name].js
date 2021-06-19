@@ -10,10 +10,11 @@ const { Header, Content, Footer } = Layout;
 
 function Profile() {
 
-  const { dispatch } = useContext(StoreContext);
+  const { state,dispatch } = useContext(StoreContext);
   
   useEffect(() => {
     setMyPostsPage(dispatch)
+    console.log(state.profileNavBar.activeItem)
   }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
   return (

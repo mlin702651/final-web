@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { Drawer } from "antd";
 import { StoreContext } from "../store";
-import { setMyPostsPage, setCOllectionPostsPage } from "../actions";
+import { setMyPostsPage, setCollectionPostsPage } from "../actions";
 
 import ProfileNavItem from "./ProfileNavItem";
 
@@ -16,14 +16,14 @@ export default function ProfileNavBar() {
     }
 
     const handleCollectionPageClick = () => {
-        setCOllectionPostsPage(dispatch);
+        setCollectionPostsPage(dispatch);
     }
 
     return (
         <div>
             <div className="profile-nav-bar collapse-mobile">
                 <ProfileNavItem
-                    onClick={()=>handleMyPageClick}
+                    onClick={handleMyPageClick}
                     to="/profile/myPosts"
                     className="profile-nav-item"
                     activeClassName="profile-nav-item--active"
@@ -31,7 +31,7 @@ export default function ProfileNavBar() {
                     我的文章
                 </ProfileNavItem>
                 <ProfileNavItem
-                    onClick={()=>handleCollectionPageClick}
+                    onClick={handleCollectionPageClick}
                     to="/profile/collectionPosts"
                     className="profile-nav-item"
                     activeClassName="profile-nav-item--active"
