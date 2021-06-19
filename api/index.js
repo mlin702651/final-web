@@ -206,7 +206,7 @@ export const changeDocTest = ()=>{
     ...postsJson.allPosts[0],
     text:"aaa"
    })
-
+}
 //userBookMarker
 export const createUserBookMarkers = () => {
   const user = auth.currentUser.uid;
