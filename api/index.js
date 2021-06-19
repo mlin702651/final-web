@@ -33,6 +33,8 @@ const allOrdersCollectionRef = firebase.firestore().collection("allOrders");
 const allKnowledgeCollectionRef = firebase.firestore().collection("allKnowledge");
 //POSTS
 const allPostsCollectionRef = firebase.firestore().collection("allPosts");
+// USERBOOKMARKERS
+const allUserBookMarkers = firebase.firestore().collection("allUsers");
 //REFERENCE AUTH
 const auth = firebase.auth();
 
@@ -193,5 +195,17 @@ export const getKnowledgeContent = async (url) => {
     jsonProducts.push(doc.data());
   });
   return jsonProducts[0];
+}
+
+//userBookMarker
+export const createUserBookMarkers = () => {
+  const user = auth.currentUser.uid;
+  const docRef = allUserBookMarkers.doc(user);
+  const emptyBookMarker = []
+  // Store Data for Aggregation Queries
+  docRef.set({
+    bookMarkers: emptyBookMarker,
+  });
+  return emptyBookMarker
 }
 

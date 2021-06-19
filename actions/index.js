@@ -48,6 +48,9 @@ import {
   BEGIN_COLLECTION_POSTS_REQUEST,
   SUCCESS_COLLECTION_POSTS_REQUEST,
   FAIL_COLLECTION_POSTS_REQUEST,
+  BEGIN_USER_BOOKMARKER_CREATE,
+  SUCCESS_USER_BOOKMARKER_CREATE,
+  FAIL_USER_BOOKMARKER_CREATE,
 } from "../utils/constants";
 
 import {
@@ -63,7 +66,8 @@ import {
   checkLoginApi,
   feedknowledge,
   getAllPosts,
-  getKnowledgeContent
+  getKnowledgeContent,
+  createUserBookMarkers
 } from "../api";
 import moment from "moment";
 
@@ -411,5 +415,25 @@ export const setCollectionPostsPage = async (dispatch, url) => {
   } catch (error) {
     console.log(error);
     dispatch({ type: FAIL_COLLECTION_POSTS_REQUEST, payload: error });
+  }
+}
+
+export const createBookMarker = async (dispatch) => {
+  dispatch({ type: BEGIN_USER_BOOKMARKER_CREATE });
+  try {
+    const bookMarker = await createUserBookMarkers();
+    console.log(bookMarker)
+    dispatch({
+      type: SUCCESS_USER_BOOKMARKER_CREATE,
+      payload: bookMarker,
+    })
+    return bookMarker;
+  } catch (e) {
+    dispatch({
+      type: FAIL_USER_BOOKMARKER_CREATE,
+      payload: e.message
+    })
+    console.log(e)
+    return null;
   }
 }
