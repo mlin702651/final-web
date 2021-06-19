@@ -53,6 +53,7 @@ import {
   BEGIN_USER_BOOKMARKER_CREATE,
   SUCCESS_USER_BOOKMARKER_CREATE,
   FAIL_USER_BOOKMARKER_CREATE,
+  POST_NEW_ARTICLE,
 } from "../utils/constants";
 
 export const StoreContext = createContext();
