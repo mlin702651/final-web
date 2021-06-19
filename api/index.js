@@ -75,7 +75,10 @@ export const feedProducts = () => {
 }
 //use
 export const signInWithEmailPassword = async (email, password) => {
-  return await auth.signInWithEmailAndPassword(email, password);
+  const user= await auth.signInWithEmailAndPassword(email, password);
+  // const user=auth.currentUser
+  console.log(user.user.uid)
+  return user
 }
 //use
 export const registerWithEmailPassword = async (email, password, displayName) => {
@@ -193,5 +196,14 @@ export const getKnowledgeContent = async (url) => {
     jsonProducts.push(doc.data());
   });
   return jsonProducts[0];
+}
+
+
+export const changeDocTest = ()=>{
+   allPostsCollectionRef.doc("YwvbpnrXXKEalnp7irUZ").set({
+    ...postsJson.allPosts[0],
+    text:"aaa"
+   })
+
 }
 

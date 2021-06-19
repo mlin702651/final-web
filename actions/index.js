@@ -342,7 +342,7 @@ export const getAllPostAct = async(dispatch)=>{
     const sortedPosts = posts.sort((a,b)=>moment(a.date).diff(moment(b.date)))
     // console.log(sortedPosts)
     dispatch({type: SETPOSTLIST,payload:sortedPosts})
-    // console.log(sortedPosts)
+     console.log(sortedPosts)
     // return sortedPosts
  
   }catch(error){
