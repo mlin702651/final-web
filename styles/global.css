@@ -92,12 +92,28 @@ justify-content: space-between;
 	height: 70px;
 	padding: 0%;
 }
-
+@media(max-width: 992px) {
+	.homeHeader {
+		height: 60px;	
+	}
+	.sethomeHeader {
+		height: 60px;
+	}
+}
 .logo {
-	background-color: rgb(128, 128, 128);
+	/* background-color: rgb(128, 128, 128); */
 	height: 70px;
 	width: 70px;
 	cursor: pointer;
+}
+@media(max-width: 992px) {	
+	.logo {
+		height: 60px;
+		width: 60px;
+	}
+}
+.header-logo {
+	width: 100%;
 }
 .login {
 	position: relative;
@@ -864,10 +880,10 @@ cursor: pointer;
 	align-items: flex-end;
 	padding-right: 5px;
 	}
-.bookmark-btn{
+/* .bookmark-btn{
 
 
-}
+} */
 .bookmark-cont-2{
 	height: 28.4px;
 	width: 24px;
@@ -895,9 +911,9 @@ cursor: pointer;
 	transform: translateX(-30%);
 	z-index: 2;
 }
-.comments-cont{
+/* .comments-cont{
 	
-}
+} */
 .post-card-comment{
 	background-color: red;
 	width: 100%;
@@ -1348,6 +1364,82 @@ background-color: rgb(159, 224, 37);
 }
 
 /* profile page */
+.profileHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 70px;
+}
+.hide-pc {
+	display: none;
+}
+.profile-ham-div {
+	height: 70px;
+}
+.profile-ham-div .ham-menu {
+	margin-top: 3px;
+}
+@media(max-width: 992px) {
+	.hide-pc {
+		display: block;
+		width: 60px;
+		height: 60px;
+		line-height: 0%;
+	}
+	.hide-mobile {
+		display: none;
+	}
+	.profileHeader {
+		height: 60px;
+	}
+	.profile-title {
+		display: flex;
+		align-items: center;
+		width: auto;
+	}
+	.user-menu-img {
+		height: 100%;
+		line-height: 0%;
+		cursor: pointer;
+	}
+	.profile-title-text {
+		margin: 0;
+		margin-left: .25rem;
+		font-size: 1.25rem;
+		color: #3D0C08;
+	}
+	.profile-return {
+		width: 2.5rem;
+		height: 2.5rem;
+		margin-right: 1rem;
+		border-radius: 50%;
+		cursor: pointer;
+		transform: rotate(45deg);
+		box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.15);
+	}
+	.return-btn-1 {
+		position: absolute;
+		width: 3px;
+		height: 24px;
+		background-color: #3D0C08;
+		top: 8px;
+		left: 18px;
+		border-radius: 2rem;
+	}
+	.return-btn-2 {
+		position: absolute;
+		width: 24px;
+		height: 3px;
+		background-color: #3D0C08;
+		top: 18px;
+		left: 8px;
+		border-radius: 2rem;
+	}
+	.user-menu-drawer {
+		height: 100%;
+		width: 0;
+	}
+}
 .profile-nav-bar {
 	display: flex;
     flex-direction: column;

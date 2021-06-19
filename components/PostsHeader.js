@@ -34,7 +34,7 @@ export default function PostsHeader({ title }) {
       <header className="homeHeader">
         <Link href="/" >
           <div className="logo">
-
+            <img src="/images/logo.png" className="header-logo" alt="logo" />
           </div>
         </Link>
         <div className="inputCont">
