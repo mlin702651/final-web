@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useContext, useEffect } from 'react';
 import { Form, Input, Button } from 'antd';
-import { registerToFirebase } from '../actions'
+import { registerToFirebase, createBookMarker } from '../actions'
 import { StoreContext } from "../store"
 
 const RegisterCard = ({ onReturnLogin }) => {
@@ -13,6 +13,7 @@ const RegisterCard = ({ onReturnLogin }) => {
     const onFinish = async (values) => {
         console.log('Received values of form: ', values);
         await registerToFirebase(dispatch, values);
+        await createBookMarker(dispatch);
     };
     
     useEffect(() => {

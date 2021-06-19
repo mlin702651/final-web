@@ -43,9 +43,11 @@ const Map = () => {
                         key={item.id}
                         latitude={item.coordinates[0]}
                         longitude={item.coordinates[1]}
+                        offsetLeft={-10}
+                        offsetTop={-5}
                         >
                             <a onClick={() => SetChooseItem(item) }>
-                                <span role="img" aria-label="push-pin">◎</span>
+                                <span className="map-pin" role="img" aria-label="push-pin">◎</span>
                             </a>
                         </Marker>
                     ))}

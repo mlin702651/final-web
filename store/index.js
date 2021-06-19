@@ -50,6 +50,9 @@ import {
   BEGIN_COLLECTION_POSTS_REQUEST,
   SUCCESS_COLLECTION_POSTS_REQUEST,
   FAIL_COLLECTION_POSTS_REQUEST,
+  BEGIN_USER_BOOKMARKER_CREATE,
+  SUCCESS_USER_BOOKMARKER_CREATE,
+  FAIL_USER_BOOKMARKER_CREATE,
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -129,6 +132,11 @@ const initialState = {
   userRegister: {
     loading: false,
     userInfo: null,
+    error: "",
+  },
+  userBookMarker: {
+    loading: false,
+    bokMarkerInfo: [],
     error: "",
   },
   area:{
@@ -618,6 +626,30 @@ function reducer(state, action) {
             requestCollectionPosts: {
               ...state.requestCollectionPosts,
               loading: false,
+              error: action.payload,
+            },
+          };
+        case BEGIN_USER_BOOKMARKER_CREATE:
+          return {
+            ...state,
+            userBookMarker: { ...state.userBookMarker, loading: true },
+          };
+        case SUCCESS_USER_BOOKMARKER_CREATE:
+          return {
+            ...state,
+            userBookMarker: { 
+              ...state.userBookMarker, 
+              loading: false ,
+              bokMarkerInfo: [],
+            },
+          };
+        case FAIL_USER_BOOKMARKER_CREATE:
+          return {
+            ...state,
+            userBookMarker: {
+              ...state.userBookMarker,
+              loading: false,
+              bokMarkerInfo: null,
               error: action.payload,
             },
           };
