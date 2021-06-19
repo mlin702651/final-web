@@ -611,6 +611,27 @@ cursor: pointer;
 .map-article::-webkit-scrollbar {
 	display: none;
 }
+.store-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 80%;
+	margin: 1rem auto;
+	border: solid 1px #3d0c08;
+	border-radius: 10px;
+	background-color: rgba(255,255,255,.8);
+}
+.store-name {
+	color: #3D0C08;
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin: 0;
+}
+.store-address {
+	color: #3D0C08;
+	font-size: 1.25rem;
+	margin: 0;
+}
 
 /* .map-article */
 @media(max-width: 992px) {
@@ -632,6 +653,12 @@ cursor: pointer;
 	.map-article {
 		max-height: none;
 		margin-top: 3rem;
+	}
+	.store-name{
+		font-size: 1.25rem;
+	}
+	.store-address {
+		font-size: 1rem;
 	}
 }
 /* login card */

@@ -79,8 +79,10 @@ const Map = () => {
                 md={{ span: 24 }}
                 lg={{ span: 12 }}
             >
-                <p>{ chooseItem? `${chooseItem.name}` : "" }</p>
-                <p>{ chooseItem? `${chooseItem.address}` : "" }</p>
+                <div className="store-info">
+                    <p className="store-name">{ chooseItem? `${chooseItem.name}` : "" }</p>
+                    <p className="store-address">{ chooseItem? `${chooseItem.address}` : "" }</p>
+                </div>
                 <div style={{height: "1000px"}}></div>
             </Col>
         </Row>
