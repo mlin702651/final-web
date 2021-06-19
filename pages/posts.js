@@ -4,6 +4,7 @@ import { Layout, Menu, Breadcrumb, Drawer, Button } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 import PostsHeader from "../components/PostsHeader.js"
 import PostsContent from "../components/PostsContent.js"
+import PostCreatePostDrawer from "../components/PostCreatePostDrawer.js"
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 import { getProducts } from "../api";
@@ -47,20 +48,7 @@ const Posts = ({ jsonProducts }) => {
           <PostsHeader />
         </Header>
         <div className="site-drawer-render-in-current-wrapper createPost">
-          <Drawer
-            className="post-drawer"
-            placement="right"
-            closable={false}
-            onClose={() => { setVisible(false) }}
-            visible={visible}
-            getContainer={false}
-            style={{ position: 'fixed', zIndex: 90 }}
-          >
-            {/* <div className="create-post-drawer-cont1"> */}
-            <div className="create-post-drawer-open-btn" onClick={() => { setVisible(!visible) }}>
-
-            </div>
-          </Drawer>
+        <PostCreatePostDrawer></PostCreatePostDrawer>
           <Layout className="container ">
             <Content style={{ padding: '0 50px' }} >
               <PostsContent postsJson={postsJson}></PostsContent>
