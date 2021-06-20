@@ -9,6 +9,7 @@ import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { StoreContext } from "../store";
 import ramenPosition from "../json/ramenPosition.json"
 import {setMapPosts} from "../actions"
+import PostCard from "./PostCard"
 
 const Map = () => {
     const {state: { requestMapPosts }, dispatch} = useContext(StoreContext);
@@ -92,8 +93,10 @@ const Map = () => {
                     <p className="store-name">{ chooseItem? `${chooseItem.name}` : "" }</p>
                     <p className="store-address">{ chooseItem? `${chooseItem.address}` : "" }</p>
                 </div>
-                <div className="map-post" style={{height: "1000px"}}>
-
+                <div className="map-post" >
+                    {requestMapPosts.allMapPosts.map((post)=>(
+                        <PostCard eachPost={post} key={post.id}/>
+                    ))}
                 </div>
             </Col>
         </Row>
