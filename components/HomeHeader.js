@@ -8,7 +8,7 @@ import UserInfo from './UserInfo'
 import LoginCard from './LoginCard'
 import RegisterCard from "./RegisterCard";
 
-export default function HomeHeader({ title }) {
+export default function HomeHeader() {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()
 

@@ -599,8 +599,8 @@ cursor: pointer;
 	height: 25vw;
 	margin: auto;
 }
-.map-pin {
-	font-size: .5rem;
+.map-point {
+	height: 30px;
 }
 .map-article {
 	overflow: scroll;

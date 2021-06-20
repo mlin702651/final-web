@@ -52,12 +52,12 @@ const Map = () => {
                         key={item.id}
                         latitude={item.coordinates[0]}
                         longitude={item.coordinates[1]}
-                        offsetLeft={-10}
-                        offsetTop={-5}
+                        offsetLeft={-11.5}
+                        offsetTop={-30}
                         >
-                            <a onClick={() => SetChooseItem(item) }>
-                                <span className="map-pin" role="img" aria-label="push-pin">◎</span>
-                            </a>
+                            <div onClick={() => SetChooseItem(item) } style={{cursor: "pointer"}}>
+                                <img src="/images/map-point.png" className="map-point" />
+                            </div>
                         </Marker>
                     ))}
                 </ReactMapGL>
@@ -92,7 +92,9 @@ const Map = () => {
                     <p className="store-name">{ chooseItem? `${chooseItem.name}` : "" }</p>
                     <p className="store-address">{ chooseItem? `${chooseItem.address}` : "" }</p>
                 </div>
-                <div style={{height: "1000px"}}></div>
+                <div className="map-post" style={{height: "1000px"}}>
+
+                </div>
             </Col>
         </Row>
         
