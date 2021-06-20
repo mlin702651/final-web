@@ -147,9 +147,9 @@ function handleFileSelect(evt) {
       </div> */}
 
 
-       <input onChange={inputChange} className="hidden" type="file" accept="image/*" capture="camera" id="64input"></input>
+       {/* <input onChange={inputChange} className="hidden" type="file" accept="image/*" capture="camera" id="64input"></input>
 <div id="value"className=".imgTest"></div>
-      <Example data={imagedata} />
+      <Example data={imagedata} /> */}
       
         <div className="showPostData" onClick={clickGetPost}>
 GET

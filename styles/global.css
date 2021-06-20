@@ -998,7 +998,9 @@ background-color: rgb(159, 224, 37);
 	background-color: #fff;
   }
   .imgTest{
-	  width: 300px;height: 300px;
+	  width: 100%;
+    object-fit:cover
+
   }
 
 /* knowledge page */
@@ -1497,7 +1499,7 @@ background-color: rgb(159, 224, 37);
 	height: 100vh;
 	left: 0;
 	top: 0; */
-	overflow: hidden;
+	overflow: visible;
 	text-align: center;
 
 	border: 1px solid #ebedf0;
@@ -1580,18 +1582,20 @@ z-index: 3;
 	position: relative;
 	justify-content: center;
 }
-@media(max-width: 1024px) {
 
-
-}
 .create-post-drawer-open-btn{
 	position: absolute;
 	width: 40px;
-	background-color: #ebedf0;
+	background-color: #456494;
 	height: 40px;
 	left: 0;
 	top: 50%;
+	transform: translateX(-50%);
 }
+
+
+
+
 
 
 .create-post-drawer-elm-cont{
@@ -1609,13 +1613,18 @@ justify-content: center;
 .post-imgUploader-cont .imgUploader-window{
 	width: 400px;
 	height: 390px;
-	background-color: #fff;
+	background-color: #FCF4F4;
 }
 .post-imgUploader-cont .imgUploader-file{
 	margin-top: 50px;
 	width: 100%;
 	height: 70px;
-	background-color: #fff;
+	background-color: #FCF4F4;
+	position: relative;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .post-infoUploader-cont{
 	margin-left: 40px;
@@ -1633,24 +1642,24 @@ justify-content: center;
 .post-infoUploader-cont .area-selector{
 width: 180px;
 height: 100%;
-background-color: #fff;
+background-color: #FCF4F4;
 }
 .post-infoUploader-cont .city-selector{
 	width: 180px;
 	height: 100%;
-	background-color: #fff;
+	background-color: #FCF4F4;
 }
 .post-infoUploader-cont .post-restaurant-name{
 	width: 400px;
 	height: 70px;
 	margin-top: 30px;
-	background-color: #fff;
+	background-color: #FCF4F4;
 }
 .post-text-input{
 	height: 310px;
 	width: 100%;
 	margin-top: 30px;
-	background-color: #fff;
+	background-color: #FCF4F4;
 }
 .posts-submit-btn-cont{
 	width: 200px;
@@ -1666,6 +1675,99 @@ align-items: flex-end;
 	width: 100px;
 	height: 100px;
 	cursor: pointer;
-	background-color: #fff;
+	background-color: #FCF4F4;
 	border-radius: 5px;
+}
+
+@media(max-width: 1350px) {
+	.post-imgUploader-cont .imgUploader-window{
+		width: 330px;
+		height: 310px;
+		background-color: #FCF4F4;
+	}
+	.post-infoUploader-cont{
+		margin-left: 30px;
+		display: flex;
+	flex-direction: column;
+	justify-content: center;
+	}
+	.area-and-city-cont{
+		width: 330px;
+		height: 50px;
+		display: flex;
+		justify-content: space-between;
+	
+	}
+	.post-imgUploader-cont .imgUploader-file{
+		margin-top: 50px;
+		width: 100%;
+		height: 70px;
+		background-color: #FCF4F4;
+	}
+
+	.post-infoUploader-cont .area-selector{
+		width: 150px;
+		height: 100%;
+		background-color: #FCF4F4;
+		}
+	.post-infoUploader-cont .city-selector{
+		width: 150px;
+		height: 100%;
+		background-color: #FCF4F4;
+	}
+	.post-infoUploader-cont .post-restaurant-name{
+		width: 330px;
+		height: 60px;
+		margin-top: 30px;
+		background-color: #FCF4F4;
+	}
+	.post-text-input{
+		height: 260px;
+		width: 100%;
+		margin-top: 30px;
+		background-color: #FCF4F4;
+	}
+	.posts-submit-btn-cont{
+		width: 120px;
+		margin-left: 50px;
+		height:430px;
+		display: flex;
+	
+	justify-content: flex-end;
+	align-items: flex-end; 
+	
+	}
+	.posts-submit-btn{
+		width: 80px;
+		height: 80px;
+		cursor: pointer;
+		background-color: #FCF4F4;
+		border-radius: 5px;
+	}
+	
+	
+}
+
+@media(max-width: 1024px){
+
+}
+.imgTest{
+	width: 100%;
+  object-fit:cover;
+height: 100%;
+}
+
+.imgUploader-file2{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+.imgUploader-file-text{
+
+
+color: #3D0C08;
+font-size: 30px;
 }
