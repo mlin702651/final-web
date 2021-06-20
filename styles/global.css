@@ -602,7 +602,8 @@ cursor: pointer;
 }
 .map-canvas {
 	/* position: fixed; */
-	border-radius: 2rem;
+	border-radius: 6px;
+	border: solid 2px #3D0C08;
 	width: 25vw;
 	height: 25vw;
 	margin: auto;
@@ -612,6 +613,9 @@ cursor: pointer;
 }
 .map-article {
 	overflow: scroll;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	max-height: calc(100vh - 120px);
 	-ms-overflow-style: none;  /* IE and Edge */
 	scrollbar-width: none;  /* Firefox */
@@ -623,7 +627,7 @@ cursor: pointer;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	max-width: 80%;
+	width: 80%;
 	margin: 1rem auto;
 	border: solid 1px #3d0c08;
 	border-radius: 10px;
@@ -639,6 +643,24 @@ cursor: pointer;
 	color: #3D0C08;
 	font-size: 1.25rem;
 	margin: 0;
+}
+.map-post {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-grow: 1;
+	width: 100%;
+}
+.map-no-post {
+	width: 80%;
+}
+.map-no-post p {
+	text-align: center;
+	color: #3d0c08;
+	font-size: 2rem;
+	margin: 0%;
+	padding-bottom: 1rem;
+	/* border-bottom: solid 2px #3d0c08; */
 }
 
 /* .map-article */
@@ -1006,7 +1028,9 @@ background-color: rgb(159, 224, 37);
 	background-color: #fff;
   }
   .imgTest{
-	  width: 300px;height: 300px;
+	  width: 100%;
+    object-fit:cover
+
   }
 
 /* knowledge page */
@@ -1505,7 +1529,7 @@ background-color: rgb(159, 224, 37);
 	height: 100vh;
 	left: 0;
 	top: 0; */
-	overflow: hidden;
+	overflow: visible;
 	text-align: center;
 
 	border: 1px solid #ebedf0;
@@ -1588,18 +1612,20 @@ z-index: 3;
 	position: relative;
 	justify-content: center;
 }
-@media(max-width: 1024px) {
 
-
-}
 .create-post-drawer-open-btn{
 	position: absolute;
 	width: 40px;
-	background-color: #ebedf0;
+	background-color: #456494;
 	height: 40px;
 	left: 0;
 	top: 50%;
+	transform: translateX(-50%);
 }
+
+
+
+
 
 
 .create-post-drawer-elm-cont{
@@ -1617,13 +1643,18 @@ justify-content: center;
 .post-imgUploader-cont .imgUploader-window{
 	width: 400px;
 	height: 390px;
-	background-color: #fff;
+	background-color: #FCF4F4;
 }
 .post-imgUploader-cont .imgUploader-file{
 	margin-top: 50px;
 	width: 100%;
-	height: 70px;
-	background-color: #fff;
+	height: 60px;
+	background-color: #FCF4F4;
+	position: relative;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .post-infoUploader-cont{
 	margin-left: 40px;
@@ -1633,7 +1664,7 @@ justify-content: center;
 }
 .area-and-city-cont{
 	width: 400px;
-	height: 70px;
+	height: 60px;
 	display: flex;
 	justify-content: space-between;
 
@@ -1641,39 +1672,208 @@ justify-content: center;
 .post-infoUploader-cont .area-selector{
 width: 180px;
 height: 100%;
-background-color: #fff;
+background-color: #FCF4F4;
 }
 .post-infoUploader-cont .city-selector{
 	width: 180px;
 	height: 100%;
-	background-color: #fff;
+	background-color: #FCF4F4;
 }
 .post-infoUploader-cont .post-restaurant-name{
 	width: 400px;
 	height: 70px;
 	margin-top: 30px;
-	background-color: #fff;
+	background-color: #FCF4F4;
 }
 .post-text-input{
 	height: 310px;
 	width: 100%;
 	margin-top: 30px;
-	background-color: #fff;
+	background-color: #FCF4F4;
+	display: flex;
 }
 .posts-submit-btn-cont{
-	width: 200px;
+	width: 300px;
 	margin-left: 50px;
-	height: 510px;
+	height: 500px;
 	display: flex;
-
-justify-content: flex-end;
+flex-direction: column;
+justify-content: space-between;
 align-items: flex-end; 
 
+}
+.addTag{
+	width: 100%;
+	
+
+}
+.taginput{
+	display: flex;
+}
+.addTag-btn{
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	line-height: 28px;
+	font-size: 28px;
+	font-weight: bold;
+	background-color: #fff;
 }
 .posts-submit-btn{
 	width: 100px;
 	height: 100px;
 	cursor: pointer;
-	background-color: #fff;
+	background-color: #FCF4F4;
 	border-radius: 5px;
+}
+.tag-input{
+
+}
+.addTag-tags{
+	display: flex;
+	flex-wrap:  wrap
+}
+.addTag-eachtag{
+	display: flex;
+	min-width:30px ;
+align-items: center;
+	background-color: #fff;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+.addtag-tag-text{
+	padding: 5px;
+	margin-right: 5px;
+}
+.tag-remove-btn{
+margin-right: 10px;
+margin-left: 10px;
+cursor: pointer;
+color: #3D0C08;
+font-weight: bold;
+}
+
+
+@media(max-width: 1350px) {
+	.post-imgUploader-cont .imgUploader-window{
+		width: 330px;
+		height: 310px;
+		background-color: #FCF4F4;
+	}
+	.post-infoUploader-cont{
+		margin-left: 30px;
+		display: flex;
+	flex-direction: column;
+	justify-content: center;
+	}
+	.area-and-city-cont{
+		width: 330px;
+		height: 50px;
+		display: flex;
+		justify-content: space-between;
+	
+	}
+	.post-imgUploader-cont .imgUploader-file{
+		margin-top: 50px;
+		width: 100%;
+		height: 50px;
+		background-color: #FCF4F4;
+	}
+
+	.post-infoUploader-cont .area-selector{
+		width: 150px;
+		height: 100%;
+		background-color: #FCF4F4;
+		}
+	.post-infoUploader-cont .city-selector{
+		width: 150px;
+		height: 100%;
+		background-color: #FCF4F4;
+	}
+	.post-infoUploader-cont .post-restaurant-name{
+		width: 330px;
+		height: 60px;
+		margin-top: 30px;
+		background-color: #FCF4F4;
+	}
+	.post-text-input{
+		height: 260px;
+		width: 100%;
+		margin-top: 30px;
+		background-color: #FCF4F4;
+	}
+	.posts-submit-btn-cont{
+		width: 120px;
+		margin-left: 50px;
+		height:430px;
+		display: flex;
+	
+	justify-content: flex-end;
+	align-items: flex-end; 
+	
+	}
+	.posts-submit-btn{
+		width: 80px;
+		height: 80px;
+		cursor: pointer;
+		background-color: #FCF4F4;
+		border-radius: 5px;
+	}
+	
+	
+}
+
+@media(max-width: 1024px){
+
+}
+.imgTest{
+	width: 100%;
+  object-fit:cover;
+height: 100%;
+}
+
+.imgUploader-file2{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+.imgUploader-file-text{
+
+
+color: #3D0C08;
+font-size: 30px;
+}
+
+.area-and-city-cont .ant-select {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+	width: 100% !important;
+	height: 100% !important;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum', "tnum";
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+.area-and-city-cont .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    width: 100%;
+    height: 100%;
+    padding: 0 11px;
+	align-items: center;
+}
+.post-text-input textarea{
+	margin-top: 0;
+    height: 100%;
+    width: 100%;
+   
+    
 }
