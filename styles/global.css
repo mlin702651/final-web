@@ -92,6 +92,7 @@ justify-content: space-between;
 	background: rgba(255, 255, 255, 0);
 	height: 70px;
 	padding: 0%;
+	line-height: 0%;
 }
 @media(max-width: 992px) {
 	.homeHeader {
@@ -129,6 +130,7 @@ justify-content: space-between;
 }
 .login-btn-img {
 	height: 90%;
+	margin: 5%;
 }
 .user-btn-text {
 	line-height: 0.5rem;
@@ -369,7 +371,6 @@ justify-content: space-between;
 	margin-right: 2.5rem;
 	opacity: 1;
 	transition: all .25s linear;
-	margin-top: 10px;
 }
 
 .ham-menu:hover {
