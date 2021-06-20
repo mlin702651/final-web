@@ -21,6 +21,7 @@ background-color: #FFF8F5;
 	display: flex;
 	align-self: center;
 	margin: auto;
+	background: #FFFAF7;
 }
 .bg-dark-gray {
 	background-color: #3d0c08;
@@ -102,14 +103,15 @@ justify-content: space-between;
 }
 .logo {
 	/* background-color: rgb(128, 128, 128); */
-	height: 70px;
-	width: 70px;
+	height: 60px;
+	width: 60px;
 	cursor: pointer;
 }
 @media(max-width: 992px) {	
 	.logo {
-		height: 60px;
-		width: 60px;
+		height: 50px;
+		width: 50px;
+		line-height:0;
 	}
 }
 .header-logo {
@@ -117,8 +119,8 @@ justify-content: space-between;
 }
 .login {
 	position: relative;
-	height: 70px;
-	width: 70px;
+	height: 60px;
+	width: 60px;
 	margin-right: 1.5rem;
 }
 .login-btn {
@@ -129,10 +131,12 @@ justify-content: space-between;
 	height: 90%;
 }
 .user-btn-text {
-	line-height: 1rem;
+	line-height: 0.5rem;
 	text-align: center;
 	font-size: .8rem;
 	width: 90%;
+	color: #3D0C08;
+	
 }
 .home-posts {
 	min-height: 82vh;
@@ -360,11 +364,12 @@ justify-content: space-between;
 	position: relative;
 	align-items: center;
 	z-index: 999;
-	width: 4rem;
-	height: 4rem;
+	width: 3.7rem;
+	height: 3.7rem;
 	margin-right: 2.5rem;
 	opacity: 1;
 	transition: all .25s linear;
+	margin-top: 10px;
 }
 
 .ham-menu:hover {
@@ -376,7 +381,7 @@ span.ham-menu-bar1 {
 	display: inline-block;
 	position: absolute;
 	background-color: #3D0C08;
-	width: 40px;
+	width: 35px;
 	height: 4px;
 	top: 12px;
 	left: 12px;
@@ -388,7 +393,7 @@ span.ham-menu-bar2 {
 	display: inline-block;
 	background-color: #3D0C08;
 	position: absolute;
-	width: 40px;
+	width: 35px;
 	height: 4px;
 	bottom: 27px;
 	left: 12px;
@@ -400,7 +405,7 @@ span.ham-menu-bar3 {
 	display: inline-block;
 	background-color: #3D0C08;
 	position: absolute;
-	width: 40px;
+	width: 35px;
 	height: 4px;
 	bottom: 16px;
 	left: 12px;
@@ -457,6 +462,7 @@ span.ham-menu-bar3--touch {
 		margin-right: 1rem;
 		width: 3rem;
 		height: 3rem;
+		margin-top: 0;
 	}
 	span.ham-menu-bar1 {
 		width: 30px;
@@ -484,6 +490,8 @@ span.ham-menu-bar3--touch {
 
 .ant-layout-content{
 	background-color: #fff;
+	border-radius: 0.5rem;
+
 }
 .PostAreaList{
 	margin-top: 30px;
@@ -1020,7 +1028,9 @@ background-color: rgb(159, 224, 37);
 	background-color: #fff;
   }
   .imgTest{
-	  width: 300px;height: 300px;
+	  width: 100%;
+    object-fit:cover
+
   }
 
 /* knowledge page */
@@ -1032,7 +1042,7 @@ background-color: rgb(159, 224, 37);
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: flex-start;
-	margin-top: 10vh;
+	margin-top: 15vh;
 	margin-left: -40px;
 	overflow: hidden;
 }
@@ -1041,7 +1051,7 @@ background-color: rgb(159, 224, 37);
 	display: flex;
 	margin: .75rem 0;
 	color: #58403E;
-	font-size: 1.4rem;
+	font-size: 1.2rem;
 	font-weight: bold;
 	transform: translate(-4rem, 0);
 	transition: all 0.2s linear;
@@ -1079,7 +1089,7 @@ background-color: rgb(159, 224, 37);
 	z-index: 5;
 }
 .know-sect {
-	font-size: 2.5rem;
+	font-size: 2rem;
 	color: #58403E;
 	font-weight: bold;
 }
@@ -1519,7 +1529,7 @@ background-color: rgb(159, 224, 37);
 	height: 100vh;
 	left: 0;
 	top: 0; */
-	overflow: hidden;
+	overflow: visible;
 	text-align: center;
 
 	border: 1px solid #ebedf0;
@@ -1602,18 +1612,20 @@ z-index: 3;
 	position: relative;
 	justify-content: center;
 }
-@media(max-width: 1024px) {
 
-
-}
 .create-post-drawer-open-btn{
 	position: absolute;
 	width: 40px;
-	background-color: #ebedf0;
+	background-color: #456494;
 	height: 40px;
 	left: 0;
 	top: 50%;
+	transform: translateX(-50%);
 }
+
+
+
+
 
 
 .create-post-drawer-elm-cont{
@@ -1631,13 +1643,18 @@ justify-content: center;
 .post-imgUploader-cont .imgUploader-window{
 	width: 400px;
 	height: 390px;
-	background-color: #fff;
+	background-color: #FCF4F4;
 }
 .post-imgUploader-cont .imgUploader-file{
 	margin-top: 50px;
 	width: 100%;
 	height: 70px;
-	background-color: #fff;
+	background-color: #FCF4F4;
+	position: relative;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .post-infoUploader-cont{
 	margin-left: 40px;
@@ -1655,24 +1672,24 @@ justify-content: center;
 .post-infoUploader-cont .area-selector{
 width: 180px;
 height: 100%;
-background-color: #fff;
+background-color: #FCF4F4;
 }
 .post-infoUploader-cont .city-selector{
 	width: 180px;
 	height: 100%;
-	background-color: #fff;
+	background-color: #FCF4F4;
 }
 .post-infoUploader-cont .post-restaurant-name{
 	width: 400px;
 	height: 70px;
 	margin-top: 30px;
-	background-color: #fff;
+	background-color: #FCF4F4;
 }
 .post-text-input{
 	height: 310px;
 	width: 100%;
 	margin-top: 30px;
-	background-color: #fff;
+	background-color: #FCF4F4;
 }
 .posts-submit-btn-cont{
 	width: 200px;
@@ -1688,6 +1705,99 @@ align-items: flex-end;
 	width: 100px;
 	height: 100px;
 	cursor: pointer;
-	background-color: #fff;
+	background-color: #FCF4F4;
 	border-radius: 5px;
+}
+
+@media(max-width: 1350px) {
+	.post-imgUploader-cont .imgUploader-window{
+		width: 330px;
+		height: 310px;
+		background-color: #FCF4F4;
+	}
+	.post-infoUploader-cont{
+		margin-left: 30px;
+		display: flex;
+	flex-direction: column;
+	justify-content: center;
+	}
+	.area-and-city-cont{
+		width: 330px;
+		height: 50px;
+		display: flex;
+		justify-content: space-between;
+	
+	}
+	.post-imgUploader-cont .imgUploader-file{
+		margin-top: 50px;
+		width: 100%;
+		height: 70px;
+		background-color: #FCF4F4;
+	}
+
+	.post-infoUploader-cont .area-selector{
+		width: 150px;
+		height: 100%;
+		background-color: #FCF4F4;
+		}
+	.post-infoUploader-cont .city-selector{
+		width: 150px;
+		height: 100%;
+		background-color: #FCF4F4;
+	}
+	.post-infoUploader-cont .post-restaurant-name{
+		width: 330px;
+		height: 60px;
+		margin-top: 30px;
+		background-color: #FCF4F4;
+	}
+	.post-text-input{
+		height: 260px;
+		width: 100%;
+		margin-top: 30px;
+		background-color: #FCF4F4;
+	}
+	.posts-submit-btn-cont{
+		width: 120px;
+		margin-left: 50px;
+		height:430px;
+		display: flex;
+	
+	justify-content: flex-end;
+	align-items: flex-end; 
+	
+	}
+	.posts-submit-btn{
+		width: 80px;
+		height: 80px;
+		cursor: pointer;
+		background-color: #FCF4F4;
+		border-radius: 5px;
+	}
+	
+	
+}
+
+@media(max-width: 1024px){
+
+}
+.imgTest{
+	width: 100%;
+  object-fit:cover;
+height: 100%;
+}
+
+.imgUploader-file2{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+}
+.imgUploader-file-text{
+
+
+color: #3D0C08;
+font-size: 30px;
 }
