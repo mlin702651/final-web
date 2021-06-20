@@ -37,7 +37,7 @@ export default function PostsList({postsJson,postsListState}) {
   console.log(postsListState[117])
 
   const clickGetPost= async()=>{
-    let postsdata=await getAllPostAct()
+    let postsdata=await getAllPostAct(dispatch)
 console.log(postsdata)
   }
   const EffectGetPost= async()=>{

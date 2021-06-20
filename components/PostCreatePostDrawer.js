@@ -9,8 +9,9 @@ const { Option } = Select;
 const { TextArea } = Input;
 const { Header, Content, Footer, Sider } = Layout;
 import { getProducts } from "../api";
+import moment from 'moment'
 import postsJson from "../json/posts.json"
-
+import {postNewArticle} from "../actions"
 import { StoreContext } from "../store"
 import { set } from 'js-cookie';
 
@@ -36,23 +37,44 @@ const PostCreatePostDrawer = () => {
 
 
   }, []);
+  const { state: { userSignin:{
+    loading,
+    userInfo,
+    remember,
+    error
+
+  } }, dispatch } = useContext(StoreContext);
   const btnRef = useRef(null);
   const [visible, setVisible] = useState(false)
   const [imagedata, setImagedata] = useState('')
+  //
   const [pauseLogin, setPauseLogin] = useState(false)
   const [taglist, setTaglist] = useState([])
   const[tagOnChange,setTagOnChange]=useState("")
   const[fileExist,setFileExist]=useState(false)
+  const[posttext,setPosttext]=useState("")
+  //
+  const[postRN,setPostRN]=useState("")
+  //
+  const[postArea,setPostArea]=useState("北部")
+  //
+  const[postCity,setPostCity]=useState("台北")
+  //
+
   // console.log(postsJson)
   const inputChange = (e) => {
     console.log("ss")
     handleFileSelect(e)
+    //image
   }
   const onRNChange = e => {
     console.log('Change:', e.target.value);
+    setPostRN(e.target.value)
+    console.log(postRN)
   };
   const onTextChange = e => {
     console.log('Change:', e.target.value);
+    setPosttext(e.target.value)
   };
   const onTagchange = e => {
     console.log('Change:', e.target.value);
@@ -65,9 +87,12 @@ const PostCreatePostDrawer = () => {
      const tagExist=taglist.find((x) => x === tagOnChange);
   if(tagExist){
     console.log("已經有了")
-  }else{
+  }else if(tagOnChange){
  setTaglist([...taglist,tagOnChange])
  setTagOnChange(null)
+  }
+  else{
+    console.log("蝦")
   }
   }
   const removeTag = tag => {
@@ -89,9 +114,11 @@ console.log("a")
 
   function handleAreaChange(value) {
     console.log(`selected ${value}`);
+    setPostArea(value)
   }
   function handleCityChange(value) {
     console.log(`selected ${value}`);
+    setPostCity(value)
   }
  
   function handleFileSelect(evt) {
@@ -121,12 +148,42 @@ console.log("a")
           message.info('上传失败，请上传不大于2M的图片！');
           return;
         } else {
-          console.log(reader.result)
+          // console.log(reader.result)
           setImagedata(reader.result)
         }
       }
     }
   }
+function Postsubmit(){
+ 
+  if(userInfo){
+    let time = moment().format('YYYY-MM-DD HH:mm:ss')
+let postInfo={
+  "user":userInfo.displayName,
+  "uid":userInfo.uid,
+  "date":time,
+  "area":postArea,
+  "city":postCity,
+  "image":imagedata,
+  "restaurant":postRN,
+  "text":posttext,
+  "tags":taglist,
+  "comments":[]
+}
+
+
+setVisible(false)
+console.log(userInfo)
+   postNewArticle(dispatch,postInfo)
+   setTaglist([])
+   setImagedata("")
+   
+  }else{
+    console.log("no way")
+  }
+}
+
+
   return (
 
 
@@ -143,6 +200,7 @@ console.log("a")
       <div className="create-post-drawer-open-btn" onClick={() => { setVisible(!visible) }}>
 
       </div>
+      {visible?(
       <div className="create-post-drawer-elm-cont">
         <div className="post-imgUploader-cont">
           <div className="imgUploader-window">
@@ -215,10 +273,10 @@ console.log("a")
 }
           </div>
           </div>
-          <div className="posts-submit-btn">發布</div>
+          <div className="posts-submit-btn" onClick={Postsubmit}>發布</div>
         </div>
       </div>
-
+      ):(null)}
     </Drawer>
 
 

@@ -172,6 +172,16 @@ export const feedPosts = () => {
     });
   })
 }
+export const createNewPost = (userinfo) => {
+  console.log("feeding")
+  const docRef = allPostsCollectionRef.doc();
+  const id = docRef.id;
+  docRef.set({
+    ...userinfo,
+    id,
+  });
+  
+}
 
 export const getAllPosts = async () => {
   // REFERENCE PRODUCTS COLLECTION

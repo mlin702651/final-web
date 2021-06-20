@@ -73,6 +73,7 @@ import {
   getKnowledgeContent,
   createUserBookMarkers,
   getPostsByMapInfo,
+ createNewPost
 } from "../api";
 import moment from "moment";
 
@@ -186,10 +187,15 @@ export const loginToFirebase = async (dispatch, userInfo) => {
   dispatch({ type: BEGIN_LOGIN_REQUEST });
   try {
     const user = await signInWithEmailPassword(userInfo.email, userInfo.password);
+    let userinfo={
+      ...user.user.providerData[0],
+      uid:user.user.uid
+    }
     dispatch({
       type: SUCCESS_LOGIN_REQUEST,
-      payload: user.user.providerData[0],
+      payload: userinfo,
     })
+    console.log(userinfo)
     return user;
   } catch (e) {
     dispatch({
@@ -212,10 +218,13 @@ export const registerToFirebase = async (dispatch, userInfo) => {
   dispatch({ type: BEGIN_REGISTER_REQUEST });
   try {
     const user = await registerWithEmailPassword(userInfo.email, userInfo.password, userInfo.name);
-    console.log(user)
+    let userinfo={
+      ...user.providerData[0],
+      uid:user.uid
+    }
     dispatch({
       type: SUCCESS_REGISTER_REQUEST,
-      payload: user.providerData[0],
+      payload: userinfo,
     })
     return user;
   } catch (e) {
@@ -236,9 +245,13 @@ export const updateUserInfo = async (dispatch, userInfo) => {
       userInfo.password,
       userInfo.name
     );
+    let userinfo={
+      ...user.providerData[0],
+      uid:user.uid
+    }
     dispatch({
       type: SUCCESS_UPDATE_USERINFO,
-      payload: user.providerData[0],
+      payload: userinfo,
     });
   } catch (e) {
     dispatch({
@@ -348,7 +361,7 @@ export const getAllPostAct = async(dispatch)=>{
   try{
     const posts =await getAllPosts();
   
-    const sortedPosts = posts.sort((a,b)=>moment(a.date).diff(moment(b.date)))
+    const sortedPosts = posts.sort((b,a)=>moment(a.date).diff(moment(b.date)))
     // console.log(sortedPosts)
     dispatch({type: SETPOSTLIST,payload:sortedPosts})
      console.log(sortedPosts)
@@ -459,4 +472,19 @@ export const setMapPosts = async (dispatch, id) => {
     })
     console.log(e)
   }
+}
+
+export const postNewArticle = async(dispatch,userinfo)=>{
+
+  console.log(userinfo)
+  createNewPost(userinfo)
+  const posts =await getAllPosts();
+  
+  const sortedPosts = posts.sort((b,a)=>moment(a.date).diff(moment(b.date)))
+  // console.log(sortedPosts)
+  dispatch({type: SETPOSTLIST,payload:sortedPosts})
+  // dispatch({
+  //   type: POST_NEW_ARTICLE,
+  //   payload: newpost
+  // })
 }

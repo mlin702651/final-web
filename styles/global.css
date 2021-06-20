@@ -1530,7 +1530,7 @@ background-color: rgb(159, 224, 37);
 	left: 0;
 	top: 0; */
 	overflow: visible;
-	text-align: center;
+	
 
 	border: 1px solid #ebedf0;
 	border-radius: 2px;
@@ -1621,6 +1621,7 @@ z-index: 3;
 	left: 0;
 	top: 50%;
 	transform: translateX(-50%);
+
 }
 
 
@@ -1806,10 +1807,7 @@ font-weight: bold;
 		width: 120px;
 		margin-left: 50px;
 		height:430px;
-		display: flex;
-	
-	justify-content: flex-end;
-	align-items: flex-end; 
+		 
 	
 	}
 	.posts-submit-btn{
@@ -1841,8 +1839,7 @@ height: 100%;
 	opacity: 0;
 }
 .imgUploader-file-text{
-
-
+text-align: center;
 color: #3D0C08;
 font-size: 30px;
 }
