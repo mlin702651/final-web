@@ -26,7 +26,7 @@ function Profile() {
           <ProfileHeader />
         </Header>
         <Layout className="container ">
-            <Content style={{position: 'relative', height: '100vh' }} >
+            <Content className="map-layout" style={{position: 'relative', flexGrow: "1" }} >
                 <ProfileContent />
             </Content>
         </Layout>

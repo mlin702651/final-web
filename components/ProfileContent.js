@@ -6,7 +6,7 @@ import ProfileNavBar from "./ProfileNavBar";
 import ProfileArticle from "./ProfileArticle";
 
 export default function PostsContent() {
-  
+
   const router = useRouter()
 
   return (
@@ -14,6 +14,7 @@ export default function PostsContent() {
       <Row >
 
         <Col
+        className="profile-nav-col"
           xs={{ span: 0 }}
           sm={{ span: 0 }}          
           md={{ span: 0 }}
@@ -22,6 +23,7 @@ export default function PostsContent() {
           <ProfileNavBar isMobile={false} />
         </Col>
         <Col
+          className="profile-article-col custom-scroll-bar"
           xs={{ span: 24 }}
           sm={{ span: 24 }}          
           md={{ span: 24 }}
