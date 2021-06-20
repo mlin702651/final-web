@@ -14,6 +14,7 @@ export default function ProfileNavBar({isMobile, onMobileClick}) {
     const handleMyPageClick = () => {
         isMobile? onMobileClick() : null;
         setMyPostsPage(dispatch);
+        console.log(state.profilePage.posts)
     }
 
     const handleCollectionPageClick = () => {

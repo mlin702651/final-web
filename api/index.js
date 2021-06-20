@@ -246,3 +246,16 @@ export const getPostsByMapInfo = async (id) => {
   });
   return Posts;
 }
+
+// get my posts bu user uid
+export const getMyPostsByUserId = async  () => {
+  const userId = auth.currentUser.uid;
+  let myPosts = [];
+
+  // QUERY Orders
+  const querySnapshot = await allPostsCollectionRef.where("uid", "==", userId).get();
+  querySnapshot.forEach((doc) => {
+    myPosts.push(doc.data());
+  });
+  return myPosts;
+}

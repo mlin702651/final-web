@@ -5,14 +5,9 @@ import { StoreContext } from "../store";
 import ProfileNavBar from "./ProfileNavBar";
 import ProfileArticle from "./ProfileArticle";
 
-export default function PostsContent({ title }) {
-  const { dispatch } = useContext(StoreContext);
+export default function PostsContent() {
+  
   const router = useRouter()
-
-  //   const onClickHeader = () => {
-  //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
-  //     router.push("/");
-  //   };
 
   return (
     <div className="homeContent">

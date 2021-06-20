@@ -73,7 +73,8 @@ import {
   getKnowledgeContent,
   createUserBookMarkers,
   getPostsByMapInfo,
- createNewPost
+  createNewPost,
+  getMyPostsByUserId
 } from "../api";
 import moment from "moment";
 
@@ -395,15 +396,15 @@ export const setKnowledgePage = async (dispatch, url) => {
 }
 
 export const setMyPostsPage = async (dispatch) => {
-  let knowledge;
+  let posts;
   dispatch({ type: BEGIN_MY_POSTS_REQUEST });
 
   try {
-    // knowledge = await getMyPostsByUserId();
-    // dispatch({
-    //   type: SET_PROFILE_PAGE_CONTENT,
-    //   payload: knowledge,
-    // });
+    posts = await getMyPostsByUserId();
+    dispatch({
+      type: SET_PROFILE_PAGE_CONTENT,
+      payload: posts,
+    });
     dispatch({
       type: SET_PROFILE_NAVBAR_ACTIVEITEM,
       payload: "/profile/myPosts",
@@ -416,14 +417,14 @@ export const setMyPostsPage = async (dispatch) => {
 }
 
 export const setCollectionPostsPage = async (dispatch, url) => {
-  let knowledge;
+  let posts;
   dispatch({ type: BEGIN_COLLECTION_POSTS_REQUEST });
 
   try {
-    // knowledge = await getCollectionPostsByUserId();
+    // posts = await getCollectionPostsByUserId();
     // dispatch({
     //   type: SET_PROFILE_PAGE_CONTENT,
-    //   payload: knowledge,
+    //   payload: posts,
     // });
     dispatch({
       type: SET_PROFILE_NAVBAR_ACTIVEITEM,

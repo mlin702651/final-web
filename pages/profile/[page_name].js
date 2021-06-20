@@ -14,7 +14,6 @@ function Profile() {
   
   useEffect(() => {
     setMyPostsPage(dispatch)
-    console.log(state.profileNavBar.activeItem)
   }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
   return (

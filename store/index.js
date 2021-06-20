@@ -197,7 +197,7 @@ const initialState = {
   },
   //profile page
   profilePage: {
-    article: { posts: [] },
+    posts: [],
   },
   profileNavBar: {
     activeItem: "profile/myPosts",
@@ -210,6 +210,7 @@ const initialState = {
     loading: false,
     error: null,
   },
+  //map page
   requestMapPosts: {
     loading: false,
     allMapPosts: [],
@@ -590,7 +591,7 @@ function reducer(state, action) {
           return {
             ...state,
             profilePage: {
-              article: action.payload,
+              posts: action.payload,
             },
           };
         case SET_PROFILE_NAVBAR_ACTIVEITEM:
