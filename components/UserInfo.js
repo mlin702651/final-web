@@ -23,11 +23,10 @@ export default function UserInfo({onClick, isOnTouch}){
                 <>
                     <div onClick={goToProfile} className="login-btn">
                         <img
-                            src="/images/user-btn.png"
+                            src="/images/user-icon-touch.png"
                             className="login-btn-img"
                             alt="post" 
                         />
-                        <p className="user-btn-text">${userInfo.displayName}'s</p>
                     </div>
                 </>
             ):(
@@ -45,7 +44,6 @@ export default function UserInfo({onClick, isOnTouch}){
                                 className="login-btn-img"
                                 alt="post" 
                             />
-                            <p className="user-btn-text">請登入</p>
                         </div>
                     )}
                 </>
