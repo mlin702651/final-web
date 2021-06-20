@@ -1656,21 +1656,31 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 100%;
+width: 1000px;
+
 }
+.all-h{
+height: 430px;
+
+}
+
+
 .post-imgUploader-cont{
+	width: 35%;
+	
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: space-between;
 }
 .post-imgUploader-cont .imgUploader-window{
-	width: 400px;
-	height: 390px;
+	width: 100%;
+	height: 73%;
 	background-color: #FCF4F4;
 }
 .post-imgUploader-cont .imgUploader-file{
-	margin-top: 50px;
+	
 	width: 100%;
-	height: 60px;
+	height: 70px;
 	background-color: #FCF4F4;
 	position: relative;
 	border-radius: 5px;
@@ -1679,45 +1689,51 @@ justify-content: center;
 	justify-content: center;
 }
 .post-infoUploader-cont{
+	width: 35%;
 	margin-left: 40px;
 	display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: space-between;
 }
 .area-and-city-cont{
-	width: 400px;
-	height: 60px;
+	width: 100%;
+	height: 15%;
 	display: flex;
 	justify-content: space-between;
 
 }
 .post-infoUploader-cont .area-selector{
-width: 180px;
+width: 47%;
 height: 100%;
 background-color: #FCF4F4;
 }
 .post-infoUploader-cont .city-selector{
-	width: 180px;
+	width: 47%;
 	height: 100%;
 	background-color: #FCF4F4;
 }
-.post-infoUploader-cont .post-restaurant-name{
-	width: 400px;
+.post-infoUploader-cont .c-post-restaurant-name{
+	width: 100%;
 	height: 70px;
-	margin-top: 30px;
+	
 	background-color: #FCF4F4;
+}
+.c-post-restaurant-name .ant-input{
+	height: 100%;
+	font-size: 20px;
 }
 .post-text-input{
-	height: 310px;
+	height: 50%;
 	width: 100%;
-	margin-top: 30px;
+	
 	background-color: #FCF4F4;
 	display: flex;
+	
 }
 .posts-submit-btn-cont{
-	width: 300px;
+	width: 25%;
 	margin-left: 50px;
-	height: 500px;
+	
 	display: flex;
 flex-direction: column;
 justify-content: space-between;
@@ -1776,7 +1792,7 @@ font-weight: bold;
 }
 
 
-@media(max-width: 1350px) {
+/* @media(max-width: 1350px) {
 	.post-imgUploader-cont .imgUploader-window{
 		width: 330px;
 		height: 310px;
@@ -1812,7 +1828,7 @@ font-weight: bold;
 		height: 100%;
 		background-color: #FCF4F4;
 	}
-	.post-infoUploader-cont .post-restaurant-name{
+	.post-infoUploader-cont .c-post-restaurant-name{
 		width: 330px;
 		height: 60px;
 		margin-top: 30px;
@@ -1840,7 +1856,7 @@ font-weight: bold;
 	}
 	
 	
-}
+} */
 
 @media(max-width: 1024px){
 
