@@ -594,7 +594,8 @@ cursor: pointer;
 }
 .map-canvas {
 	/* position: fixed; */
-	border-radius: 2rem;
+	border-radius: 6px;
+	border: solid 2px #3D0C08;
 	width: 25vw;
 	height: 25vw;
 	margin: auto;
@@ -604,6 +605,9 @@ cursor: pointer;
 }
 .map-article {
 	overflow: scroll;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	max-height: calc(100vh - 120px);
 	-ms-overflow-style: none;  /* IE and Edge */
 	scrollbar-width: none;  /* Firefox */
@@ -615,7 +619,7 @@ cursor: pointer;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	max-width: 80%;
+	width: 80%;
 	margin: 1rem auto;
 	border: solid 1px #3d0c08;
 	border-radius: 10px;
@@ -631,6 +635,24 @@ cursor: pointer;
 	color: #3D0C08;
 	font-size: 1.25rem;
 	margin: 0;
+}
+.map-post {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-grow: 1;
+	width: 100%;
+}
+.map-no-post {
+	width: 80%;
+}
+.map-no-post p {
+	text-align: center;
+	color: #3d0c08;
+	font-size: 2rem;
+	margin: 0%;
+	padding-bottom: 1rem;
+	/* border-bottom: solid 2px #3d0c08; */
 }
 
 /* .map-article */
