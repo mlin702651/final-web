@@ -5,6 +5,7 @@ import jsonInfo from "../json/jsonInfo.json";
 import products from "../json/products.json";
 import postsJson from "../json/posts.json"
 import knowledgeJson from "../json/knowledge.json";
+import ramenPosition from "../json/ramenPosition.json"
 
 // INITIALIZE FIREBASE
 const firebaseConfig = {
@@ -207,6 +208,7 @@ export const changeDocTest = ()=>{
     text:"aaa"
    })
 }
+
 //userBookMarker
 export const createUserBookMarkers = () => {
   const user = auth.currentUser.uid;
@@ -219,3 +221,18 @@ export const createUserBookMarkers = () => {
   return emptyBookMarker
 }
 
+
+// get posts by map infomation
+export const getPostsByMapInfo = async (id) => {
+  const collection = ramenPosition.find(element => element.id === id);
+  const collectionName = collection.name;
+  let Posts = [];
+
+  // QUERY PRODUCTS
+  let querySnapshot;
+  querySnapshot = await allPostsCollectionRef.where("restaurant", "==", collectionName).get();
+  querySnapshot.forEach((doc) => {
+    Posts.push(doc.data());
+  });
+  return Posts;
+}
