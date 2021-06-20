@@ -40,8 +40,9 @@ const PostCreatePostDrawer = () => {
   const [visible, setVisible] = useState(false)
   const [imagedata, setImagedata] = useState('')
   const [pauseLogin, setPauseLogin] = useState(false)
-  const [taglist, setTaglist] = useState(["aaa","拉麵公子","sads","哈哈","嘿嘿"])
+  const [taglist, setTaglist] = useState([])
   const[tagOnChange,setTagOnChange]=useState("")
+  const[fileExist,setFileExist]=useState(false)
   // console.log(postsJson)
   const inputChange = (e) => {
     console.log("ss")
@@ -66,6 +67,7 @@ const PostCreatePostDrawer = () => {
     console.log("已經有了")
   }else{
  setTaglist([...taglist,tagOnChange])
+ setTagOnChange(null)
   }
   }
   const removeTag = tag => {
@@ -98,6 +100,7 @@ console.log("a")
     var AllowImgFileSize = 2100000;
     // console.log(file.name)
     if (file) {
+      setFileExist(true)
       var files = file.name.split('.')
       var name = files[files.length - 1]
       var type = ['gif', 'png', 'jpg', 'svg', 'jpeg']
@@ -143,7 +146,7 @@ console.log("a")
       <div className="create-post-drawer-elm-cont">
         <div className="post-imgUploader-cont">
           <div className="imgUploader-window">
-            <Example data={imagedata} />
+          {fileExist?(<Example data={imagedata} />):(null) }
           </div>
           <div className="imgUploader-file">
             <input onChange={inputChange} className="imgUploader-file2" type="file" accept="image/*" capture="camera" id="64input"></input>
@@ -195,7 +198,7 @@ console.log("a")
         <div className="posts-submit-btn-cont">
           <div className="addTag">
           <div className="taginput">
-          <Input placeholder="標籤" onChange={onTagchange} />
+          <Input placeholder="標籤" onChange={onTagchange} value={tagOnChange}/>
           <div className="addTag-btn" onClick={addtag}>+</div>
           </div>
           <div className="addTag-tags">
@@ -212,7 +215,7 @@ console.log("a")
 }
           </div>
           </div>
-          <div className="posts-submit-btn"></div>
+          <div className="posts-submit-btn">發布</div>
         </div>
       </div>
 
