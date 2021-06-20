@@ -51,6 +51,10 @@ import {
   BEGIN_USER_BOOKMARKER_CREATE,
   SUCCESS_USER_BOOKMARKER_CREATE,
   FAIL_USER_BOOKMARKER_CREATE,
+  POST_NEW_ARTICLE,
+  BEGIN_MAP_POSTS_REQUEST,
+  SUCCESS_MAP_POSTS_REQUEST,
+  FAIL_MAP_POSTS_REQUEST,
 } from "../utils/constants";
 
 import {
@@ -67,7 +71,8 @@ import {
   feedknowledge,
   getAllPosts,
   getKnowledgeContent,
-  createUserBookMarkers
+  createUserBookMarkers,
+  getPostsByMapInfo,
 } from "../api";
 import moment from "moment";
 
@@ -346,7 +351,7 @@ export const getAllPostAct = async(dispatch)=>{
     const sortedPosts = posts.sort((a,b)=>moment(a.date).diff(moment(b.date)))
     // console.log(sortedPosts)
     dispatch({type: SETPOSTLIST,payload:sortedPosts})
-    // console.log(sortedPosts)
+     console.log(sortedPosts)
     // return sortedPosts
  
   }catch(error){
@@ -435,5 +440,23 @@ export const createBookMarker = async (dispatch) => {
     })
     console.log(e)
     return null;
+  }
+}
+
+export const setMapPosts = async (dispatch, id) => {
+  dispatch({ type: BEGIN_MAP_POSTS_REQUEST });
+  try {
+    const posts = await getPostsByMapInfo(id);
+    console.log(posts);
+    dispatch({
+      type: SUCCESS_MAP_POSTS_REQUEST,
+      payload: posts
+    })
+  } catch (e) {
+    dispatch({
+      type: FAIL_MAP_POSTS_REQUEST,
+      payload: e.message
+    })
+    console.log(e)
   }
 }

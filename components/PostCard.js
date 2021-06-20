@@ -8,6 +8,7 @@ import HomeNav from "/components/HomeNav"
 import PostCardComment from "./PostCardComment"
 import { cityClicked } from "../actions";
 import DetectableOverflow from 'react-detectable-overflow';
+
 export default function PostCard(props) {
   const { state: { area: {
     northClick, westClick, eastClick, southClick, cityClick
@@ -25,7 +26,7 @@ export default function PostCard(props) {
 
   }
   useEffect(() => {
-    console.log("87")
+    // console.log("87")
     checkWidth()
   }, [eachPost]);
   useEffect(() => {
@@ -37,8 +38,8 @@ export default function PostCard(props) {
     const node = domRef.current
     const clientWidth = node.clientWidth
     const scrollWidth = node.scrollWidth
-    console.log("clientWidth: " + clientWidth)
-    console.log("scrollWidth: " + scrollWidth)
+    // console.log("clientWidth: " + clientWidth)
+    // console.log("scrollWidth: " + scrollWidth)
     if (clientWidth < scrollWidth) {
       setReadmore(true)
     }
@@ -81,7 +82,7 @@ export default function PostCard(props) {
 
   }
 
-  console.log(readmore)
+  // console.log(readmore)
 
 
   //   const onClickHeader = () => {
@@ -147,7 +148,7 @@ export default function PostCard(props) {
   <div className="postcard-tags-cont">
     {
       eachPost.tags.map(tag=>(
-        <div className="tag">{tag}</div>
+        <div key={tag} className="tag">{tag}</div>
       ))
     }
   </div>
@@ -191,6 +192,7 @@ export default function PostCard(props) {
           onChange={onChange}
           placeholder="留言"
           autoSize={{ minRows: 1, maxRows: 5 }}
+          // onClick={()=>console.log("8s5s58s5s")}
           
         />
           

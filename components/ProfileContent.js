@@ -19,16 +19,18 @@ export default function PostsContent({ title }) {
       <Row >
 
         <Col
-          sm={{ span: 6 }}
-          xl={{ span: 6 }}
-          xxl={{ span: 6 }}
+          xs={{ span: 0 }}
+          sm={{ span: 0 }}          
+          md={{ span: 0 }}
+          lg={{ span: 6 }}
         >
-          <ProfileNavBar />
+          <ProfileNavBar isMobile={false} />
         </Col>
         <Col
-          sm={{ span: 18 }}
-          xl={{ span: 18 }}
-          xxl={{ span: 18 }}
+          xs={{ span: 24 }}
+          sm={{ span: 24 }}          
+          md={{ span: 24 }}
+          lg={{ span: 18 }}
         >
           <ProfileArticle />
         </Col>

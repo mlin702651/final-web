@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Layout } from "antd";
 import Head from 'next/head'
-import NoSearchHeader from "../../components/NoSearchHeader";
+import ProfileHeader from "../../components/ProfileHeader";
 import ProfileContent from "../../components/ProfileContent"
 import { setMyPostsPage } from "../../actions";
 import { StoreContext } from "../../store"
@@ -10,7 +10,7 @@ const { Header, Content, Footer } = Layout;
 
 function Profile() {
 
-  const { state,dispatch } = useContext(StoreContext);
+  const { state, dispatch } = useContext(StoreContext);
   
   useEffect(() => {
     setMyPostsPage(dispatch)
@@ -24,7 +24,7 @@ function Profile() {
       </Head>
       <Layout className="home-layout-1">
         <Header className="sethomeHeader">
-          <NoSearchHeader />
+          <ProfileHeader />
         </Header>
         <Layout className="container ">
             <Content style={{position: 'relative', height: '100vh' }} >

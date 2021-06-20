@@ -53,6 +53,10 @@ import {
   BEGIN_USER_BOOKMARKER_CREATE,
   SUCCESS_USER_BOOKMARKER_CREATE,
   FAIL_USER_BOOKMARKER_CREATE,
+  POST_NEW_ARTICLE,
+  BEGIN_MAP_POSTS_REQUEST,
+  SUCCESS_MAP_POSTS_REQUEST,
+  FAIL_MAP_POSTS_REQUEST,
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -204,6 +208,11 @@ const initialState = {
   },
   requestCollectionPosts: {
     loading: false,
+    error: null,
+  },
+  requestMapPosts: {
+    loading: false,
+    allMapPosts: [],
     error: null,
   }
 };
@@ -653,6 +662,30 @@ function reducer(state, action) {
               error: action.payload,
             },
           };
+        case BEGIN_MAP_POSTS_REQUEST:
+          return {
+            ...state,
+            requestMapPosts: { ...state.requestMapPosts, loading: true, }
+          }
+        case SUCCESS_MAP_POSTS_REQUEST:
+          return {
+            ...state,
+            requestMapPosts: {
+              ...state.requestMapPosts,
+              loading: false,
+              allMapPosts: action.payload,
+            }
+          }
+        case FAIL_MAP_POSTS_REQUEST:
+          return {
+            ...state,
+            requestMapPosts: {
+              ...state.requestMapPosts,
+              loading: false,
+              allMapPosts: [],
+              error: action.payload,
+            }
+          }
     default:
       return state;
   }

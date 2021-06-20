@@ -8,7 +8,7 @@ import PostsEachCity from "./PostsEachCity"
 import { areaClicked } from "../actions"
 import PostCard from "./PostCard"
 import moment from 'moment'
-import {feedPosts,getAllPosts } from '../api/index'
+import {feedPosts,getAllPosts,changeDocTest} from '../api/index'
 import {getAllPostAct} from '../actions'
 
 
@@ -156,6 +156,9 @@ GET
         </div>
         <div className="feedPostData" onClick={feedOnClick}>
 FEED
+        </div> 
+        <div className="changeTest" onClick={()=>{changeDocTest()}}>
+change
         </div> 
         {
           postsListState.map(eachPost=>(

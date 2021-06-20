@@ -5,17 +5,19 @@ import { setMyPostsPage, setCollectionPostsPage } from "../actions";
 
 import ProfileNavItem from "./ProfileNavItem";
 
-export default function ProfileNavBar() {
+export default function ProfileNavBar({isMobile, onMobileClick}) {
     const { state, dispatch } = useContext(StoreContext);
 
     const [isOnTouch, setIsOnTouch] = useState(false);
     const handleCloseDrawer = () => setIsOnTouch(false);
 
     const handleMyPageClick = () => {
+        isMobile? onMobileClick() : null;
         setMyPostsPage(dispatch);
     }
 
     const handleCollectionPageClick = () => {
+        isMobile? onMobileClick() : null;
         setCollectionPostsPage(dispatch);
     }
 

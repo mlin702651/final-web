@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, {useContext ,useEffect, useRef, useState} from 'react'
 import { Row, Col } from "antd";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 // import L from 'leaflet'
@@ -6,10 +6,13 @@ import ReactMapGL, { Marker, Popup } from "react-map-gl";
 // import 'leaflet/dist/leaflet.css'
 // import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 // import "leaflet-defaulticon-compatibility";
-import test from '../json/text.json'
+import { StoreContext } from "../store";
 import ramenPosition from "../json/ramenPosition.json"
+import {setMapPosts} from "../actions"
 
 const Map = () => {
+    const {state: { requestMapPosts }, dispatch} = useContext(StoreContext);
+
     const [chooseItem, SetChooseItem] = useState();
     const [viewport, setViewport] = useState({
         width: "50vh",
@@ -18,7 +21,13 @@ const Map = () => {
         latitude: 23.973875,
         longitude: 120.982024,
         zoom: 6
-      });
+    });
+
+    useEffect(()=>{
+        if(chooseItem)
+            setMapPosts(dispatch, chooseItem.id);
+            console.log(requestMapPosts.allMapPosts)
+    }, [chooseItem])
 
     return (
         
@@ -79,8 +88,10 @@ const Map = () => {
                 md={{ span: 24 }}
                 lg={{ span: 12 }}
             >
-                <p>{ chooseItem? `${chooseItem.name}` : "" }</p>
-                <p>{ chooseItem? `${chooseItem.address}` : "" }</p>
+                <div className="store-info">
+                    <p className="store-name">{ chooseItem? `${chooseItem.name}` : "" }</p>
+                    <p className="store-address">{ chooseItem? `${chooseItem.address}` : "" }</p>
+                </div>
                 <div style={{height: "1000px"}}></div>
             </Col>
         </Row>

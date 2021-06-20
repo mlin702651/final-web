@@ -5,6 +5,7 @@ import jsonInfo from "../json/jsonInfo.json";
 import products from "../json/products.json";
 import postsJson from "../json/posts.json"
 import knowledgeJson from "../json/knowledge.json";
+import ramenPosition from "../json/ramenPosition.json"
 
 // INITIALIZE FIREBASE
 const firebaseConfig = {
@@ -77,7 +78,10 @@ export const feedProducts = () => {
 }
 //use
 export const signInWithEmailPassword = async (email, password) => {
-  return await auth.signInWithEmailAndPassword(email, password);
+  const user= await auth.signInWithEmailAndPassword(email, password);
+  // const user=auth.currentUser
+  console.log(user.user.uid)
+  return user
 }
 //use
 export const registerWithEmailPassword = async (email, password, displayName) => {
@@ -197,6 +201,14 @@ export const getKnowledgeContent = async (url) => {
   return jsonProducts[0];
 }
 
+
+export const changeDocTest = ()=>{
+   allPostsCollectionRef.doc("YwvbpnrXXKEalnp7irUZ").set({
+    ...postsJson.allPosts[0],
+    text:"aaa"
+   })
+}
+
 //userBookMarker
 export const createUserBookMarkers = () => {
   const user = auth.currentUser.uid;
@@ -209,3 +221,18 @@ export const createUserBookMarkers = () => {
   return emptyBookMarker
 }
 
+
+// get posts by map infomation
+export const getPostsByMapInfo = async (id) => {
+  const collection = ramenPosition.find(element => element.id === id);
+  const collectionName = collection.name;
+  let Posts = [];
+
+  // QUERY PRODUCTS
+  let querySnapshot;
+  querySnapshot = await allPostsCollectionRef.where("restaurant", "==", collectionName).get();
+  querySnapshot.forEach((doc) => {
+    Posts.push(doc.data());
+  });
+  return Posts;
+}
