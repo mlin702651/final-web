@@ -1,18 +1,13 @@
 import { useContext } from "react";
 import { useRouter } from 'next/router'
-import { Row, Col, Spin } from "antd";
+import { Row, Col } from "antd";
 import { StoreContext } from "../store";
 import HomePosts from "/components/HomePosts"
 import HomeNav from "/components/HomeNav"
 
-export default function HomeContent({ title }) {
+export default function HomeContent() {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()
-
-  //   const onClickHeader = () => {
-  //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
-  //     router.push("/");
-  //   };
 
   return (
     <div className="homeContent">

@@ -9,6 +9,7 @@ import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { StoreContext } from "../store";
 import ramenPosition from "../json/ramenPosition.json"
 import {setMapPosts} from "../actions"
+import PostCard from "./PostCard"
 
 const Map = () => {
     const {state: { requestMapPosts }, dispatch} = useContext(StoreContext);
@@ -52,12 +53,12 @@ const Map = () => {
                         key={item.id}
                         latitude={item.coordinates[0]}
                         longitude={item.coordinates[1]}
-                        offsetLeft={-10}
-                        offsetTop={-5}
+                        offsetLeft={-11.5}
+                        offsetTop={-30}
                         >
-                            <a onClick={() => SetChooseItem(item) }>
-                                <span className="map-pin" role="img" aria-label="push-pin">◎</span>
-                            </a>
+                            <div onClick={() => SetChooseItem(item) } style={{cursor: "pointer"}}>
+                                <img src="/images/map-point.png" className="map-point" />
+                            </div>
                         </Marker>
                     ))}
                 </ReactMapGL>
@@ -92,7 +93,11 @@ const Map = () => {
                     <p className="store-name">{ chooseItem? `${chooseItem.name}` : "" }</p>
                     <p className="store-address">{ chooseItem? `${chooseItem.address}` : "" }</p>
                 </div>
-                <div style={{height: "1000px"}}></div>
+                <div className="map-post" >
+                    {requestMapPosts.allMapPosts.map((post)=>(
+                        <PostCard eachPost={post} key={post.id}/>
+                    ))}
+                </div>
             </Col>
         </Row>
         
