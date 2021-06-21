@@ -231,6 +231,66 @@ export const createUserBookMarkers = () => {
   });
   return emptyBookMarker
 }
+export const addToBookmark=async(postID)=>{
+ 
+  let bookmarkers=[]
+  const user = auth.currentUser.uid;
+  let querySnapshot = await allUserBookMarkers.doc(user).get() ;
+  bookmarkers=querySnapshot.data().bookMarkers
+  // querySnapshot.forEach((doc) => {
+  //   bookmarkers.push(doc.data());
+  // });
+//  console.log(bookmarkers)
+let addORNot=bookmarkers.find((value)=>value===postID)
+if(addORNot){
+  console.log("should remove")
+  let newarray =bookmarkers.filter(item => item !== postID)
+  await allUserBookMarkers.doc(user).set({
+    ...querySnapshot.data(),bookMarkers:[...newarray]
+  })
+
+}else{
+bookmarkers.push(postID)
+console.log(bookmarkers)
+await allUserBookMarkers.doc(user).set({
+  ...querySnapshot.data(),bookMarkers:[...bookmarkers]
+})
+return bookmarkers
+}
+}
+
+export const getBookmarkerArray = async()=>{
+  const user = auth.currentUser.uid;
+  let querySnapshot = await allUserBookMarkers.doc(user).get() ;
+  return querySnapshot.data().bookMarkers
+}
+
+
+// {
+//   let Posts = [];
+//   const querySnapshot =await allPostsCollectionRef.where("id", "==", postId).get()
+//   querySnapshot.forEach((doc) => {
+//     Posts.push(doc.data());
+//   });
+// let oldarray=Posts[0].comments
+// oldarray.push(comment)
+// let newarray=oldarray
+// console.log({
+//   ...Posts[0],comments:{
+//     ...newarray
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
 
 
 // get posts by map infomation
@@ -264,7 +324,7 @@ export const getMyPostsByUserId = async  () => {
 export const getCommentsLength = async (postId)=>{
   let myPosts = [];
   const querySnapshot =await allPostsCollectionRef.where("id", "==", postId).get()
-  console.log(querySnapshot)
+  // console.log(querySnapshot)
   querySnapshot.forEach((doc) => {
     myPosts.push(doc.data());
     console.log(doc)
@@ -283,12 +343,12 @@ export const addComment = async(postId,comment)=>{
 let oldarray=Posts[0].comments
 oldarray.push(comment)
 let newarray=oldarray
-console.log({
-  ...Posts[0],comments:{
-    ...newarray
-  }
+// console.log({
+//   ...Posts[0],comments:{
+//     ...newarray
+//   }
 
-})
+// })
   await allPostsCollectionRef.doc(postId).set({
     ...Posts[0],comments:[
       ...newarray

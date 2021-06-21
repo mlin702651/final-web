@@ -55,6 +55,7 @@ import {
   BEGIN_MAP_POSTS_REQUEST,
   SUCCESS_MAP_POSTS_REQUEST,
   FAIL_MAP_POSTS_REQUEST,
+  GET_BOOKMARKERS_ARRAY
 } from "../utils/constants";
 
 import {
@@ -77,7 +78,9 @@ import {
   getMyPostsByUserId,
   getCommentsLength,
   addComment,
-  countNum
+  countNum,
+  addToBookmark,
+  getBookmarkerArray
 } from "../api";
 import moment from "moment";
 
@@ -515,4 +518,16 @@ export const sendCommentAct=async(dispatch,username,postId,value)=>{
   
 }
 
+export const addToBookmarkAct=async(dispatch,postId)=>{
+await addToBookmark(postId)
+return true
+}
+
+export const getBookmarkerArrayAct=async(dispatch)=>{
+  let bookerarray=await getBookmarkerArray()
+  console.log(bookerarray)
+  dispatch({
+    type:GET_BOOKMARKERS_ARRAY,payload:bookerarray
+  })
+}
 

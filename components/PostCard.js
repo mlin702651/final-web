@@ -6,15 +6,18 @@ import Image from 'next/image'
 import PostAreaList from "/components/PostAreaList"
 import HomeNav from "/components/HomeNav"
 import PostCardComment from "./PostCardComment"
-import { cityClicked,sendCommentAct,getAllPostAct } from "../actions";
+import { cityClicked,sendCommentAct,getAllPostAct,addToBookmarkAct,getBookmarkerArrayAct } from "../actions";
 import DetectableOverflow from 'react-detectable-overflow';
+import { add } from "date-fns";
+import { addToBookmark } from "../api";
 
 export default function PostCard(props) {
   const { state: { area: {
     northClick, westClick, eastClick, southClick, cityClick
   },
   userSignin: {  userInfo
-  }
+  },
+  bookMarkerArray
 
 }, dispatch } = useContext(StoreContext);
   const router = useRouter()
@@ -35,13 +38,27 @@ export default function PostCard(props) {
     setCommentNum(eachPost.comments.length)
     console.log(commentNum)
     }
+   let BMorNot= bookMarkerArray.find
   }, [eachPost]);
+
+  useEffect(() => {
+    // console.log("87")
+    
+   let BMorNot= bookMarkerArray.find((a)=>a===eachPost.id)
+   if(BMorNot){
+     setBookmarkOrNot(true)
+   }else{
+    setBookmarkOrNot(false)
+   }
+  }, [bookMarkerArray]);
+
   useEffect(() => {
     if(postIndex<visiblePostsNum){
     checkWidth()
     setCommentNum(eachPost.comments.length)
     console.log(commentNum)
     }
+    getBookmarkerArrayAct(dispatch)
   }, []);
   const checkWidth = () => {
     //查看全文有沒有過寬
@@ -102,6 +119,15 @@ const sendComment= async()=>{
   const Readmore = () => {
 
   }
+  let bookmarkOnClick=async()=>{
+    
+   await addToBookmarkAct(dispatch,eachPost.id)
+    getBookmarkerArrayAct(dispatch)
+  }
+
+
+
+
 
   // console.log(readmore)
 
@@ -183,7 +209,7 @@ const sendComment= async()=>{
   xl={{ span: 4 }}
   xxl={{ span: 4 }}
 >
-  <div className="postcard-bookmark-cont"onClick={()=>setBookmarkOrNot(!bookmarkOrNot)}>
+  <div className="postcard-bookmark-cont"onClick={bookmarkOnClick}>
   <div className="bookmark-cont-2">
   {bookmarkOrNot? 
   (<Image

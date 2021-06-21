@@ -57,6 +57,7 @@ import {
   BEGIN_MAP_POSTS_REQUEST,
   SUCCESS_MAP_POSTS_REQUEST,
   FAIL_MAP_POSTS_REQUEST,
+  GET_BOOKMARKERS_ARRAY
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -184,6 +185,7 @@ const initialState = {
   // ]
   // }
   ],
+  bookMarkerArray:[],
   //knowledge page
   knowledgePage: {
     article: { recommend: [], image: [] },
@@ -686,6 +688,11 @@ function reducer(state, action) {
               allMapPosts: [],
               error: action.payload,
             }
+          }
+        case GET_BOOKMARKERS_ARRAY:
+          console.log(action.payload)
+          return{
+            ...state,bookMarkerArray:[...action.payload]
           }
     default:
       return state;
