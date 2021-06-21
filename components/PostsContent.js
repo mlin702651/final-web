@@ -42,8 +42,8 @@ console.log(postsdata)
          <PostsList postsJson={postsJson} postsListState={postsListState}></PostsList>
         </Col>
         <Col
-          sm={{ span: 5}}
-          xl={{ span: 5 }}
+          sm={{ span: 0}}
+          xl={{ span: 0 }}
           xxl={{ span: 5 }}
         >
           </Col>
