@@ -39,8 +39,13 @@ export default function PostsHeader({ title }) {
         </Link>
         <div className="inputCont">
           <Input className="postsinput" placeholder="" allowClear onChange={onChange} />
-          <div className="search-btn" onClick={postSearch}></div>
+          <div className="search-btn" onClick={postSearch}><img src="./images/search.png"></img></div>
         </div>
+
+
+
+
+        
         <div className="login-and-ham">
           <div className="login">      
             <UserInfo 
