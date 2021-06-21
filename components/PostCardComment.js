@@ -13,13 +13,14 @@ export default function PostCardComment(props) {
   } }, dispatch } = useContext(StoreContext);
   const router = useRouter()
 
-  const [readmore, setReadmore] = useState(false)
+
   const [readtoggle, setReadtoggle] = useState(false)
   const [bookmarkOrNot,setBookmarkOrNot]=useState(false)
   const [value,setValue]=useState('')
   const domRef = useRef(null)
- 
+ const{ comment ,index,readmore}=props
   const { TextArea } = Input;
+
   const sendComment=()=>{
 
   }
@@ -49,40 +50,35 @@ export default function PostCardComment(props) {
   //         changeHandle()
   //     }, [eachPost]);
 
-  const Readmore = () => {
+ 
 
-  }
-
-  console.log(readmore)
+  // console.log(index)
 
 
-  //   const onClickHeader = () => {
-  //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
-  //     router.push("/");
-  //   };
+  ;
   const cityOnClick = () => {
 
     cityClicked(dispatch, city, area)
   };
-  //   useEffect(() => {
-  //     componentDidMount()
 
-  //  }, []);
-  //   const componentDidMount =()=> { // 在did mount 中判断是否溢出
-  //     const node = this.ref.current  // 判断的dom节点，使用ref
-  //     const clientWidth = node.clientWidth
-  //     const scrollWidth = node.scrollWidth
-  //     if (clientWidth < scrollWidth) {
-  //       this.setState({    // 把是否溢出的状态存在state中，之后从state中拿值使用
-  //         overflow: true    
-  //       })
-  //     }
-  //   }  // 在普通js中实现，方法一样，取到dom，判断clientWidth 和scrollWidth
-
-  // console.log(city+"在"+area)
   return (
-    <div className="post-card-comment">
- 
+    <>
+    {
+     readmore?(
+      <div className="post-card-comment">
+      <div className="comment-username">{comment.name}</div>
+      <div className="comment-text"> {comment.content}</div>
+
     </div>
+     ):
+      index<2?
+    (<div className="post-card-comment">
+      <div className="comment-username">{comment.name}</div>
+      <div className="comment-text"> {comment.content}</div>
+
+    </div>):(null)
+    
+    }
+    </>
   );
 }
