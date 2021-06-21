@@ -1,5 +1,6 @@
 import React, {useContext ,useEffect, useRef, useState} from 'react'
 import { Row, Col } from "antd";
+import Link from 'next/link'
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 // import L from 'leaflet'
 // import { MapContainer, TileLayer,Marker,Popup } from 'react-leaflet'
@@ -113,6 +114,16 @@ const Map = () => {
                         </>
                     )}
                 </div>
+                {requestMapPosts.allMapPosts.length < 1 ? (
+                    <></>
+                ) : (
+                    <div className="map-see-more">
+                        <Link href="/posts">
+                            <p>看更多</p>
+                        </Link>
+                    </div>
+                )}
+                
             </Col>
         </Row>
         
