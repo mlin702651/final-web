@@ -557,8 +557,8 @@ export const sendCommentAct=async(dispatch,username,postId,value)=>{
    await addComment(postId,comment)
  
    console.log("Hello9999")
-   getAllPostAct(dispatch)
   
+  getAllPostWhenComment(dispatch)
 }catch (error) {
   console.log(error);
   
@@ -579,3 +579,18 @@ export const getBookmarkerArrayAct=async(dispatch)=>{
   })
 }
 
+export const getAllPostWhenComment = async(dispatch)=>{
+ 
+  try{
+    const posts =await getAllPosts();
+  
+    const sortedPosts = posts.sort((b,a)=>moment(a.date).diff(moment(b.date)))
+    // console.log(sortedPosts)
+    dispatch({type: SETPOSTLIST,payload:sortedPosts})
+     console.log(sortedPosts)
+    // return sortedPosts
+    console.log("sssssssssssssssssssssssss")
+  }catch(error){
+    console.log(error);
+  }
+}

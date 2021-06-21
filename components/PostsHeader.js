@@ -3,12 +3,13 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { StoreContext } from "../store";
 import Image from 'next/image'
-import { Input, Drawer } from 'antd';
+import { Input, Drawer,Select } from 'antd';
 import HamMenu from './HamMenu';
 import PostNavBtnWhite from './PostNavBtnWhite';
 import UserInfo from './UserInfo'
 import LoginCard from './LoginCard';
 import RegisterCard from "./RegisterCard";
+const { Option } = Select;
 
 export default function PostsHeader({ title }) {
   const { dispatch } = useContext(StoreContext);
@@ -28,7 +29,10 @@ export default function PostsHeader({ title }) {
   const handleCloseLoginDrawer = () => setIsLoginTouch(false);
   const [isRegisterTouch, setIsRegisterTouch] = useState(false);
   const handleCloseRegisterDrawer = () => setIsRegisterTouch(false);
-
+  function handleCityChange(value) {
+    console.log(`selected ${value}`);
+    
+  }
   return (
     <>
       <header className="homeHeader">
@@ -42,10 +46,33 @@ export default function PostsHeader({ title }) {
           <div className="search-btn" onClick={postSearch}><img src="./images/search.png"></img></div>
         </div>
 
+<div className="postHeaderselect">
+<Select defaultValue="地區" style={{ fontSize: 22 }} onChange={handleCityChange}>
+                  <Option style={{ fontSize: 22, marginBottom: 5 }} value="基隆">基隆</Option>
+                      <Option style={{ fontSize: 22, marginBottom: 5 }} value="台北">台北</Option>
+                      <Option style={{ fontSize: 22, marginBottom: 5 }} value="新北">新北</Option>
+                      <Option style={{ fontSize: 22, marginBottom: 5 }} value="桃園">桃園</Option>
+                      <Option style={{ fontSize: 22, marginBottom: 5 }} value="新竹">新竹</Option>
+                   
+                    <Option style={{ fontSize: 22, marginBottom: 5 }} value="苗栗">苗栗</Option>
+                        <Option style={{ fontSize: 22, marginBottom: 5 }} value="台中">台中</Option>
+                        <Option style={{ fontSize: 22, marginBottom: 5 }} value="彰化">彰化</Option>
+                        <Option style={{ fontSize: 22, marginBottom: 5 }} value="南投">南投</Option>
+                        <Option style={{ fontSize: 22, marginBottom: 5 }} value="雲林">雲林</Option>
+                    
+                   <Option style={{ fontSize: 22, marginBottom: 5 }} value="嘉義">嘉義</Option>
+                          <Option style={{ fontSize: 22, marginBottom: 5 }} value="台南">台南</Option>
+                          <Option style={{ fontSize: 22, marginBottom: 5 }} value="高雄">高雄</Option>
+                          <Option style={{ fontSize: 22, marginBottom: 5 }} value="屏東">屏東</Option>
+                    
+                       <Option style={{ fontSize: 22, marginBottom: 5 }} value="台東">台東</Option>
+                            <Option style={{ fontSize: 22, marginBottom: 5 }} value="花蓮">花蓮</Option>
+                            <Option style={{ fontSize: 22, marginBottom: 5 }} value="宜蘭">宜蘭</Option>
+                </Select>
+</div>
 
 
 
-        
         <div className="login-and-ham">
           <div className="login">      
             <UserInfo 

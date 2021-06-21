@@ -2231,9 +2231,9 @@ height: 100%;
 .post-loadimg-div img {
 	width: auto;
 }
-.homeHeader{
-	height: ;
-}
+.postHeaderselect{
+	display: none;
+	}
 @media(max-width: 1024px){
 	.PostAreaList{
 		display: none;
@@ -2243,26 +2243,28 @@ height: 100%;
 		display: none;
 	
 	}
+	.postHeaderselect{
+		display: block;
+		}
 
 }
-@media(max-width: 360px){
-	.post-image{
-		width: 280px;
-		height: 280px;
-		/* object-fit: contain; */
-		object-fit:cover;
-		border-radius: 0.2rem;
-	}
-	
-	.post-card{
-		width: 280px;
-		min-height: 800px;
-		/* background-color: rgba(255, 255, 255, 0.8); */
-		margin-top: 1rem;
-		display: flex;
-		flex-direction: column;
-	}
-	}
+
+.postHeaderselect .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+	position: relative;
+	background-color: #F6F5F5;
+	border: 0px solid #d9d9d9;
+	height: 40px;
+	width: 300px;
+	border-radius: 2px;
+	-webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+	transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.postHeaderselect  .ant-select-selector span{
+color: #3D0C08;
+display: flex;
+align-items: center;
+}
+
 @media(max-width: 360px){
 .post-image{
 	width: 280px;
@@ -2298,6 +2300,15 @@ height: 100%;
 		display: flex;
 		flex-direction: column;
 	}
+
+	.postHeaderselect .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+		width: 150px;
+		
+		
+	}
+	.postHeaderselect  .ant-select-selector span{
+color: #3D0C08;
+	}
 	}
 @media(max-width: 360px){
 	.post-image{
@@ -2317,5 +2328,4 @@ height: 100%;
 		flex-direction: column;
 	}
 	}
-
 	
