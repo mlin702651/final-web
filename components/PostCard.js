@@ -17,7 +17,8 @@ export default function PostCard(props) {
   },
   userSignin: {  userInfo
   },
-  bookMarkerArray
+  bookMarkerArray,
+  postsListState
 
 }, dispatch } = useContext(StoreContext);
   const router = useRouter()
@@ -39,7 +40,7 @@ export default function PostCard(props) {
     console.log(commentNum)
     }
   
-  }, [eachPost]);
+  }, [postsListState]);
 
   useEffect(() => {
     // console.log("87")

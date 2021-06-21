@@ -172,11 +172,12 @@ change
         {
 loading?(<div className="loading-div post-loadimg-div">
 <img src="/images/loading.gif" alt="loading... " />
-</div>):(
-
+</div>):(<>{
           postsListState.map((eachPost,index)=>(
             <PostCard key={eachPost.id} eachPost={eachPost} visiblePostsNum={visiblePosts} postIndex={index}></PostCard>
-          ))
+          ))}
+          <div className="post-see-more" onClick={()=>{setVisiblePosts(visiblePosts+10);}}><p>看更多貼文</p></div>
+      </>
        ) }
 {/*     
       <img
@@ -200,7 +201,7 @@ loading?(<div className="loading-div post-loadimg-div">
         )
       }
       </div> */}
-      {loading?(null):(<div className="post-see-more" onClick={()=>{setVisiblePosts(visiblePosts+10);}}><p>看更多貼文</p></div>)}
+     
       
     </div>
   );

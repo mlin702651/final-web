@@ -2202,3 +2202,10 @@ height: 100%;
 .post-loadimg-div img {
 	width: auto;
 }
+
+@media(max-width: 1024px){
+	.PostAreaList{
+		display: none;
+	}
+
+}
