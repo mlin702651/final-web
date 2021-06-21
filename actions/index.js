@@ -52,6 +52,7 @@ import {
   SUCCESS_USER_BOOKMARKER_CREATE,
   FAIL_USER_BOOKMARKER_CREATE,
   POST_NEW_ARTICLE,
+  REMOVE_POST,
   BEGIN_MAP_POSTS_REQUEST,
   SUCCESS_MAP_POSTS_REQUEST,
   FAIL_MAP_POSTS_REQUEST,
@@ -75,6 +76,7 @@ import {
   createUserBookMarkers,
   getPostsByMapInfo,
   createNewPost,
+  removePost,
   getMyPostsByUserId,
   getCommentsLength,
   addComment,
@@ -494,6 +496,17 @@ export const postNewArticle = async(dispatch,userinfo)=>{
   //   type: POST_NEW_ARTICLE,
   //   payload: newpost
   // })
+}
+
+export const removeMyPost = async (dispatch, postId) => {
+  const posts = await removePost(postId);
+  const sortedPosts = posts.sort((b,a)=>moment(a.date).diff(moment(b.date)))
+
+  dispatch({
+    type: SETPOSTLIST,
+    payload: sortedPosts
+  })
+  
 }
 
 export const sendCommentAct=async(dispatch,username,postId,value)=>{
