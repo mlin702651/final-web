@@ -25,7 +25,7 @@ export default function PostsContent() {
         <Col
           className="profile-article-col custom-scroll-bar"
           xs={{ span: 24 }}
-          sm={{ span: 24 }}          
+          sm={{ span: 24 }}
           md={{ span: 24 }}
           lg={{ span: 18 }}
         >

@@ -4,14 +4,40 @@ import PostCard from "./PostCard";
 import postCard from "./PostCard"
 
 export default function ProfileArticle() {
-    const { state: { profilePage: { posts }, requestMyPosts: { loading } }, dispatch } = useContext(StoreContext);
+    const { state: { profilePage, profileNavBar, requestMyPosts, requestCollectionPosts} , dispatch } = useContext(StoreContext);
 
     return (
-        <div className="profile-post">
-            {posts.map((post) => (
-                <PostCard eachPost={post} key={post.id} />
-            ))}
-        </div>
-        
+        <>
+            {profileNavBar.activeItem === "/profile/myPosts" ? (
+                <>
+                    {requestMyPosts.loading? (
+                        <div className="loading-div map-loadimg-div">
+                            <img src="/images/loading.gif" alt="loading... " />
+                        </div>
+                    ):(
+                        <div className="profile-post">
+                            {profilePage.posts.map((post) => (
+                                <div className="each-post" style={{position: "relative"}}>
+                                    <PostCard eachPost={post} key={post.id} />
+                                    <div className="delete-post">
+                                        <p>刪除貼文</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </>
+            ) : (
+                <>
+                    {requestCollectionPosts.loading? (
+                        <div className="loading-div map-loadimg-div">
+                            <img src="/images/loading.gif" alt="loading... " />
+                        </div>
+                    ):(
+                        <></>
+                    )}
+                </>
+            )}
+        </>
     )
 }

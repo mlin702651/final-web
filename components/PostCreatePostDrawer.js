@@ -175,7 +175,7 @@ const PostCreatePostDrawer = () => {
   }
   function Postsubmit() {
 
-    if (userInfo&&postArea.length&&postCity.length&&imagedata.length>0&&restaurant.length>0) {
+    if (userInfo&&postArea.length&&postCity.length&&imagedata.length>0&&postRN.length>0) {
       let time = moment().format('YYYY-MM-DD HH:mm:ss')
       let postInfo = {
         "user": userInfo.displayName,
