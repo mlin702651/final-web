@@ -38,7 +38,7 @@ export default function Home() {
 
           </Content>
         </Layout>
-        <Footer style={{ textAlign: 'center', background: '#3D0C08' }}></Footer>
+     
       </Layout>
     </Layout>
   )

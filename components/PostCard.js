@@ -172,14 +172,14 @@ if(userInfo){
         <Row >
 
 <Col
-  sm={{ span: 19 }}
+  sm={{ span: 17 }}
   xl={{ span: 19 }}
   xxl={{ span: 19 }}
 >
 <div className="post-restaurant-name">{eachPost.restaurant}</div>
 </Col>
 <Col
-  sm={{ span: 5 }}
+  sm={{ span: 7 }}
   xl={{ span: 5 }}
   xxl={{ span: 5 }}
 >
