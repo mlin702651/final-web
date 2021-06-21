@@ -1660,6 +1660,8 @@ background-color: rgb(159, 224, 37);
 .delete-post {
 	position: absolute;
 	cursor: pointer;
+	height: fit-content;
+    padding: 0;
 	border-radius: 5px;
 	background-color: #FFFFFF;
 	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.15);
@@ -1671,7 +1673,7 @@ background-color: rgb(159, 224, 37);
 	background-color: #fff2f2;
 	opacity: 1;
 }
-.delete-post p {
+.delete-post span {
 	font-size: 1rem;
 	color: #3D0C08;
 	padding: .5rem;
