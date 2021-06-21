@@ -55,7 +55,7 @@ const Posts = ({ jsonProducts }) => {
             </Content>
           </Layout>
         </div>
-        <Footer style={{ textAlign: 'center', background: '#3D0C08' }}></Footer>
+        {/* <Footer style={{ textAlign: 'center', background: '#3D0C08' }}></Footer> */}
       </Layout>
 
     </Layout>

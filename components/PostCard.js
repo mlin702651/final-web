@@ -249,7 +249,7 @@ if(userInfo){
       className="comment-input"
           value={Cvalue}
           onChange={CommentInputonChange}
-          placeholder="留言"
+          placeholder={userInfo?("以"+userInfo.displayName+"身分留言"):("留言")}
           autoSize={{ minRows: 1, maxRows: 5 }}
           // onClick={()=>console.log("8s5s58s5s")}
           
