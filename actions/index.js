@@ -82,6 +82,7 @@ import {
   createNewPost,
   removePost,
   getMyPostsByUserId,
+  getCollectionPostsByUserId,
   getCommentsLength,
   addComment,
   countNum,
@@ -415,6 +416,7 @@ export const setMyPostsPage = async (dispatch) => {
 
   try {
     posts = await getMyPostsByUserId();
+    console.log(posts)
     dispatch({
       type: SET_PROFILE_PAGE_CONTENT,
       payload: posts,
@@ -430,16 +432,17 @@ export const setMyPostsPage = async (dispatch) => {
   }
 }
 
-export const setCollectionPostsPage = async (dispatch, url) => {
-  let posts;
+export const setCollectionPostsPage = async (dispatch) => {
+  let posts = [];
   dispatch({ type: BEGIN_COLLECTION_POSTS_REQUEST });
 
   try {
-    // posts = await getCollectionPostsByUserId();
-    // dispatch({
-    //   type: SET_PROFILE_PAGE_CONTENT,
-    //   payload: posts,
-    // });
+    posts = await getCollectionPostsByUserId();
+    console.log(posts)
+    dispatch({
+      type: SET_PROFILE_PAGE_CONTENT,
+      payload: posts,
+    });
     dispatch({
       type: SET_PROFILE_NAVBAR_ACTIVEITEM,
       payload: "/profile/collectionPosts",
