@@ -53,6 +53,9 @@ import {
   FAIL_USER_BOOKMARKER_CREATE,
   POST_NEW_ARTICLE,
   REMOVE_POST,
+  BEGIN_REMOVE_POST,
+  SUCCESS_REMOVE_POST,
+  FAIL_REMOVE_POST,
   BEGIN_MAP_POSTS_REQUEST,
   SUCCESS_MAP_POSTS_REQUEST,
   FAIL_MAP_POSTS_REQUEST,
@@ -502,14 +505,43 @@ export const postNewArticle = async(dispatch,userinfo)=>{
 }
 
 export const removeMyPost = async (dispatch, postId) => {
-  const posts = await removePost(postId);
-  const sortedPosts = posts.sort((b,a)=>moment(a.date).diff(moment(b.date)))
+  dispatch({ type: BEGIN_REMOVE_POST })
+  try {
+    const posts = await removePost(postId);
+    const sortedPosts = posts.sort((b,a)=>moment(a.date).diff(moment(b.date)))
 
-  dispatch({
-    type: SETPOSTLIST,
-    payload: sortedPosts
-  })
-  
+    dispatch({
+      type: SETPOSTLIST,
+      payload: sortedPosts
+    })
+    dispatch({
+      type: SUCCESS_REMOVE_POST,
+    })
+  } catch (e) {
+    dispatch({
+      type: FAIL_REMOVE_POST,
+      payload: e.message,
+    })
+    console.log(e)
+  }
+  let posts;
+  dispatch({ type: BEGIN_MY_POSTS_REQUEST });
+
+  try {
+    posts = await getMyPostsByUserId();
+    dispatch({
+      type: SET_PROFILE_PAGE_CONTENT,
+      payload: posts,
+    });
+    dispatch({
+      type: SET_PROFILE_NAVBAR_ACTIVEITEM,
+      payload: "/profile/myPosts",
+    });
+    dispatch({ type: SUCCESS_MY_POSTS_REQUEST });
+  } catch (error) {
+    console.log(error);
+    dispatch({ type: FAIL_MY_POSTS_REQUEST, payload: error });
+  }
 }
 
 export const sendCommentAct=async(dispatch,username,postId,value)=>{

@@ -1,13 +1,15 @@
 import React, { useContext, useEffect } from "react";
+import { Button } from "antd";
 import { StoreContext } from "../store";
 import PostCard from "./PostCard";
-import { removeMyPost } from "../actions"
+import { removeMyPost, setMyPostsPage, setCollectionPostsPage } from "../actions"
 
 export default function ProfileArticle() {
-    const { state: { profilePage, profileNavBar, requestMyPosts, requestCollectionPosts} , dispatch } = useContext(StoreContext);
+    const { state: { profilePage, profileNavBar, requestMyPosts, requestCollectionPosts, requestRemovePosts} , dispatch } = useContext(StoreContext);
 
     const handlePostDelete = (postId) => {
         removeMyPost(dispatch, postId);
+        setMyPostsPage(dispatch);
     }
 
     return (
@@ -23,9 +25,23 @@ export default function ProfileArticle() {
                             {profilePage.posts.map((post) => (
                                 <div className="each-post" style={{position: "relative"}}>
                                     <PostCard eachPost={post} key={post.id} visiblePostsNum={100} postIndex={0} />
-                                    <div className="delete-post" onClick={()=>{ handlePostDelete(post.id) }} >
-                                        <p>刪除貼文</p>
-                                    </div>
+                                    {requestRemovePosts.loading ? (
+                                        <Button 
+                                            className="delete-post" 
+                                            onClick={ () => { handlePostDelete(post.id) } } 
+                                            loading
+                                        >
+                                            <span>刪除貼文</span>
+                                        </Button>
+                                    ):(
+                                        <Button 
+                                            className="delete-post" 
+                                            onClick={ () => { handlePostDelete(post.id) } } 
+                                        >
+                                            <span>刪除貼文</span>
+                                        </Button>
+                                    )}
+                                    
                                 </div>
                             ))}
                         </div>

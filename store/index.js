@@ -55,6 +55,9 @@ import {
   FAIL_USER_BOOKMARKER_CREATE,
   POST_NEW_ARTICLE,
   REMOVE_POST,
+  BEGIN_REMOVE_POST,
+  SUCCESS_REMOVE_POST,
+  FAIL_REMOVE_POST,
   BEGIN_MAP_POSTS_REQUEST,
   SUCCESS_MAP_POSTS_REQUEST,
   FAIL_MAP_POSTS_REQUEST,
@@ -221,6 +224,10 @@ const initialState = {
   requestMapPosts: {
     loading: false,
     allMapPosts: [],
+    error: null,
+  },
+  requestRemovePosts: {
+    loading: false,
     error: null,
   }
 };
@@ -701,6 +708,28 @@ function reducer(state, action) {
               ...state.requestMapPosts,
               loading: false,
               allMapPosts: [],
+              error: action.payload,
+            }
+          }
+        case BEGIN_REMOVE_POST:
+          return {
+            ...state,
+            requestRemovePosts: { ...state.requestRemovePosts, loading: true, }
+          }
+        case SUCCESS_REMOVE_POST:
+          return {
+            ...state,
+            requestRemovePosts: {
+              ...state.requestRemovePosts,
+              loading: false,
+            }
+          }
+        case FAIL_REMOVE_POST:
+          return {
+            ...state,
+            requestRemovePosts: {
+              ...state.requestRemovePosts,
+              loading: false,
               error: action.payload,
             }
           }
