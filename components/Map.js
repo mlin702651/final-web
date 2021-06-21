@@ -94,16 +94,24 @@ const Map = () => {
                     <p className="store-address">{ chooseItem? `${chooseItem.address}` : "" }</p>
                 </div>
                 <div className="map-post" >
-                    {requestMapPosts.allMapPosts.length < 1 ? 
-                        (
-                            <div className="map-no-post">
-                                <p>No Post</p>
-                            </div>
-                        ):(
-                            requestMapPosts.allMapPosts.map((post)=>(
-                            <PostCard eachPost={post} key={post.id}/>
-                        )
-                    ))}
+                    {requestMapPosts.loading? (
+                        <div className="loading-div map-loadimg-div">
+                            <img src="/images/loading.gif" alt="loading... " />
+                        </div>
+                    ) : (
+                        <>
+                        {requestMapPosts.allMapPosts.length < 1 ? 
+                            (
+                                <div className="map-no-post">
+                                    <p>No Post</p>
+                                </div>
+                            ):(
+                                requestMapPosts.allMapPosts.map((post)=>(
+                                <PostCard eachPost={post} key={post.id}/>
+                            )
+                        ))}
+                        </>
+                    )}
                 </div>
             </Col>
         </Row>
