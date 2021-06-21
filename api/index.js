@@ -198,6 +198,17 @@ export const getAllPosts = async () => {
    return aaa
 }
 
+export const removePost = async (postId) => {
+  let currentPosts = [];
+
+  allPostsCollectionRef.doc(postId).delete();
+  const posts = await allPostsCollectionRef.get();
+  posts.forEach((doc) => {
+    currentPosts.push(doc.data());
+  });
+  return currentPosts;
+}
+
 //knowledge
 export const getKnowledgeContent = async (url) => {
   const collection = knowledgeJson.find(element => element.url === url);
