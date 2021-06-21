@@ -16,12 +16,13 @@ export default function HomePosts({ title }) {
   return (
     <div className="home-posts">
       <div className="home-post-demo">
-        <Image
-          style={{ width: '100%' }}
-          src="/images/1623324543735.jpg"
-          width={'800px'}
-          height={'900px'}
-          alt="post" />
+        <img src="/images/home-noodle.png" className="home-noodle-img" />
+        <div className="home-post-div">
+            
+        </div>
+        <div className="home-nuudle-bowl">          
+          <img src="/images/home-noodle-bowl.png" className="home-noodle-bowl-img" />
+        </div>
       </div>
     </div>
   );

@@ -174,7 +174,7 @@ justify-content: space-between;
 	min-height: 82vh;
 	display: flex;
 	justify-content: center;
-	margin-top: 6.6rem;
+	/* margin-top: 6.6rem; */
 }
 .home-nav {
 	min-height: 82vh;
@@ -260,8 +260,29 @@ justify-content: space-between;
 	justify-content: space-between;
 }
 .home-post-demo {
-	width: 300px;
+	width: 100%;
+	position: relative;
 }
+.home-noodle-img {
+	width: 100%;
+}
+.home-nuudle-bowl {
+	width: 70%;
+	position: absolute;
+	top: 40%;
+	right: -5%;
+}
+.home-post-div {
+	position: absolute;
+	width: 40%;
+    padding-top: 40%;
+    top: 10%;
+    right: 10%;
+}
+.home-noodle-bowl-img {
+	width: 100%;
+}
+
 @media(max-width: 992px) {
 	.home-nav-arrange {
 		flex-direction: row;
