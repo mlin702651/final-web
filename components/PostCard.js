@@ -18,7 +18,7 @@ export default function PostCard(props) {
 
 }, dispatch } = useContext(StoreContext);
   const router = useRouter()
-  const { eachPost } = props
+  const { eachPost ,visiblePostsNum,postIndex} = props
   const [readmore, setReadmore] = useState(false)
   const [readtoggle, setReadtoggle] = useState(false)
   const [bookmarkOrNot,setBookmarkOrNot]=useState(false)
@@ -30,14 +30,18 @@ export default function PostCard(props) {
   
   useEffect(() => {
     // console.log("87")
+    if(postIndex<visiblePostsNum){
     checkWidth()
     setCommentNum(eachPost.comments.length)
     console.log(commentNum)
+    }
   }, [eachPost]);
   useEffect(() => {
+    if(postIndex<visiblePostsNum){
     checkWidth()
     setCommentNum(eachPost.comments.length)
     console.log(commentNum)
+    }
   }, []);
   const checkWidth = () => {
     //查看全文有沒有過寬
@@ -127,6 +131,8 @@ const sendComment= async()=>{
   //   }  // 在普通js中实现，方法一样，取到dom，判断clientWidth 和scrollWidth
 
   // console.log(city+"在"+area)
+  // console.log(visiblePostsNum);console.log(postIndex)
+  if(postIndex<visiblePostsNum){
   return (
     <div className="post-card">
         <Row >
@@ -233,5 +239,7 @@ eachPost.comments?(
 
       </div>
     </div>
-  );
+  );}else {return null
+
+  }
 }

@@ -1,4 +1,4 @@
-import { useContext,useEffect } from "react";
+import { useContext,useEffect,useState } from "react";
 import { useRouter } from 'next/router'
 import { Row, Col, Spin } from "antd";
 import { StoreContext } from "../store";
@@ -18,6 +18,7 @@ export default function PostsList({postsJson,postsListState}) {
   const { state: { area: {northClick,westClick,eastClick,southClick
   } }, dispatch } = useContext(StoreContext);
   const router = useRouter()
+  const[visiblePosts,setVisiblePosts]=useState(10)
   // console.log("postsJson=")
   // console.log(postsJson.allPosts)
 
@@ -161,8 +162,8 @@ FEED
 change
         </div>  */}
         {
-          postsListState.map(eachPost=>(
-            <PostCard key={eachPost.id} eachPost={eachPost}></PostCard>
+          postsListState.map((eachPost,index)=>(
+            <PostCard key={eachPost.id} eachPost={eachPost} visiblePostsNum={visiblePosts} postIndex={index}></PostCard>
           ))
         }
 {/*     
@@ -187,6 +188,8 @@ change
         )
       }
       </div> */}
+      {postsListState?(<div className="post-see-more" onClick={()=>{setVisiblePosts(visiblePosts+10);}}><p>看更多貼文</p></div>):(null)}
+      
     </div>
   );
 }

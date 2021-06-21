@@ -2159,3 +2159,19 @@ height: 100%;
 	bottom: 30px;
 }
 }
+
+.post-see-more {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.post-see-more p {
+	cursor: pointer;
+	font-size: 1.5rem;
+	color: #871F1F;
+}
+.post-see-more p:hover {	
+	color: #3d0c08;	
+	text-decoration: underline;
+}
