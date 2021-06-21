@@ -1650,7 +1650,7 @@ z-index: 3;
 .createPost .ant-drawer-body {
     flex-grow: 1;
     padding: 0px;
-    overflow: auto;
+    overflow: visible;
     font-size: 14px;
     line-height: 1.5715;
     word-wrap: break-word;
@@ -1662,15 +1662,19 @@ z-index: 3;
 
 .create-post-drawer-open-btn{
 	position: absolute;
-	width: 40px;
-	background-color: #456494;
-	height: 40px;
+	width: 45px;
+
+	height: 45px;
 	left: 0;
 	top: 50%;
-	transform: translateX(-50%);
+	transform: translate(-50%,-50%);
 
 }
+.create-post-drawer-open-btn img{
+	width: 100%;
+	height: 100%;
 
+}
 
 
 

@@ -151,7 +151,7 @@ const PostCreatePostDrawer = () => {
           message.info('上传失败，请上传不大于2M的图片！');
           return;
         } else {
-          // console.log(reader.result)
+           console.log(reader.result)
           setImagedata(reader.result)
         }
       }
@@ -208,7 +208,7 @@ const PostCreatePostDrawer = () => {
     >
       {/* <div className="create-post-drawer-cont1"> */}
       <div className="create-post-drawer-open-btn" onClick={drawerOpen}>
-
+<img src="/images/new-post.png" ></img>
       </div>
       {visible ? (
         <div className="create-post-drawer-elm-cont">
