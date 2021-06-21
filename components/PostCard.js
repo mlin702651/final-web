@@ -6,7 +6,7 @@ import Image from 'next/image'
 import PostAreaList from "/components/PostAreaList"
 import HomeNav from "/components/HomeNav"
 import PostCardComment from "./PostCardComment"
-import { cityClicked } from "../actions";
+import { cityClicked,sendCommentAct,getAllPostAct } from "../actions";
 import DetectableOverflow from 'react-detectable-overflow';
 
 export default function PostCard(props) {
@@ -27,9 +27,7 @@ export default function PostCard(props) {
   const domRef = useRef(null)
  const [commentNum,setCommentNum]=useState(0)
   const { TextArea } = Input;
-  const sendComment=()=>{
-
-  }
+  
   useEffect(() => {
     // console.log("87")
     checkWidth()
@@ -63,6 +61,15 @@ export default function PostCard(props) {
   setCValue(message);
   console.log(message)
 };
+const sendComment= async()=>{
+  if(Cvalue){
+ sendCommentAct(dispatch,userInfo.displayName,eachPost.id,Cvalue)
+ setCValue("")
+}else{
+  alert("留言不能為空")
+}
+  // getAllPostAct(dispatch)
+}
   // const [text, setText] = useState('');
   //       const [hasEllipsis, setHasEllipsis] = useState(false);
   //       const [needMore, setNeedMore] = useState(false);

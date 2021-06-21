@@ -74,7 +74,10 @@ import {
   createUserBookMarkers,
   getPostsByMapInfo,
   createNewPost,
-  getMyPostsByUserId
+  getMyPostsByUserId,
+  getCommentsLength,
+  addComment,
+  countNum
 } from "../api";
 import moment from "moment";
 
@@ -367,7 +370,7 @@ export const getAllPostAct = async(dispatch)=>{
     dispatch({type: SETPOSTLIST,payload:sortedPosts})
      console.log(sortedPosts)
     // return sortedPosts
- 
+    console.log("sssssssssssssssssssssssss")
   }catch(error){
     console.log(error);
   }
@@ -490,6 +493,26 @@ export const postNewArticle = async(dispatch,userinfo)=>{
   // })
 }
 
-export const sendComment=async(dispatch,userinfo)=>{
+export const sendCommentAct=async(dispatch,username,postId,value)=>{
+  try {
+  let length = await getCommentsLength(postId)
+  let comment={
+    key:length,
+    name:username,
+    content:value
+  }
+
+  console.log("Hello8888")
+   await addComment(postId,comment)
+ 
+   console.log("Hello9999")
+   getAllPostAct(dispatch)
+  
+}catch (error) {
+  console.log(error);
   
 }
+  
+}
+
+

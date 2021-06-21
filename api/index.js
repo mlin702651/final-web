@@ -6,6 +6,7 @@ import products from "../json/products.json";
 import postsJson from "../json/posts.json"
 import knowledgeJson from "../json/knowledge.json";
 import ramenPosition from "../json/ramenPosition.json"
+import set from "date-fns/set";
 
 // INITIALIZE FIREBASE
 const firebaseConfig = {
@@ -258,4 +259,50 @@ export const getMyPostsByUserId = async  () => {
     myPosts.push(doc.data());
   });
   return myPosts;
+}
+
+export const getCommentsLength = async (postId)=>{
+  let myPosts = [];
+  const querySnapshot =await allPostsCollectionRef.where("id", "==", postId).get()
+  console.log(querySnapshot)
+  querySnapshot.forEach((doc) => {
+    myPosts.push(doc.data());
+    console.log(doc)
+  });
+  // console.log(myPosts[0].comments.length)
+  return myPosts[0].comments.length
+  
+}
+
+export const addComment = async(postId,comment)=>{
+  let Posts = [];
+  const querySnapshot =await allPostsCollectionRef.where("id", "==", postId).get()
+  querySnapshot.forEach((doc) => {
+    Posts.push(doc.data());
+  });
+let oldarray=Posts[0].comments
+oldarray.push(comment)
+let newarray=oldarray
+console.log({
+  ...Posts[0],comments:{
+    ...newarray
+  }
+
+})
+  await allPostsCollectionRef.doc(postId).set({
+    ...Posts[0],comments:[
+      ...newarray
+    ]
+    
+  
+  })
+  return newarray
+}
+export const countNum =async ()=>{
+  function timeout(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+await timeout(3000)
+
+ 
 }
