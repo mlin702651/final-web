@@ -4,7 +4,7 @@ import { Row, Col, Spin } from "antd";
 import { StoreContext } from "../store";
 import PostAreaList from "/components/PostAreaList"
 import HomeNav from "/components/HomeNav"
-import { cityClicked } from "../actions"
+import { cityClicked,getAllPostAct } from "../actions"
 export default function PostsEachCity(props) {
   const { state: { area: {
     northClick,
@@ -22,6 +22,7 @@ export default function PostsEachCity(props) {
   const cityOnClick = () => {
 
     cityClicked(dispatch, city, area)
+    getAllPostAct(dispatch)
   };
   // console.log(city+"在"+area)
 

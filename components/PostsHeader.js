@@ -9,6 +9,7 @@ import PostNavBtnWhite from './PostNavBtnWhite';
 import UserInfo from './UserInfo'
 import LoginCard from './LoginCard';
 import RegisterCard from "./RegisterCard";
+import {getAllPostAct,cityClicked}from "../actions"
 const { Option } = Select;
 
 export default function PostsHeader({ title }) {
@@ -31,7 +32,8 @@ export default function PostsHeader({ title }) {
   const handleCloseRegisterDrawer = () => setIsRegisterTouch(false);
   function handleCityChange(value) {
     console.log(`selected ${value}`);
-    
+    cityClicked(dispatch, value, "無")
+    getAllPostAct(dispatch)
   }
   return (
     <>

@@ -560,6 +560,44 @@ function reducer(state, action) {
       case  SETPOSTLIST:
         let sortedPosts =action.payload
         //console.log(sortedPosts)
+        // if(state.area.northClick){
+        //   if(state.area.cityClick!="null"){
+        //     sortedPosts=sortedPosts.filter(post=>post.citys===state.area.cityClick)
+        //   }else{
+        //  sortedPosts=sortedPosts.filter(post=>post.area==="北部")
+        //   }
+        // }else if(state.area.westClick){
+        //   if(state.area.cityClick!="null"){
+        //     sortedPosts=sortedPosts.filter(post=>post.citys===state.area.cityClick)
+        //   }else{
+        //   sortedPosts=sortedPosts.filter(post=>post.area==="中部")
+        //   }
+        // }else if(state.area.southClick){
+        //   if(state.area.cityClick!="null"){
+        //     sortedPosts=sortedPosts.filter(post=>post.citys===state.area.cityClick)
+        //   }else{
+        //   sortedPosts=sortedPosts.filter(post=>post.area==="南部")
+        //   }
+        // }else if(state.area.eastClick){
+        //   if(state.area.cityClick!="null"){
+        //     sortedPosts=sortedPosts.filter(post=>post.citys===state.area.cityClick)
+        //   }else{
+        //   sortedPosts=sortedPosts.filter(post=>post.area==="東部")
+        //   }
+        // }
+        if(state.area.cityClick=="null"){
+        if(state.area.northClick){
+          sortedPosts=sortedPosts.filter(post=>post.area==="北部")
+        }else if(state.area.westClick){
+          sortedPosts=sortedPosts.filter(post=>post.area==="中部")
+        }else if(state.area.southClick){
+          sortedPosts=sortedPosts.filter(post=>post.area==="南部")
+        }else if(state.area.eastClick){
+          sortedPosts=sortedPosts.filter(post=>post.area==="東部")
+        }
+      }else{
+        sortedPosts=sortedPosts.filter(post=>post.citys===state.area.cityClick)
+      }
         return{
           ...state,
           postsListState:[

@@ -5,7 +5,7 @@ import { StoreContext } from "../store";
 import PostAreaList from "/components/PostAreaList"
 import HomeNav from "/components/HomeNav"
 import PostsEachCity from "./PostsEachCity"
-import { areaClicked } from "../actions"
+import { areaClicked,getAllPostAct } from "../actions"
 export default function PostsEachArea(props) {
   const { state: { area: {
     northClick,
@@ -22,7 +22,7 @@ export default function PostsEachArea(props) {
   const areaOnClick = () => {
     console.log(eachArea)
     areaClicked(dispatch, eachArea)
-
+    getAllPostAct(dispatch)
   };
   const cityOnClick = () => {
 
