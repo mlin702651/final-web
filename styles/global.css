@@ -1074,10 +1074,11 @@ font-family: Microsoft JhengHei;
 	align-items: center;
 }
 .comment-readmore-icon{
-	
+	cursor: pointer;
 	width: 36px
 }
 .comment-not-readmore-icon{
+	cursor: pointer;
 	width: 25px;
 }
 
@@ -1658,8 +1659,23 @@ background-color: rgb(159, 224, 37);
 
 .delete-post {
 	position: absolute;
-    right: -15%;
-    top: 10%;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color: #FFFFFF;
+	box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.15);
+    right: -6rem;
+    top: 2rem;
+	transition: all 0.2s linear;
+}
+.delete-post:hover {
+	background-color: #fff2f2;
+	opacity: 1;
+}
+.delete-post p {
+	font-size: 1rem;
+	color: #3D0C08;
+	padding: .5rem;
+	margin: 0%;
 }
 
 /* 以下為create-posts-drawer */
@@ -1757,7 +1773,7 @@ z-index: 3;
 .create-post-drawer-open-btn{
 	position: absolute;
 	width: 45px;
-
+	cursor: pointer;
 	height: 45px;
 	left: 0;
 	top: 50%;

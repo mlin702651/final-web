@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { StoreContext } from "../store";
 import PostCard from "./PostCard";
-import postCard from "./PostCard"
 
 export default function ProfileArticle() {
     const { state: { profilePage, profileNavBar, requestMyPosts, requestCollectionPosts} , dispatch } = useContext(StoreContext);
@@ -18,7 +17,7 @@ export default function ProfileArticle() {
                         <div className="profile-post">
                             {profilePage.posts.map((post) => (
                                 <div className="each-post" style={{position: "relative"}}>
-                                    <PostCard eachPost={post} key={post.id} />
+                                    <PostCard eachPost={post} key={post.id} visiblePostsNum={100} postIndex={0} />
                                     <div className="delete-post">
                                         <p>刪除貼文</p>
                                     </div>
