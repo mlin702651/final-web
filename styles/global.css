@@ -698,6 +698,21 @@ cursor: pointer;
 	padding-bottom: 1rem;
 	/* border-bottom: solid 2px #3d0c08; */
 }
+.map-see-more {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.map-see-more p {
+	cursor: pointer;
+	font-size: 1.5rem;
+	color: #871F1F;
+}
+.map-see-more p:hover {	
+	color: #3d0c08;	
+	text-decoration: underline;
+}
 @media(max-width: 1600px) {
 	.store-info {		
 		width: 80%;	
