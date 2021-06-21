@@ -8,7 +8,9 @@ export default function KnowledgeArticle() {
     return (
         <>
             {loading? (
-                <div></div>
+                <div className="loading-div">
+                    <img src="/images/loading.gif" alt="loading... " />
+                </div>
             ):(
                 <div className="know-all">
                     <div className={`know-main know-main-${article.name}`}>

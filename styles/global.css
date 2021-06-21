@@ -38,6 +38,23 @@ background-color: #FFF8F5;
 	border-radius: 5px;
 }
 
+.loading-div {
+	max-height: 80vh;
+}
+.loading-div img {
+	margin: auto;
+	height: 100%;
+    display: block;
+}
+@media(max-width: 992px) {
+	.loading-div {
+		overflow: hidden;
+	}
+	.loading-div img {
+		width: 100%;
+	}
+}
+
 /* sm */
 @media (min-width: 576px) {
 	.container {
@@ -659,6 +676,10 @@ cursor: pointer;
 	font-size: 1.25rem;
 	margin: 0;
 }
+.map-loadimg-div {
+	height: 60vh;
+	flex-grow: 1;
+}
 .map-post {
 	display: flex;
 	flex-direction: column;
@@ -716,6 +737,9 @@ cursor: pointer;
 	}
 	.store-info {		
 		width:60%;
+	}
+	.map-loadimg-div img {
+		width: auto;
 	}
 }
 @media(max-width: 770px) {
