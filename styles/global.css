@@ -1592,6 +1592,7 @@ background-color: rgb(159, 224, 37);
 	background-color: #871F1F;
 	border-radius: 10px;
 	border-top-left-radius: 40px;
+	overflow: visible;
 }
 .createPost .ant-drawer-right {
     right: 100px;
@@ -1690,7 +1691,7 @@ width: 1000px;
 
 }
 .all-h{
-height: 430px;
+height: 480px;
 
 }
 
@@ -1736,15 +1737,17 @@ justify-content: space-between;
 width: 47%;
 height: 100%;
 background-color: #FCF4F4;
+text-align: center;
 }
 .post-infoUploader-cont .city-selector{
 	width: 47%;
 	height: 100%;
 	background-color: #FCF4F4;
+	text-align: center;
 }
 .post-infoUploader-cont .c-post-restaurant-name{
 	width: 100%;
-	height: 70px;
+	height: 60px;
 	
 	background-color: #FCF4F4;
 }
@@ -1788,11 +1791,17 @@ align-items: flex-end;
 	background-color: #fff;
 }
 .posts-submit-btn{
-	width: 100px;
-	height: 100px;
+	width: 100%;
+	height: 40px;
 	cursor: pointer;
-	background-color: #FCF4F4;
-	border-radius: 5px;
+	background-color: #3D0C08;
+	color: #F8E7DC;
+	border:1px #F8E7DC solid;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	border-radius:3px ;
 }
 .tag-input{
 
@@ -1820,77 +1829,31 @@ cursor: pointer;
 color: #3D0C08;
 font-weight: bold;
 }
-
-
-/* @media(max-width: 1350px) {
-	.post-imgUploader-cont .imgUploader-window{
-		width: 330px;
-		height: 310px;
-		background-color: #FCF4F4;
-	}
-	.post-infoUploader-cont{
-		margin-left: 30px;
+@media(max-width: 1350px) {
+	.create-post-drawer-elm-cont{
+		/* background-color: rgb(92, 46, 46); */
 		display: flex;
-	flex-direction: column;
-	justify-content: center;
-	}
-	.area-and-city-cont{
-		width: 330px;
-		height: 50px;
-		display: flex;
-		justify-content: space-between;
-	
-	}
-	.post-imgUploader-cont .imgUploader-file{
-		margin-top: 50px;
-		width: 100%;
-		height: 50px;
-		background-color: #FCF4F4;
-	}
-
-	.post-infoUploader-cont .area-selector{
-		width: 150px;
+		justify-content: center;
+		align-items: center;
 		height: 100%;
-		background-color: #FCF4F4;
+		width: 800px;
+		min-width: 800px;
 		}
-	.post-infoUploader-cont .city-selector{
-		width: 150px;
-		height: 100%;
-		background-color: #FCF4F4;
-	}
-	.post-infoUploader-cont .c-post-restaurant-name{
-		width: 330px;
-		height: 60px;
-		margin-top: 30px;
-		background-color: #FCF4F4;
-	}
-	.post-text-input{
-		height: 260px;
-		width: 100%;
-		margin-top: 30px;
-		background-color: #FCF4F4;
-	}
-	.posts-submit-btn-cont{
-		width: 120px;
-		margin-left: 50px;
-		height:430px;
-		 
-	
-	}
-	.posts-submit-btn{
-		width: 80px;
-		height: 80px;
-		cursor: pointer;
-		background-color: #FCF4F4;
-		border-radius: 5px;
-	}
-	
-	
-} */
-
-@media(max-width: 1024px){
-
+		.all-h{
+		height: 380px;
+		
+		}
 }
+
+.imgUploader-file-text{
+	text-align: center;
+	color: #3D0C08;
+	font-size: 30px;
+	}
+.cp-drawer-rwd{
+	display: none;
+}
+
 .imgTest{
 	width: 100%;
   object-fit:cover;
@@ -1905,11 +1868,7 @@ height: 100%;
 	height: 100%;
 	opacity: 0;
 }
-.imgUploader-file-text{
-text-align: center;
-color: #3D0C08;
-font-size: 30px;
-}
+
 
 .area-and-city-cont .ant-select {
     -webkit-box-sizing: border-box;
@@ -1940,4 +1899,170 @@ font-size: 30px;
     width: 100%;
    
     
+}
+@media(max-width: 1024px){
+	.post-imgUploader-cont{
+		width: 35%;
+		
+	display: flex;
+	flex-direction: column;
+	
+	justify-content:flex-start;
+	}
+	.post-infoUploader-cont{
+		height: 400px;
+		width: 100%;
+		margin-left: 0px;
+		display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	}
+.posts-submit-btn-cont{
+	display: none;
+	
+}
+.createPost .ant-drawer .ant-drawer-content {
+    width: 100%;
+    height: 100vh;
+    margin-top: 0px;
+    background-color: #871F1F;
+    border-radius: 0px;
+    border-top-left-radius: 0px;
+	
+    overflow: scroll;
+	
+}
+.createPost .ant-drawer-body {
+    flex-grow: 1;
+    padding: 0px;
+    overflow: scroll;
+    font-size: 14px;
+    line-height: 1.5715;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+}
+
+.createPost .ant-drawer-right {
+    right: -1px;
+}
+.createPost .ant-drawer-content-wrapper {
+    width: 100vw !important;
+    display: flex;
+    z-index: 3;
+}
+.post-imgUploader-cont .imgUploader-file{
+	margin-top: 15px;
+	width: 100%;
+	height: 45px;
+	background-color: #FCF4F4;
+	position: relative;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.imgUploader-file-text{
+	text-align: center;
+	color: #3D0C08;
+	font-size: 20px;
+	}
+.create-post-drawer-elm-cont{
+		/* background-color: rgb(92, 46, 46); */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		width: 800px;
+		min-width: 800px;
+	}
+	
+.all-h{
+	height: 100vh;
+	
+}
+.post-imgUploader-cont .imgUploader-window{
+	margin-top: 50px;
+	width: 100%;
+	height: 270px;
+	min-height: 270px;
+	background-color: #FCF4F4;
+}
+.cp-drawer-rwd{
+	display: flex;
+	flex-direction: column;
+}
+
+.area-and-city-cont{
+	margin-top: 15px;
+	width: 100%;
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.area-selector{
+	width: 47%;
+	height: 100%;
+	background-color: #FCF4F4;
+	text-align: center;
+	}
+.city-selector{
+		width: 47%;
+		height: 100%;
+		background-color: #FCF4F4;
+		text-align: center;
+}
+ .c-post-restaurant-name{
+	width: 100%;
+	height: 50px;
+	margin-top: 15px;
+	background-color: #FCF4F4;
+}
+.post-text-input{
+	margin-top: 15px;
+	height: 200px;
+	width: 100%;
+	
+	background-color: #FCF4F4;
+	display: flex;
+	
+}
+.addTag{
+	margin-top: 15px;
+	width: 100%;
+	
+
+}
+.cancel-and-submit-cont{
+	margin-top: 25px;
+	width: 100%;
+	height: 40px;
+	
+	margin-bottom: 50px;
+	display: flex;
+	justify-content: space-between;
+}
+.cp-cancel-submit-btn{
+	width: 48%;
+	height: 100%;
+	background-color: #3D0C08;
+	color: #F8E7DC;
+	border:1px #F8E7DC solid;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	border-radius:3px ;
+}
+.rwd-open-drawer-btn{
+	width: 50px;
+	height: 50px;
+	position: fixed;
+	left: -80px;
+	bottom: 30px;
+}
 }

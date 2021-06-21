@@ -88,7 +88,16 @@ const PostCreatePostDrawer = () => {
     const tagExist = taglist.find((x) => x === tagOnChange);
     if (tagExist) {
       console.log("已經有了")
-    } else if (tagOnChange) {
+      alert("標籤已經存在")
+    } 
+    else if (tagOnChange.length>10){
+      console.log("好長")
+      alert("標籤不能超過10個字")
+    }else if (taglist.length>5){
+      
+      alert("標籤不能超過6個")
+    }
+    else if (tagOnChange) {
       setTaglist([...taglist, tagOnChange])
       setTagOnChange(null)
     }
@@ -166,7 +175,7 @@ const PostCreatePostDrawer = () => {
   }
   function Postsubmit() {
 
-    if (userInfo) {
+    if (userInfo&&postArea.length&&postCity.length&&imagedata.length>0&&restaurant.length>0) {
       let time = moment().format('YYYY-MM-DD HH:mm:ss')
       let postInfo = {
         "user": userInfo.displayName,
@@ -190,6 +199,7 @@ const PostCreatePostDrawer = () => {
 
     } else {
       console.log("no way")
+      alert("請上傳一張照片、選擇地區及城市及填寫店名才能發佈新貼文!")
     }
   }
 
@@ -206,10 +216,17 @@ const PostCreatePostDrawer = () => {
       getContainer={false}
       style={{ position: 'fixed', zIndex: 90 }}
     >
-      {/* <div className="create-post-drawer-cont1"> */}
-      <div className="create-post-drawer-open-btn" onClick={drawerOpen}>
-<img src="/images/new-post.png" ></img>
+      <div className="cp-drawer-rwd rwd-open-drawer-btn" onClick={drawerOpen}>
+      <img src="/images/new-post.png" ></img>
       </div>
+      {/* <div className="create-post-drawer-cont1"> */}
+      {visible?(null):( <div className="create-post-drawer-open-btn" onClick={drawerOpen}>
+      <img src="/images/new-post.png" ></img>
+      </div>
+        )}
+     
+
+
       {visible ? (
         <div className="create-post-drawer-elm-cont">
           <div className="post-imgUploader-cont all-h">
@@ -219,8 +236,92 @@ const PostCreatePostDrawer = () => {
             <div className="imgUploader-file">
               <input onChange={inputChange} className="imgUploader-file2" type="file" accept="image/*" capture="camera" id="64input"></input>
               <div className="imgUploader-file-text">選擇圖片</div>
+            </div>
+            {/* ----------------------------------------RWD--------------------------- */}
+<div className="cp-drawer-rwd">
+
+            <div className="area-and-city-cont">
+              <div className="area-selector">
+                <Select defaultValue="北部" style={{ fontSize: 22 }} onChange={handleAreaChange}>
+                  <Option style={{ fontSize: 22, marginBottom: 5 }} value="北部">北部</Option>
+                  <Option style={{ fontSize: 22, marginBottom: 5 }} value="中部">中部</Option>
+                  <Option style={{ fontSize: 22, marginBottom: 5 }} value="南部" > 南部</Option>
+                  <Option style={{ fontSize: 22, marginBottom: 5 }} value="東部">東部</Option>
+                </Select>
+              </div>
+              <div className="city-selector">
+                <Select defaultValue="城市" style={{ fontSize: 22 }} onChange={handleCityChange}>
+                  {selectedArea === "北部" ?
+                    (<><Option style={{ fontSize: 22, marginBottom: 5 }} value="基隆">基隆</Option>
+                      <Option style={{ fontSize: 22, marginBottom: 5 }} value="台北">台北</Option>
+                      <Option style={{ fontSize: 22, marginBottom: 5 }} value="新北">新北</Option>
+                      <Option style={{ fontSize: 22, marginBottom: 5 }} value="桃園">桃園</Option>
+                      <Option style={{ fontSize: 22, marginBottom: 5 }} value="新竹">新竹</Option>
+                    </>) :
+                    selectedArea === "中部" ?
+                      (<><Option style={{ fontSize: 22, marginBottom: 5 }} value="苗栗">苗栗</Option>
+                        <Option style={{ fontSize: 22, marginBottom: 5 }} value="台中">台中</Option>
+                        <Option style={{ fontSize: 22, marginBottom: 5 }} value="彰化">彰化</Option>
+                        <Option style={{ fontSize: 22, marginBottom: 5 }} value="南投">南投</Option>
+                        <Option style={{ fontSize: 22, marginBottom: 5 }} value="雲林">雲林</Option>
+                      </>) :
+                      selectedArea === "南部" ?
+                        (<> <Option style={{ fontSize: 22, marginBottom: 5 }} value="嘉義">嘉義</Option>
+                          <Option style={{ fontSize: 22, marginBottom: 5 }} value="台南">台南</Option>
+                          <Option style={{ fontSize: 22, marginBottom: 5 }} value="高雄">高雄</Option>
+                          <Option style={{ fontSize: 22, marginBottom: 5 }} value="屏東">屏東</Option>
+                        </>) :
+                        selectedArea === "東部" ?
+                          (<><Option style={{ fontSize: 22, marginBottom: 5 }} value="台東">台東</Option>
+                            <Option style={{ fontSize: 22, marginBottom: 5 }} value="花蓮">花蓮</Option>
+                            <Option style={{ fontSize: 22, marginBottom: 5 }} value="宜蘭">宜蘭</Option>
+                          </>) : (null)
+                  }
+
+
+
+
+
+                </Select>
+              </div>
+            </div>
+            <div className="c-post-restaurant-name ">
+              <Input placeholder="輸入拉麵店" onChange={onRNChange} />
+            </div>
+            <div className="post-text-input">
+
+              <TextArea  placeholder="輸入文字" onChange={onTextChange} />
 
             </div>
+          
+          <div className="addTag ">
+              <div className="taginput">
+                <Input placeholder="標籤" onChange={onTagchange} value={tagOnChange} />
+                <div className="addTag-btn" onClick={addtag}>+</div>
+              </div>
+              <div className="addTag-tags">
+                {
+                  taglist.map(tag => (
+                    <div key={tag} className="addTag-eachtag">
+                      <div ref={btnRef} className="tag-remove-btn" name={tag} onClick={() => {
+                        removeTag(tag);
+                      }}>X</div>
+                      <div className="addtag-tag-text">{tag}</div>
+
+                    </div>
+                  ))
+                }
+              </div>
+              
+            </div>
+<div className="cancel-and-submit-cont">
+  <div className="cp-cancel-submit-btn" onClick={() => { setVisible(false) }}>取消</div>
+  <div className="cp-cancel-submit-btn" onClick={Postsubmit}>發佈</div>
+</div>
+
+
+
+            </div>   
           </div>
           <div className="post-infoUploader-cont all-h">
             <div className="area-and-city-cont">
@@ -273,7 +374,7 @@ const PostCreatePostDrawer = () => {
             </div>
             <div className="post-text-input">
 
-              <TextArea onChange={onTextChange} />
+              <TextArea placeholder="輸入文字" onChange={onTextChange} />
 
             </div>
           </div>
@@ -297,7 +398,7 @@ const PostCreatePostDrawer = () => {
                 }
               </div>
             </div>
-            <div className="posts-submit-btn" onClick={Postsubmit}>發布</div>
+            <div className="posts-submit-btn" onClick={Postsubmit}>發佈</div>
           </div>
         </div>
       ) : (null)}
