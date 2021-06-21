@@ -38,7 +38,7 @@ export default function PostCard(props) {
     setCommentNum(eachPost.comments.length)
     console.log(commentNum)
     }
-   let BMorNot= bookMarkerArray.find
+  
   }, [eachPost]);
 
   useEffect(() => {
@@ -84,8 +84,12 @@ export default function PostCard(props) {
 };
 const sendComment= async()=>{
   if(Cvalue){
+if(userInfo){
  sendCommentAct(dispatch,userInfo.displayName,eachPost.id,Cvalue)
  setCValue("")
+}else{
+  alert("留言請先登入")
+}
 }else{
   alert("留言不能為空")
 }
@@ -120,9 +124,12 @@ const sendComment= async()=>{
 
   }
   let bookmarkOnClick=async()=>{
-    
+    if(userInfo){
    await addToBookmarkAct(dispatch,eachPost.id)
     getBookmarkerArrayAct(dispatch)
+  }else{
+    alert("請先登入以收藏")
+  }
   }
 
 

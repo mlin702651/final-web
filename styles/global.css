@@ -2177,6 +2177,7 @@ height: 100%;
 }
 
 .post-see-more {
+	margin-top: 40px;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -2190,4 +2191,12 @@ height: 100%;
 .post-see-more p:hover {	
 	color: #3d0c08;	
 	text-decoration: underline;
+}
+.post-loadimg-div {
+	height: 60vh;
+	flex-grow: 1;
+}
+
+.post-loadimg-div img {
+	width: auto;
 }

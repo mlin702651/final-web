@@ -15,8 +15,15 @@ import {getAllPostAct} from '../actions'
 
 
 export default function PostsList({postsJson,postsListState}) {
-  const { state: { area: {northClick,westClick,eastClick,southClick
-  } }, dispatch } = useContext(StoreContext);
+  const { state: {
+    
+    area: {northClick,westClick,eastClick,southClick} ,
+  requestPostsPage:{
+    loading
+  }
+  },
+  
+  dispatch } = useContext(StoreContext);
   const router = useRouter()
   const[visiblePosts,setVisiblePosts]=useState(10)
   // console.log("postsJson=")
@@ -161,11 +168,16 @@ FEED
         <div className="changeTest" onClick={()=>{changeDocTest()}}>
 change
         </div>  */}
+        
         {
+loading?(<div className="loading-div post-loadimg-div">
+<img src="/images/loading.gif" alt="loading... " />
+</div>):(
+
           postsListState.map((eachPost,index)=>(
             <PostCard key={eachPost.id} eachPost={eachPost} visiblePostsNum={visiblePosts} postIndex={index}></PostCard>
           ))
-        }
+       ) }
 {/*     
       <img
           // style={{ width: '100%' }}
@@ -188,7 +200,7 @@ change
         )
       }
       </div> */}
-      {postsListState?(<div className="post-see-more" onClick={()=>{setVisiblePosts(visiblePosts+10);}}><p>看更多貼文</p></div>):(null)}
+      {loading?(null):(<div className="post-see-more" onClick={()=>{setVisiblePosts(visiblePosts+10);}}><p>看更多貼文</p></div>)}
       
     </div>
   );

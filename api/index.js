@@ -271,9 +271,14 @@ return bookmarkers
 }
 
 export const getBookmarkerArray = async()=>{
+  
+  if(auth.currentUser){
   const user = auth.currentUser.uid;
   let querySnapshot = await allUserBookMarkers.doc(user).get() ;
   return querySnapshot.data().bookMarkers
+  }else{
+    return []
+  }
 }
 
 

@@ -58,7 +58,8 @@ import {
   BEGIN_MAP_POSTS_REQUEST,
   SUCCESS_MAP_POSTS_REQUEST,
   FAIL_MAP_POSTS_REQUEST,
-  GET_BOOKMARKERS_ARRAY
+  GET_BOOKMARKERS_ARRAY,
+  BEGIN_POSTSPAGE_REQUEST
 } from "../utils/constants";
 
 export const StoreContext = createContext();
@@ -150,7 +151,10 @@ const initialState = {
     westClick:false,
     eastClick:false,
     southClick:false,
-    cityClick:null
+    cityClick:"null"
+  },
+  requestPostsPage:{
+    loading:false
   },
   postsListState:[
   //   {
@@ -553,7 +557,17 @@ function reducer(state, action) {
           ...state,
           postsListState:[
             ...sortedPosts
-          ]
+          ],
+          requestPostsPage:{
+            loading:false
+          }
+        }
+      case BEGIN_POSTSPAGE_REQUEST:
+        return{
+          ...state,
+          requestPostsPage:{
+            loading:true
+          }
         }
       //knowledge page
       case SET_KNOWLEDGE_PAGE_CONTENT:
@@ -561,7 +575,7 @@ function reducer(state, action) {
           ...state,
           knowledgePage: {
             article: action.payload,
-          },
+          }
         };
       case SET_KNOWLEDGE_NAVBAR_ACTIVEITEM:
         return {

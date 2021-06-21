@@ -56,7 +56,8 @@ import {
   BEGIN_MAP_POSTS_REQUEST,
   SUCCESS_MAP_POSTS_REQUEST,
   FAIL_MAP_POSTS_REQUEST,
-  GET_BOOKMARKERS_ARRAY
+  GET_BOOKMARKERS_ARRAY,
+ BEGIN_POSTSPAGE_REQUEST
 } from "../utils/constants";
 
 import {
@@ -83,6 +84,7 @@ import {
   countNum,
   addToBookmark,
   getBookmarkerArray
+  
 } from "../api";
 import moment from "moment";
 
@@ -367,6 +369,7 @@ export const feedKnowledgeJSONToFirebase = async (dispatch) => {
 }
 
 export const getAllPostAct = async(dispatch)=>{
+  dispatch({type:BEGIN_POSTSPAGE_REQUEST})
   try{
     const posts =await getAllPosts();
   
