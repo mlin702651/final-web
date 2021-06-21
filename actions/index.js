@@ -489,3 +489,7 @@ export const postNewArticle = async(dispatch,userinfo)=>{
   //   payload: newpost
   // })
 }
+
+export const sendComment=async(dispatch,userinfo)=>{
+  
+}

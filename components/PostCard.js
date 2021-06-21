@@ -12,15 +12,20 @@ import DetectableOverflow from 'react-detectable-overflow';
 export default function PostCard(props) {
   const { state: { area: {
     northClick, westClick, eastClick, southClick, cityClick
-  } }, dispatch } = useContext(StoreContext);
+  },
+  userSignin: {  userInfo
+  }
+
+}, dispatch } = useContext(StoreContext);
   const router = useRouter()
   const { eachPost } = props
   const [readmore, setReadmore] = useState(false)
   const [readtoggle, setReadtoggle] = useState(false)
   const [bookmarkOrNot,setBookmarkOrNot]=useState(false)
-  const [value,setValue]=useState('')
+  const [commentReadMore,setCommentReadMore]=useState(false)
+  const [Cvalue,setCValue]=useState('')
   const domRef = useRef(null)
- 
+ const [commentNum,setCommentNum]=useState(0)
   const { TextArea } = Input;
   const sendComment=()=>{
 
@@ -28,9 +33,13 @@ export default function PostCard(props) {
   useEffect(() => {
     // console.log("87")
     checkWidth()
+    setCommentNum(eachPost.comments.length)
+    console.log(commentNum)
   }, [eachPost]);
   useEffect(() => {
     checkWidth()
+    setCommentNum(eachPost.comments.length)
+    console.log(commentNum)
   }, []);
   const checkWidth = () => {
     //查看全文有沒有過寬
@@ -49,9 +58,10 @@ export default function PostCard(props) {
 
  let dateString=`${date2[0]+'/'+date2[1]+'/'+date2[2]}`
  
- const onChange = (e) => {
+ const CommentInputonChange = (e) => {
    const message = e.target.value
-  setValue(message);
+  setCValue(message);
+  console.log(message)
 };
   // const [text, setText] = useState('');
   //       const [hasEllipsis, setHasEllipsis] = useState(false);
@@ -89,6 +99,7 @@ export default function PostCard(props) {
   //     setPage(dispatch, "/",  "NORDIC NEST Shopping Cart");
   //     router.push("/");
   //   };
+  // console.log(eachPost.comments.length)
   const cityOnClick = () => {
 
     cityClicked(dispatch, city, area)
@@ -131,6 +142,7 @@ export default function PostCard(props) {
     
       <img className="post-image" src={eachPost.image}></img>
       <div className="post-card-text-tags-comments">
+        <div className="post-displayname">{eachPost.user}</div>
       <div className="post-text-cont">
         {/* <DetectableOverflow className="post-text"style="">{eachPost.text}</DetectableOverflow>  */}
         <div ref={domRef} className={readtoggle && readmore ? "post-text" : "post-text post-text-off"}>{eachPost.text}</div>
@@ -188,8 +200,8 @@ export default function PostCard(props) {
       <div className="comment-input-cont">
       <TextArea
       className="comment-input"
-          value={value}
-          onChange={onChange}
+          value={Cvalue}
+          onChange={CommentInputonChange}
           placeholder="留言"
           autoSize={{ minRows: 1, maxRows: 5 }}
           // onClick={()=>console.log("8s5s58s5s")}
@@ -199,13 +211,17 @@ export default function PostCard(props) {
           <img className="comment-input-btn" onClick={sendComment} src="/images/send_message.png"></img>
         </div>
 <div className="comments-cont">
-  {
-// eachPost.comments?
-//     eachPost.comments.map(comment=>(
-//       <PostCardComment comment={comment}></PostCardComment>
-//     )):
+  {commentReadMore?
+   (<div className="comment-readmore comment-readmore-off" onClick={()=>{setCommentReadMore(false)}}><img className="comment-not-readmore-icon"src="/images/not_readmore.png"></img></div>):(null)
+  }{
+eachPost.comments?(
+    eachPost.comments.map((comment,index)=>(
+      <PostCardComment key={comment.key} comment={comment} index={index} readmore={commentReadMore}></PostCardComment>
+    ))):(null)
     }
-  
+  {commentReadMore?(null):
+    commentNum>2?(<div className="comment-readmore" onClick={()=>{setCommentReadMore(true)}}><img className="comment-readmore-icon"src="/images/more-btn.png"></img></div>):(null)
+  }
 </div>
 
       </div>
