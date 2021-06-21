@@ -151,7 +151,7 @@ function handleFileSelect(evt) {
 <div id="value"className=".imgTest"></div>
       <Example data={imagedata} /> */}
       
-        <div className="showPostData" onClick={clickGetPost}>
+        {/* <div className="showPostData" onClick={clickGetPost}>
 GET
         </div>
         <div className="feedPostData" onClick={feedOnClick}>
@@ -159,7 +159,7 @@ FEED
         </div> 
         <div className="changeTest" onClick={()=>{changeDocTest()}}>
 change
-        </div> 
+        </div>  */}
         {
           postsListState.map(eachPost=>(
             <PostCard key={eachPost.id} eachPost={eachPost}></PostCard>
