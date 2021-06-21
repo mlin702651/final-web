@@ -337,6 +337,19 @@ export const getMyPostsByUserId = async  () => {
   return myPosts;
 }
 
+export const getCollectionPostsByUserId = async () => {
+  let collectionPosts = [];
+  const markersId = await allUserBookMarkers.doc(auth.currentUser.uid).get();
+
+  let post;
+  markersId.data().bookMarkers.forEach( async (bookmarker) => {
+    post = await allPostsCollectionRef.doc(bookmarker).get();
+    console.log(post.data())
+    collectionPosts.push(post.data());
+  })
+  return collectionPosts;
+}
+
 export const getCommentsLength = async (postId)=>{
   let myPosts = [];
   const querySnapshot =await allPostsCollectionRef.where("id", "==", postId).get()

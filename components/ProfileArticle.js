@@ -54,7 +54,13 @@ export default function ProfileArticle() {
                             <img src="/images/loading.gif" alt="loading... " />
                         </div>
                     ):(
-                        <></>
+                        <div className="profile-post">
+                            {profilePage.posts.map( (post) => (
+                                <div className="each-post" style={{position: "relative"}} key={post.id}>
+                                    <PostCard eachPost={post} key={post.id} visiblePostsNum={100} postIndex={0} />
+                                </div>
+                            ))}
+                        </div>
                     )}
                 </>
             )}
