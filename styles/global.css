@@ -1607,6 +1607,11 @@ background-color: rgb(159, 224, 37);
 	flex-direction: column;
 	align-items: center;
 }
+.delete-post {
+	position: absolute;
+    right: -15%;
+    top: 10%;
+}
 
 /* 以下為create-posts-drawer */
 .site-drawer-render-in-current-wrapper {
