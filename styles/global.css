@@ -299,7 +299,7 @@ justify-content: space-between;
 		border-top-left-radius: 20px;
 	}
 	.home-post-demo {
-		width: 160px;
+		width: 460px;
 	}
 }
 .hover-img {
@@ -2330,4 +2330,6 @@ color: #3D0C08;
 		flex-direction: column;
 	}
 	}
-	
+	.home-post-demo{
+
+	}

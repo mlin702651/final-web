@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Row, Col, Spin } from "antd";
 import { StoreContext } from "../store";
 import Image from 'next/image'
-
+import { gsap } from 'gsap'
 export default function HomePosts({ title }) {
   const { dispatch } = useContext(StoreContext);
   const router = useRouter()
