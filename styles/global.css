@@ -1817,7 +1817,8 @@ background-color: rgb(159, 224, 37);
 	width: 100%;
 	height: 80vh;
 	margin-top: 100px;
-	background-color: #871F1F;
+	
+	background-image: url(../public/images/background-brown.png);
 	border-radius: 10px;
 	border-top-left-radius: 40px;
 	overflow: visible;
