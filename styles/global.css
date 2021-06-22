@@ -277,8 +277,8 @@ justify-content: space-between;
 	position: absolute;
 	width: 40%;
     
-	height: 200px;
-    top: 10%;
+	
+    bottom: 45%;
     right: 10%;
 }
 .home-post-div img{
@@ -312,7 +312,7 @@ justify-content: space-between;
 	}
 
 	.home-post-div{
-height: 180px;
+
 	}
 
 }
@@ -1855,7 +1855,7 @@ width: 1000px;
 
 }
 .all-h{
-height: 480px;
+height: 440px;
 
 }
 
@@ -1871,6 +1871,7 @@ justify-content: space-between;
 	width: 100%;
 	height: 73%;
 	background-color: #FCF4F4;
+	border-radius: 5px;
 }
 .post-imgUploader-cont .imgUploader-file{
 	
@@ -1902,18 +1903,21 @@ width: 47%;
 height: 100%;
 background-color: #FCF4F4;
 text-align: center;
+border-radius: 5px;
 }
 .post-infoUploader-cont .city-selector{
 	width: 47%;
 	height: 100%;
 	background-color: #FCF4F4;
 	text-align: center;
+	border-radius: 5px;
 }
 .post-infoUploader-cont .c-post-restaurant-name{
 	width: 100%;
 	height: 60px;
 	
 	background-color: #FCF4F4;
+	border-radius: 5px;
 }
 .c-post-restaurant-name .ant-input{
 	height: 100%;
@@ -1925,7 +1929,7 @@ text-align: center;
 	
 	background-color: #FCF4F4;
 	display: flex;
-	
+	border-radius: 5px;
 }
 .posts-submit-btn-cont{
 	width: 25%;
@@ -1944,6 +1948,7 @@ align-items: flex-end;
 }
 .taginput{
 	display: flex;
+	border-radius: 5px;
 }
 .addTag-btn{
 	width: 35px;
