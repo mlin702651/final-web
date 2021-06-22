@@ -108,7 +108,9 @@ const Map = () => {
                                 </div>
                             ):(
                                 requestMapPosts.allMapPosts.map((post)=>(
-                                <PostCard eachPost={post} key={post.id} visiblePostsNum={100} postIndex={0} />
+                                <div className="map-post-div">
+                                    <PostCard eachPost={post} key={post.id} visiblePostsNum={100} postIndex={0} />
+                                </div>
                             )
                         ))}
                         </>
