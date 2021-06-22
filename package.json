@@ -35,6 +35,7 @@
     "remark": "^12.0.0",
     "remark-html": "^12.0.0",
     "sha256": "^0.2.0",
-    "use-reducer-thunk": "^1.0.8"
+    "use-reducer-thunk": "^1.0.8",
+    "workbox-recipes": "^6.1.5"
   }
 }
