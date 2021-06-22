@@ -18,7 +18,7 @@ export default function HomePosts({ title }) {
       <div className="home-post-demo">
         <img src="/images/home-noodle.png" className="home-noodle-img" />
         <div className="home-post-div">
-            
+            <img src="/images/ramenimg_3"></img>
         </div>
         <div className="home-nuudle-bowl">          
           <img src="/images/home-noodle-bowl.png" className="home-noodle-bowl-img" />
