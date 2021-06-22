@@ -270,7 +270,7 @@ justify-content: space-between;
 }
 .home-noodle-img {
 	width: 100%;
-	margin-top: 5rem;
+	margin-top: 4rem;
 }
 .home-nuudle-bowl {
 	width: 70%;
@@ -293,6 +293,7 @@ justify-content: space-between;
 }
 .home-noodle-bowl-img {
 	width: 100%;
+	margin-top: 2rem;
 }
 
 @media(max-width: 992px) {
@@ -335,7 +336,10 @@ justify-content: space-between;
 		border-radius: 100%;
 		border:5px #fff solid;
 	}
-
+	.home-noodle-bowl-img {
+		width: 100%;
+		margin-top: 2rem;
+	}
 }
 @media(max-width: 600px) {
 	.home-post-div{
@@ -357,6 +361,28 @@ justify-content: space-between;
 		object-fit: cover;
 		border-radius: 100%;
 		border:5px #fff solid;
+	}
+	.home-post-demo {
+		width: 360px;
+	}
+}
+@media(max-width: 375px) {
+	.home-post-div{
+		bottom: 50%;
+		left:30%;
+	}
+	.home-nuudle-bowl {
+		
+		top: 40%;
+		right: 10%;
+	}
+	.home-noodle-img {
+		width: 90%;
+		margin-top: 7rem;
+		right: 10%;
+	}
+	.home-post-div{
+		margin-top: 20%;
 	}
 	.home-post-demo {
 		width: 360px;
