@@ -260,6 +260,7 @@ justify-content: space-between;
 	justify-content: space-between;
 }
 .home-post-demo {
+	margin-top: 50px;
 	width: 100%;
 	position: relative;
 }
@@ -276,8 +277,14 @@ justify-content: space-between;
 	position: absolute;
 	width: 40%;
     padding-top: 40%;
-    top: 10%;
+    top: 30%;
     right: 10%;
+}
+.home-post-div img{
+	width: 100%;
+	height: 100%;
+	object-fit:cover;
+    
 }
 .home-noodle-bowl-img {
 	width: 100%;
