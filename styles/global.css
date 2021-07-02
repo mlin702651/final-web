@@ -21,8 +21,9 @@ background-color: #FFF8F5;
 	display: flex;
 	align-self: center;
 	margin: auto;
-	background: #fff;
+	/* background: rgb(228, 161, 161); */
 }
+
 .bg-dark-gray {
 	background-color: #3d0c08;
 }
@@ -109,6 +110,9 @@ justify-content: space-between;
 /* .logo {
   float: right;
   margin: 16px 0 16px 24px;
+} */
+/* .postContent{
+	background-image:url(../public/images/background-white.png) ;
 } */
 .homeHeader {
 	display: flex;
@@ -720,6 +724,14 @@ cursor: pointer;
 .city-line-off{
 	width: 0;
 }
+.post_bg {
+	background: url(../public/images/background-white.png) no-repeat;
+	background-size: cover;
+position: fixed;
+height: 80%;
+width: 80%;
+
+}
 .map-layout {
 	background: url(../public/images/background-white.png) no-repeat;
 	background-size: cover;
@@ -1017,7 +1029,7 @@ cursor: pointer;
 .post-card{
 	width: 400px;
 	min-height: 800px;
-	/* background-color: rgba(255, 255, 255, 0.8); */
+	 background-color: rgba(255, 255, 255, 0.685); 
 	margin-top: 1rem;
 	display: flex;
 	flex-direction: column;

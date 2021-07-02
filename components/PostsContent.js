@@ -22,7 +22,8 @@ console.log(postsdata)
   //   };
  
   return (
-    <div className="homeContent">
+    <div className="postContent">
+       <div className="post_bg"></div> 
       <Row >
 
         <Col

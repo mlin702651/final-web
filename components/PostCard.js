@@ -44,6 +44,16 @@ export default function PostCard(props) {
 
   useEffect(() => {
     // console.log("87")
+    if(postIndex<visiblePostsNum){
+    checkWidth()
+   
+  
+    }
+  
+  }, [visiblePostsNum]);
+
+  useEffect(() => {
+    // console.log("87")
     
    let BMorNot= bookMarkerArray.find((a)=>a===eachPost.id)
    if(BMorNot){
